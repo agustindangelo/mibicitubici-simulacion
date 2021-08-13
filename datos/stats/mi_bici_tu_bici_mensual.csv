@@ -1,0 +1,26 @@
+Período;Viajes;UsuariosActivos;TiempoPromedio;ViajesDiaLaboral;ViajesDiaMedioFestivo;ViajesDiaFestivo;RankingEstaciones_1;RankingEstaciones_2;RankingEstaciones_3;RankingEstaciones_4;RankingEstaciones_5;AbonosDiarios;AbonosMensuales;AbonosAnuales
+ene-17;12313;2002;19,6;459;273;227;Pichincha;Distrito Centro;Paseo Pellegrini;Plaza López;Museo Castagnino;3852;141;6
+feb-17;12997;2105;18,9;557;255;327;Pichincha;Distrito Centro;Paseo Pellegrini;Plaza López;Fac. de Ciencias Económicas;3830;135;8
+mar-17;16747;2399;19,5;606;319;429;Pichincha;Distrito Centro;Paseo Pellegrini;Fac. de Ingeniería;Fac. de Ciencias Económicas;4866;171;6
+abr-17;14370;2326;18,1;638;318;269;Pichincha;Fac. de Ingeniería;Fac. Ciencias Económicas;Paseo Pellegrini;Distrito Centro;4257;168;23
+may-17;13210;1931;18,1;499;242;293;Pichincha;Paseo Pellegrini;Fac. Ciencias Económicas;Fac. de Ingeniería;Distrito Centro;3726;165;27
+jun-17;10586;1567;19,1;400;267;231;Pichincha;Paseo Pellegrini;Plaza López;Fac. Ciencias Económicas;Distrito Centro;2898;123;12
+jul-17;7528;1484;22,8;315;193;194;Pichincha;Plaza López;Paseo Pellegrini;Distrito Centro;Fac. Ciencias Económicas;2256;113;11
+ago-17;19057;2828;19,1;705;305;464;Fac. Ciencias Económicas;Paseo Pellegrini;Pichinca;Fac. de Ingeniería;Plaza López;5904;291;27
+sep-17;31819;4039;17,8;1196;738;841;Fac. de Ingeniería;Paseo Pellegrini;Fac. Ciencias Económicas;Distrito Centro;Fac. Medicina;8893;424;32
+oct-17;46423;5533;18;1708;1136;1102;Paseo Pellegrini;Fac. de Ingeniería;Fac. Ciencias Económicas;Fac. Medicina;Plaza López;13951;629;26
+nov-17;56656;6925;18,7;2078;1473;1426;Paseo Pellegrini;Fac. de Ingeniería;Fac. Ciencias Económicas;Plaza López;Pichincha;17121;679;31
+dic-17;46246;6350;18,3;1793;1056;987;Paseo Pellegrini;Fac. de Ingeniería;Pichinca;Fac. Ciencias Económicas;Plaza Sarmiento;14085;524;35
+ene-18;45724;6221;19,4;1660;1017;1027;Pichincha;Paseo Pellegrini;Museo Castagnino;Distrito Centro;Plaza López;14674;648;13
+feb-18;48931;6688;18,7;2032;1294;1196;Plaza López;Paseo Pellegrini;Paseo Pellegrini II;Fac. Ciencias Económicas;Pichincha;15612;637;30
+mar-18;63386;7666;19,1;2409;1256;1302;Plaza López;Pichincha;Fac. de Ingeniería;Paseo Pellegrini II ;Fac. Ciencias Económicas;19330;771;26
+abr-18;60489;7476;17,9;2456;1230;1078;Fac. Ciencias Económicas;Paseo Pellegrini;Plaza López;Paseo Pellegrini II ;Fac. Medicina;16668;824;48
+may-18;53293;6860;18;1930;1385;1204;Paseo Pellegrini;Fac. Ciencias Económicas;Plaza López;Pichincha;Fac. Medicina;15331;752;30
+jun-18;45573;5656;17,1;1860;1030;1016;Paseo Pellegrini;Pichincha;Fac. Ciencias Económicas;Plaza López;Paseo Pellegrini II;12049;580;32
+jul-18;36227;4881;17,3;1321;849;850;Pichincha;Paseo Pellegrini;Plaza Sarmiento;Plaza López;Paseo Pellegrini II;9717;511;11
+ago-18;54099;6302;17,3;1984;1215;1118;Pichincha;Paseo Pellegrini;Plaza Sarmiento;Plaza López;Fac. Ciencias Económicas;14873;690;21
+sep-18;75150;7947;17,7;3070;1747;1615;Paseo Pellegrini;Fac. de Ingeniería;Plaza López;Pichincha;Plaza Sarmiento;18995;952;56
+oct-18;79568;7925;17,2;2844;2008;1792;Paseo Pellegrini;Plaza Sarmiento;Fac. Medicina;Plaza López;Fac. de Ingeniería;19616;1021;36
+nov-18;76932;7915;17,6;2908;1901;1654;Paseo Pellegrini;Plaza Sarmiento;Fac. Ciencias Económicas;Plaza López;Fac. de Ingeniería;18977;903;42
+dic-18;64743;7166;18,6;2520;1548;1548;Plaza Sarmiento;Pichincha;Plaza López;Paseo Pellegrini;Fac. de Ingeniería;17430;679;53
+ene-19;59427;6305;18;2152;1556;1170;Pichincha;Paseo Pellegrini;Plaza López;Plaza Sarmiento;Plaza Pringles;14910;695;42
