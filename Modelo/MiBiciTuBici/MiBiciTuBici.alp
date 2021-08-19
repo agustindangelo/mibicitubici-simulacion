@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -220,6 +220,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[longitude]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[stationCapacity]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
@@ -5843,6 +5846,21 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			<CurrentLevel>1629123196301</CurrentLevel>
 			<ConnectionsId>1629123196297</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1629407072849</Id>
+					<Name><![CDATA[arrivalDistributionParameter]]></Name>
+					<X>170</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.001]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1629123196323</Id>
 					<Name><![CDATA[id]]></Name>
@@ -6053,6 +6071,30 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1629406892978</Id>
+					<Name><![CDATA[stationCapacity]]></Name>
+					<X>170</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[tandem + anchor + bikes]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1629406892976</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Connectors>
 				<Connector>
@@ -6175,7 +6217,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluate_capacity]]></ItemName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6198,7 +6240,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluate_capacity]]></ItemName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6231,7 +6273,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluate_capacity]]></ItemName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6241,7 +6283,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[lost_client]]></ItemName>
+						<ItemName><![CDATA[lostClient]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6265,7 +6307,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[lost_client]]></ItemName>
+						<ItemName><![CDATA[lostClient]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -7455,7 +7497,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1629236479274</Id>
-					<Name><![CDATA[evaluate_capacity]]></Name>
+					<Name><![CDATA[evaluateCapacity]]></Name>
 					<X>300</X><Y>90</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7542,7 +7584,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1629236611808</Id>
-					<Name><![CDATA[lost_client]]></Name>
+					<Name><![CDATA[lostClient]]></Name>
 					<X>430</X><Y>170</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -8269,14 +8311,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1629234400888</Id>
-					<Name><![CDATA[demand]]></Name>
-					<X>320</X><Y>140</Y>
+					<Name><![CDATA[travel]]></Name>
+					<X>500</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[Demand]]></Type>        
+						<Type><![CDATA[Travel]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[null]]></Code>
 						</InitialValue>
@@ -8285,7 +8327,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="Parameter">
 					<Id>1629125748669</Id>
 					<Name><![CDATA[station]]></Name>
-					<X>322.923</X><Y>89.259</Y>
+					<X>502.923</X><Y>49.259</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8320,7 +8362,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1629125748674</Id>
 					<Name><![CDATA[movingToDestinyStation]]></Name>
-					<X>65</X><Y>223</Y>
+					<X>70</X><Y>200</Y>
 					<Label><X>15</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8332,7 +8374,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1629125748680</Id>
 					<Name><![CDATA[beingTaken]]></Name>
-					<X>70</X><Y>300</Y>
+					<X>75</X><Y>277</Y>
 					<Label><X>10</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8344,14 +8386,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1629125748686</Id>
 					<Name><![CDATA[transition1]]></Name>
-					<X>160.482</X><Y>223</Y>
+					<X>165.482</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-1</X><Y>-143</Y></Point>
+						<Point><X>-6</X><Y>-119.15652941176471</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748674" Target="1629125748671" Trigger="arrival">
@@ -8389,14 +8431,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1629125748697</Id>
 					<Name><![CDATA[transition4]]></Name>
-					<X>160</X><Y>300</Y>
+					<X>165</X><Y>277</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>-51</Y></Point>
+						<Point><X>0</X><Y>-50.823529411764696</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748680" Target="1629125748674" Trigger="timeout">
@@ -8420,16 +8462,16 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1629125977817</Id>
 					<Name><![CDATA[transition]]></Name>
-					<X>60</X><Y>70</Y>
+					<X>60</X><Y>64</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-40</X><Y>0</Y></Point>
-						<Point><X>-40</X><Y>240</Y></Point>
-						<Point><X>10</X><Y>240</Y></Point>
+						<Point><X>0.12100000000000222</X><Y>0.6670000000000016</Y></Point>
+						<Point><X>-40</X><Y>-4</Y></Point>
+						<Point><X>-40</X><Y>226</Y></Point>
+						<Point><X>15</X><Y>229.1764705882353</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748671" Target="1629125748680" Trigger="message">
@@ -8768,7 +8810,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1629234569499</Id>
-			<Name><![CDATA[Demand]]></Name>
+			<Name><![CDATA[Travel]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -8990,7 +9032,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<DatabaseName><![CDATA[]]></DatabaseName>
 				<ResourceReference>
 					<PackageName><![CDATA[prueba]]></PackageName>
-					<ClassName><![CDATA[C:/Users/PC/Downloads/Marlene/4to/Simulación/TPI_2021/datos/geo/estaciones.xlsx]]></ClassName>
+					<ClassName><![CDATA[../../datos/geo/estaciones.xlsx]]></ClassName>
 				</ResourceReference>
 				<Host><![CDATA[localhost]]></Host>
 				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
@@ -9270,7 +9312,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
-			<Path><![CDATA[C:/Users/PC/Downloads/Marlene/4to/Simulación/TPI_2021/datos/geo/estaciones.xlsx]]></Path>
+			<Path><![CDATA[../../datos/geo/estaciones.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
