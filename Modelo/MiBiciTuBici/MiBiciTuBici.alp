@@ -11,6 +11,20 @@
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[prueba]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Second]]></ModelTimeUnit>
+	<OptionLists>
+		<OptionList>
+			<Id>1629484751023</Id>
+			<Name><![CDATA[UserType]]></Name>
+			<Option>
+				<Id>1629484751024</Id>
+				<Name><![CDATA[abonado]]></Name>
+			</Option>
+			<Option>
+				<Id>1629484751025</Id>
+				<Name><![CDATA[turista]]></Name>
+			</Option>
+		</OptionList>
+	</OptionLists>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
@@ -5849,7 +5863,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="PlainVariable">
 					<Id>1629407072849</Id>
 					<Name><![CDATA[arrivalDistributionParameter]]></Name>
-					<X>170</X><Y>480</Y>
+					<X>170</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5859,6 +5873,42 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0.001]]></Code>
 						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629483565598</Id>
+					<Name><![CDATA[tandemVariable]]></Name>
+					<X>140</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629483588082</Id>
+					<Name><![CDATA[anchorVariable]]></Name>
+					<X>140</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629483595743</Id>
+					<Name><![CDATA[bikesVariable]]></Name>
+					<X>140</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -5969,6 +6019,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="Parameter">
 					<Id>1629123196328</Id>
 					<Name><![CDATA[tandem]]></Name>
+					<Description><![CDATA[Bicicletas dobles disponibles]]></Description>
 					<X>50</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -5990,6 +6041,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="Parameter">
 					<Id>1629123196329</Id>
 					<Name><![CDATA[anchor]]></Name>
+					<Description><![CDATA[Anclajes libres]]></Description>
 					<X>50</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -6011,6 +6063,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="Parameter">
 					<Id>1629123196330</Id>
 					<Name><![CDATA[bikes]]></Name>
+					<Description><![CDATA[Bicicletas simples disponibles]]></Description>
 					<X>50</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -6074,7 +6127,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Variable Class="Parameter">
 					<Id>1629406892978</Id>
 					<Name><![CDATA[stationCapacity]]></Name>
-					<X>170</X><Y>430</Y>
+					<X>170</X><Y>460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6100,7 +6153,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Connector>
 					<Id>1629125485870</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>540</X><Y>100</Y>
+					<X>500</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6127,46 +6180,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-70</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1629125493739</Id>
-					<Name><![CDATA[connector3]]></Name>
-					<X>650</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[release]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Release]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[cycling]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-70</X><Y>0</Y></Point>
+						<Point><X>-60</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629125542199</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>820</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6192,14 +6212,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>760</X><Y>100</Y></Point>
-						<Point><X>690</X><Y>100</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-40</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629236599215</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>430</X><Y>100</Y>
+					<X>400</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6217,7 +6237,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+						<ItemName><![CDATA[isBikeAvailable]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6226,7 +6246,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-100</X><Y>0</Y></Point>
+						<Point><X>-70</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -6240,7 +6260,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+						<ItemName><![CDATA[isBikeAvailable]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6273,7 +6293,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+						<ItemName><![CDATA[isBikeAvailable]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
@@ -6292,14 +6312,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>80</Y></Point>
-						<Point><X>110</X><Y>80</Y></Point>
+						<Point><X>0</X><Y>140</Y></Point>
+						<Point><X>110</X><Y>140</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629236656124</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>470</X><Y>190</Y>
+					<X>470</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6326,9 +6346,276 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>280</X><Y>0</Y></Point>
-						<Point><X>280</X><Y>-70</Y></Point>
-						<Point><X>290</X><Y>-90</Y></Point>
+						<Point><X>350</X><Y>0</Y></Point>
+						<Point><X>350</X><Y>-110</Y></Point>
+						<Point><X>350</X><Y>-150</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485279769</Id>
+					<Name><![CDATA[connector7]]></Name>
+					<X>740</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[release]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Release]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[outT]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-140</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485390846</Id>
+					<Name><![CDATA[connector8]]></Name>
+					<X>700</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[wait]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[release]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Release]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>-70</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629125493739</Id>
+					<Name><![CDATA[connector3]]></Name>
+					<X>580</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[cycling]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-40</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485433758</Id>
+					<Name><![CDATA[connector9]]></Name>
+					<X>610</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[decision]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[outT]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[wait]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>50</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485553375</Id>
+					<Name><![CDATA[connector10]]></Name>
+					<X>610</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[decision]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[outT]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[wait]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>50</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485584100</Id>
+					<Name><![CDATA[connector11]]></Name>
+					<X>590</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[evaluateCapacity]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[outF]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[decision]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+						<Point><X>0</X><Y>60</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485609245</Id>
+					<Name><![CDATA[connector12]]></Name>
+					<X>660</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[findStation]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[decision]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[outF]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-60</X><Y>-40</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629485663591</Id>
+					<Name><![CDATA[connector13]]></Name>
+					<X>700</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[findStation]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[release]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Release]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>-40</Y></Point>
+						<Point><X>40</X><Y>-120</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -6498,6 +6785,12 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[id]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[parameter]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -6572,6 +6865,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeforeArrival]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[int randomIndex = rand.nextInt(main.estacion.size());
+Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExit]]></Name>
@@ -6625,7 +6922,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629124955961</Id>
 					<Name><![CDATA[availableBikes]]></Name>
-					<X>440</X><Y>250</Y>
+					<X>440</X><Y>320</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6650,6 +6947,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[tandemVariable + bikesVariable]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacityBasedOnAttractors]]></Name>
@@ -6946,7 +7246,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629125249578</Id>
 					<Name><![CDATA[takeBike]]></Name>
-					<X>430</X><Y>80</Y>
+					<X>400</X><Y>80</Y>
 					<Label><X>0</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7082,6 +7382,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[send( agent , stationCode)]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTimeout]]></Name>
@@ -7159,7 +7462,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629125484078</Id>
 					<Name><![CDATA[cycling]]></Name>
-					<X>540</X><Y>80</Y>
+					<X>500</X><Y>80</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7255,8 +7558,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629125491824</Id>
 					<Name><![CDATA[release]]></Name>
-					<X>650</X><Y>80</Y>
-					<Label><X>-10</X><Y>-15</Y></Label>
+					<X>740</X><Y>80</Y>
+					<Label><X>5</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -7360,7 +7663,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629125539802</Id>
 					<Name><![CDATA[sink]]></Name>
-					<X>760</X><Y>90</Y>
+					<X>820</X><Y>90</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7426,12 +7729,11 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629126287824</Id>
 					<Name><![CDATA[bike]]></Name>
-					<X>220</X><Y>320</Y>
+					<X>300</X><Y>340</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<PresentationId>1629126288576</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Bike]]></ClassName>
@@ -7497,7 +7799,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1629236479274</Id>
-					<Name><![CDATA[evaluateCapacity]]></Name>
+					<Name><![CDATA[isBikeAvailable]]></Name>
 					<X>300</X><Y>90</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7524,7 +7826,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[takeBike.size() < station_capacity]]></Code>
+								<Code><![CDATA[takeBike.size() < stationCapacity]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7585,7 +7887,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629236611808</Id>
 					<Name><![CDATA[lostClient]]></Name>
-					<X>430</X><Y>170</Y>
+					<X>430</X><Y>230</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7694,6 +7996,370 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629485277135</Id>
+					<Name><![CDATA[evaluateCapacity]]></Name>
+					<X>570</X><Y>90</Y>
+					<Label><X>-25</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[SelectOutput]]></ClassName>
+							<ItemName><![CDATA[1412336242931]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[conditionIsProbabilistic]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[condition]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[anchor >= 1]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[probability]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitTrue]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitFalse]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629485388501</Id>
+					<Name><![CDATA[wait]]></Name>
+					<X>660</X><Y>150</Y>
+					<Label><X>0</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Delay]]></ClassName>
+							<ItemName><![CDATA[1412336242930]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[delayTime]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[capacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[maximumCapacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[entityLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pushProtocol]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[forceStatisticsCollection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629485550180</Id>
+					<Name><![CDATA[decision]]></Name>
+					<X>580</X><Y>160</Y>
+					<Label><X>15</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[SelectOutput]]></ClassName>
+							<ItemName><![CDATA[1412336242931]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[conditionIsProbabilistic]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[condition]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[probability]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitTrue]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitFalse]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629485607449</Id>
+					<Name><![CDATA[findStation]]></Name>
+					<X>660</X><Y>200</Y>
+					<Label><X>-20</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Delay]]></ClassName>
+							<ItemName><![CDATA[1412336242930]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[delayTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[capacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[maximumCapacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[entityLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pushProtocol]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[forceStatisticsCollection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtExit]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -8048,9 +8714,32 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			</Presentation>
 
 				</Group>
-				<EmbeddedObjectPresentation>
-					<Id>1629126288576</Id>
-					<Name><![CDATA[bike_presentation]]></Name>
+				<Oval>
+					<Id>1629483047952</Id>
+					<Name><![CDATA[oval]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<RadiusX>5</RadiusX>
+					<RadiusY>40</RadiusY>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillColorCode><![CDATA[(availableBikes.size() == 0) ? blue : red]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Oval>
+				<Group>
+					<Id>1629484832450</Id>
+					<Name><![CDATA[bicyclist]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -8060,13 +8749,125 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
-					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
-					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
-					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>0.0</Latitude>
-					<Longitude>0.0</Longitude>
-				</EmbeddedObjectPresentation>
+
+			<Presentation>
+				<Figure3D>
+					<Id>1629484832452</Id>
+					<Name><![CDATA[bicycler]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<X>0</X><Y>0</Y><Z>0</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ResourceReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[3d/bicyclist.dae]]></ClassName>
+					</ResourceReference>
+					<ColorTable>
+						<ColorMapping>
+							<Name><![CDATA[helmet_part]]></Name>
+							<OriginalColor>-5395027</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[hands]]></Name>
+							<OriginalColor>-7256</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[pants]]></Name>
+							<OriginalColor>-10790053</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[shoes]]></Name>
+							<OriginalColor>-13686494</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[Jacket1]]></Name>
+							<OriginalColor>-6907069</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[hair]]></Name>
+							<OriginalColor>-13355980</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[skin]]></Name>
+							<OriginalColor>-4083577</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[eyes]]></Name>
+							<OriginalColor>-12961222</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[lips]]></Name>
+							<OriginalColor>-5412515</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[eye_balls]]></Name>
+							<OriginalColor>-1</OriginalColor>
+						</ColorMapping>
+					</ColorTable>
+					<AutoScale>true</AutoScale>
+					<Scale>1.0</Scale>
+					<Rotation>0.0</Rotation>
+					<AxisOrder>XYZ_AXIS_ORDER</AxisOrder>
+					<ApplyShading>true</ApplyShading>
+					<InternalLighting>OFF</InternalLighting>
+					<IgnoreSceneLights>false</IgnoreSceneLights>
+				</Figure3D>
+				<Figure3D>
+					<Id>1629484832454</Id>
+					<Name><![CDATA[bicycle_body]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<X>0</X><Y>0</Y><Z>0</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ResourceReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[3d/bicycle.dae]]></ClassName>
+					</ResourceReference>
+					<ColorTable>
+						<ColorMapping>
+							<Name><![CDATA[wheel_centers]]></Name>
+							<OriginalColor>-9737365</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[wheels]]></Name>
+							<OriginalColor>-8947849</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[handles]]></Name>
+							<OriginalColor>-9737365</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[frame]]></Name>
+							<OriginalColor>-1556433</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[pedal]]></Name>
+							<OriginalColor>-9409942</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[seat]]></Name>
+							<OriginalColor>-10264994</OriginalColor>
+						</ColorMapping>
+					</ColorTable>
+					<AutoScale>true</AutoScale>
+					<Scale>1.0</Scale>
+					<Rotation>0.0</Rotation>
+					<AxisOrder>XYZ_AXIS_ORDER</AxisOrder>
+					<ApplyShading>true</ApplyShading>
+					<InternalLighting>OFF</InternalLighting>
+					<IgnoreSceneLights>false</IgnoreSceneLights>
+				</Figure3D>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -8170,6 +8971,62 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			</ScaleRuler>
 			<CurrentLevel>1629124606418</CurrentLevel>
 			<ConnectionsId>1629124606414</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1629486102876</Id>
+					<Name><![CDATA[travel]]></Name>
+					<X>70</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Travel]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1629484547897</Id>
+					<Name><![CDATA[id]]></Name>
+					<X>70</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1629484547895</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1629484555979</Id>
+					<Name><![CDATA[parameter]]></Name>
+					<X>70</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[UserType]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1629484555977</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1629124606414</Id>
@@ -8417,7 +9274,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>-63.823529411764696</Y></Point>
+						<Point><X>0</X><Y>-64</Y></Point>
 					</Points>
 					<IconOffset>30.0</IconOffset>
 					<Properties Source="1629125748674" Target="1629125748671" Trigger="arrival">
@@ -8492,10 +9349,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
-						<Point><X>0</X><Y>0.17647058823528994</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-30</X><Y>4</Y></Point>
 						<Point><X>-30</X><Y>164</Y></Point>
-						<Point><X>5</X><Y>167.1764705882353</Y></Point>
+						<Point><X>5</X><Y>167</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748671" Target="1629125748680" Trigger="message">
@@ -9412,6 +10269,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 		</Resource>
 		<Resource>
 			<Path><![CDATA[../../datos/geo/estaciones.xlsx]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[3d/bicyclist.dae]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[3d/bicycle.dae]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
