@@ -10,7 +10,7 @@
 	<Name><![CDATA[MiBiciTuBici]]></Name>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[prueba]]></JavaPackageName>
-	<ModelTimeUnit><![CDATA[Second]]></ModelTimeUnit>
+	<ModelTimeUnit><![CDATA[Minute]]></ModelTimeUnit>
 	<OptionLists>
 		<OptionList>
 			<Id>1629484751023</Id>
@@ -99,11 +99,11 @@
 					<OccurrenceDate>1628841600000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -137,6 +137,36 @@
 						<Type><![CDATA[ViewArea]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[simulacion]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629487576370</Id>
+					<Name><![CDATA[lostTotalClients]]></Name>
+					<X>170</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629491346305</Id>
+					<Name><![CDATA[cantidadUsuarios]]></Name>
+					<X>170</X><Y>840</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -187,7 +217,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629123280828</Id>
 					<Name><![CDATA[estacion]]></Name>
-					<X>60</X><Y>660</Y>
+					<X>110</X><Y>830</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -428,21 +458,6 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Width>1000</Width>
 					<Height>550</Height>
 					<GISShapes>
-						<GISShapeFile>
-							<ShapeResourceReference>
-								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[ciclovias.shp]]></ClassName>
-							</ShapeResourceReference>
-							<DbfResourceReference>
-								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[ciclovias.dbf]]></ClassName>
-							</DbfResourceReference>						
-							<FillColor>-1</FillColor>
-							<LineColor>-16777216</LineColor>
-							<NameColumnIndex>0</NameColumnIndex>
-							<Visible>true</Visible>
-							<Bounds><LonMin>-60.72031500000003</LonMin><LatMin>-33.029069</LatMin><LonMax>-60.62062800000001</LonMax><LatMax>-32.884361</LatMax></Bounds>
-						</GISShapeFile>
 					</GISShapes>
 					<Latitude>-32.96</Latitude>
 					<Longitude>-60.67</Longitude>
@@ -5488,8 +5503,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>-32.96</Latitude>
-					<Longitude>-60.67</Longitude>
+					<Latitude>-32.95983271372974</Latitude>
+					<Longitude>-60.66222435641388</Longitude>
 				</EmbeddedObjectPresentation>
 				<Group>
 					<Id>1629210834630</Id>
@@ -5834,11 +5849,11 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<OccurrenceDate>1629187200000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -5885,6 +5900,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[tandem]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -5897,6 +5915,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[anchor]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -5909,6 +5930,24 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[bikes]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629487613734</Id>
+					<Name><![CDATA[lostClients]]></Name>
+					<X>270</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -6270,16 +6309,16 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[userArrival]]></ItemName>
+						<ItemName><![CDATA[queue]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Source]]></ClassName>
+						<ClassName><![CDATA[Queue]]></ClassName>
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-90</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -6618,6 +6657,39 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Point><X>40</X><Y>-120</Y></Point>
 					</Points>
 				</Connector>
+				<Connector>
+					<Id>1629491575051</Id>
+					<Name><![CDATA[connector15]]></Name>
+					<X>180</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[userArrival]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Source]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[queue]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Queue]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
 			</Connectors>
 			<AgentLinks>
 				<AgentLink>
@@ -6660,7 +6732,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629124356420</Id>
 					<Name><![CDATA[userArrival]]></Name>
-					<X>190</X><Y>90</Y>
+					<X>150</X><Y>90</Y>
 					<Label><X>-5</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6683,7 +6755,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[1]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -6767,6 +6839,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[speed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[10]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[newEntity]]></Name>
@@ -6789,7 +6865,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 											<Name><![CDATA[id]]></Name>
 										</Parameter>
 										<Parameter>
-											<Name><![CDATA[parameter]]></Name>
+											<Name><![CDATA[UserType]]></Name>
 										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
@@ -6865,13 +6941,15 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeforeArrival]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[int randomIndex = rand.nextInt(main.estacion.size());
-Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[Station stationRandom = randomWhere(main.estacion, e -> e.stationCode != this.stationCode);
+Travel viaje = new Travel(this, stationRandom);
+agent.travel = viaje;
+main.cantidadUsuarios++]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -7166,6 +7244,10 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onNewUnit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[unit.station = this;
+unit.setLocation(this);]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onDestroyUnit]]></Name>
@@ -7265,12 +7347,18 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[seizeFromOnePool]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[true]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourceSets]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourcePool]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[availableBikes]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourceQuantity]]></Name>
@@ -7281,7 +7369,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0]]></Code>
+								<Code><![CDATA[5]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7376,6 +7464,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[forceStatisticsCollection]]></Name>
@@ -7383,7 +7474,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[send( agent , stationCode)]]></Code>
+								<Code><![CDATA[bikesVariable--]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7394,6 +7485,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onSeizeUnit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[send( agent.travel, unit)]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onPrepareUnit]]></Name>
@@ -7484,6 +7578,10 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular( 15, 17, 20 )]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
@@ -7499,6 +7597,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[forceStatisticsCollection]]></Name>
@@ -7592,6 +7693,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[movingGoHome]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[wrapUpTaskPolicyType]]></Name>
@@ -7616,6 +7720,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[bikesVariable++]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onWrapUpTerminated]]></Name>
@@ -7692,77 +7799,6 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1629126287824</Id>
-					<Name><![CDATA[bike]]></Name>
-					<X>300</X><Y>340</Y>
-					<Label><X>-20</X><Y>-30</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Bike]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[Bike]]></ClassName>
-							<ItemName><![CDATA[1629125649612]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[station]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[stationCode]]></Code>
-							</Value>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[bikes]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[10]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
-					</InitialSpeedCode>
 					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
@@ -7999,6 +8035,10 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[lostClients++;
+main.lostTotalClients++;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
@@ -8156,8 +8196,8 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[]]></Code>
-								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+								<Code><![CDATA[triangular( 3, 5, 8 )]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -8336,6 +8376,10 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular( 5, 7, 10 )]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
@@ -8366,6 +8410,255 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629489677416</Id>
+					<Name><![CDATA[queue]]></Name>
+					<X>220</X><Y>80</Y>
+					<Label><X>-5</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Queue]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Queue]]></ClassName>
+							<ItemName><![CDATA[1412336242932]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[capacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[availableBikes.size()]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[maximumCapacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[true]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[entityLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[queuing]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[priority]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[comparison]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enableTimeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[timeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enablePreemption]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[forceStatisticsCollection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitTimeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitPreempted]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629491573214</Id>
+					<Name><![CDATA[enter]]></Name>
+					<X>170</X><Y>150</Y>
+					<Label><X>-5</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Enter]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Enter]]></ClassName>
+							<ItemName><![CDATA[1412336242933]]></ItemName>
+						</GenericParameterSubstituteReference>
+						<GenericParameterSubstituteValue Class="CodeValue">
+							<Code><![CDATA[User]]></Code>
+						</GenericParameterSubstituteValue>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[locationType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationX]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationY]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationZ]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationLatitude]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationLongitude]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationGeoPlaceName]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationXYZInNetwork]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationNetwork]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationLevel]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationNode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationAttractor]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[speed]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[changeDimensions]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[length]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[width]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[height]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[addToCustomPopulation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[population]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pushProtocol]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtEnter]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -8946,11 +9239,11 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					<OccurrenceDate>1629187200000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -9007,7 +9300,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 				</Variable>
 				<Variable Class="Parameter">
 					<Id>1629484555979</Id>
-					<Name><![CDATA[parameter]]></Name>
+					<Name><![CDATA[UserType]]></Name>
 					<X>70</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -9140,11 +9433,11 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					<OccurrenceDate>1629187200000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -9169,7 +9462,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 				<Variable Class="PlainVariable">
 					<Id>1629234400888</Id>
 					<Name><![CDATA[travel]]></Name>
-					<X>500</X><Y>100</Y>
+					<X>430</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9184,7 +9477,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 				<Variable Class="Parameter">
 					<Id>1629125748669</Id>
 					<Name><![CDATA[station]]></Name>
-					<X>502.923</X><Y>49.259</Y>
+					<X>430</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9323,9 +9616,9 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748680" Target="1629125748674" Trigger="timeout">
-						<Action><![CDATA[moveTo( demand.destinyStation );]]></Action>
+						<Action><![CDATA[moveTo( travel.destinyStation );]]></Action>
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[uniform( 45, 100 ) ]]></Code>
+							<Code><![CDATA[uniform( 50, 100 ) ]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
@@ -9356,7 +9649,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1629125748671" Target="1629125748680" Trigger="message">
-						<Action><![CDATA[demand = msg;]]></Action>
+						<Action><![CDATA[travel = msg;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -9366,7 +9659,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
 						</Rate>
-						<MessageType><![CDATA[Object]]></MessageType>
+						<MessageType><![CDATA[Travel]]></MessageType>
 						<DefaultTransition>true</DefaultTransition>
 						<FilterType><![CDATA[unconditionally]]></FilterType>
 						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
@@ -9409,7 +9702,7 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+							<Unit Class="RateUnits"><![CDATA[PER_MONTH]]></Unit>
 						</Rate>
 						<MessageType><![CDATA[Object]]></MessageType>
 						<DefaultTransition>true</DefaultTransition>
@@ -9476,35 +9769,6 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 				</AgentLink>
 			</AgentLinks>
 
-			<ContainerLinks>
-				<ContainerLink>
-					<Id>1629126288606</Id>
-					<Name><![CDATA[main]]></Name>
-					<X>50</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1629126288618</Id>
-					<Name><![CDATA[station]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>150</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-			</ContainerLinks>
 
 			<Presentation>
 				<Level>
@@ -9521,239 +9785,133 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 
 			<Presentation>
 				<Group>
-					<Id>1629125649616</Id>
-					<Name><![CDATA[lorry2]]></Name>
+					<Id>1629488425336</Id>
+					<Name><![CDATA[bicyclist]]></Name>
 					<X>0</X><Y>0</Y>
-					<Label><X>6.364</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Curve ControlPoints="true">
-					<Id>1629125649618</Id>
-					<Name><![CDATA[_ps97]]></Name>
-					<X>6.364</X><Y>4.333</Y>
-					<Label><X>-20</X><Y>40</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-9741784</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>-0.636</X><Y>1.238</Y><Z>0</Z></Point>
-					   <Point><X>-1.273</X><Y>0.619</Y><Z>0</Z></Point>
-					   <Point><X>-0.636</X><Y>-0.619</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-1.857</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-1.238</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Curve>
-				<Curve ControlPoints="true">
-					<Id>1629125649620</Id>
-					<Name><![CDATA[_ps98]]></Name>
-					<X>6.364</X><Y>-4.952</Y>
-					<Label><X>-20</X><Y>40</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-9741784</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>1.238</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>1.857</Y><Z>0</Z></Point>
-					   <Point><X>-0.636</X><Y>0.619</Y><Z>0</Z></Point>
-					   <Point><X>-1.273</X><Y>-0.619</Y><Z>0</Z></Point>
-					   <Point><X>-0.636</X><Y>-1.238</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Curve>
-				<Curve ControlPoints="true">
-					<Id>1629125649622</Id>
-					<Name><![CDATA[_ps99]]></Name>
-					<X>2.545</X><Y>-4.333</Y>
-					<Label><X>-20</X><Y>40</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-10466256</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-1124995</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>6.364</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>9.545</X><Y>8.048</Y><Z>0</Z></Point>
-					   <Point><X>9.545</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>6.364</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Curve>
-				<Curve ControlPoints="true">
-					<Id>1629125649624</Id>
-					<Name><![CDATA[_ps100]]></Name>
-					<X>5.727</X><Y>3.095</Y>
-					<Label><X>-20</X><Y>40</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-13421226</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>-3.095</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>-3.095</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>-3.714</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>-3.714</Y><Z>0</Z></Point>
-					   <Point><X>3.182</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>1.273</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-6.81</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-6.19</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-3.714</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-1.238</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-3.095</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-3.095</Y><Z>0</Z></Point>
-					   <Point><X>0.636</X><Y>-0.619</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Curve>
-				<RoundedRectangle>
-					<Id>1629125649626</Id>
-					<Name><![CDATA[_ps101]]></Name>
-					<X>3.182</X><Y>-3.714</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>1.909</Width>
-					<Height>6.81</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-529720</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>1</ArcRadius>
-				</RoundedRectangle>
-				<Rectangle>
-					<Id>1629125649628</Id>
-					<Name><![CDATA[_ps102]]></Name>
-					<X>-12.727</X><Y>-4.952</Y>
-					<Label><X>10</X><Y>10</Y></Label>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>15.273</Width>
-					<Height>9.286</Height>
 					<Rotation>0.0</Rotation>
-					<FillColor>-4144960</FillColor>
-					<FillMaterial>null</FillMaterial>
-				</Rectangle>
-				<RoundedRectangle>
-					<Id>1629125649630</Id>
-					<Name><![CDATA[_ps103]]></Name>
-					<X>-12.091</X><Y>-3.714</Y>
-					<Label><X>10</X><Y>10</Y></Label>
+
+			<Presentation>
+				<Figure3D>
+					<Id>1629488425338</Id>
+					<Name><![CDATA[bicycler]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>14</Width>
-					<Height>6.81</Height>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<X>0</X><Y>0</Y><Z>0</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ResourceReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[3d/bicyclist.dae]]></ClassName>
+					</ResourceReference>
+					<ColorTable>
+						<ColorMapping>
+							<Name><![CDATA[helmet_part]]></Name>
+							<OriginalColor>-5395027</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[hands]]></Name>
+							<OriginalColor>-7256</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[pants]]></Name>
+							<OriginalColor>-10790053</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[shoes]]></Name>
+							<OriginalColor>-13686494</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[Jacket1]]></Name>
+							<OriginalColor>-6907069</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[hair]]></Name>
+							<OriginalColor>-13355980</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[skin]]></Name>
+							<OriginalColor>-4083577</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[eyes]]></Name>
+							<OriginalColor>-12961222</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[lips]]></Name>
+							<OriginalColor>-5412515</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[eye_balls]]></Name>
+							<OriginalColor>-1</OriginalColor>
+						</ColorMapping>
+					</ColorTable>
+					<AutoScale>true</AutoScale>
+					<Scale>1.0</Scale>
 					<Rotation>0.0</Rotation>
-					<FillColor>-1</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>1</ArcRadius>
-				</RoundedRectangle>
+					<AxisOrder>XYZ_AXIS_ORDER</AxisOrder>
+					<ApplyShading>true</ApplyShading>
+					<InternalLighting>OFF</InternalLighting>
+					<IgnoreSceneLights>false</IgnoreSceneLights>
+				</Figure3D>
+				<Figure3D>
+					<Id>1629488425340</Id>
+					<Name><![CDATA[bicycle_body]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<X>0</X><Y>0</Y><Z>0</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ResourceReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[3d/bicycle.dae]]></ClassName>
+					</ResourceReference>
+					<ColorTable>
+						<ColorMapping>
+							<Name><![CDATA[wheel_centers]]></Name>
+							<OriginalColor>-9737365</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[wheels]]></Name>
+							<OriginalColor>-8947849</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[handles]]></Name>
+							<OriginalColor>-9737365</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[frame]]></Name>
+							<OriginalColor>-1556433</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[pedal]]></Name>
+							<OriginalColor>-9409942</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[seat]]></Name>
+							<OriginalColor>-10264994</OriginalColor>
+						</ColorMapping>
+					</ColorTable>
+					<AutoScale>true</AutoScale>
+					<Scale>1.0</Scale>
+					<Rotation>0.0</Rotation>
+					<AxisOrder>XYZ_AXIS_ORDER</AxisOrder>
+					<ApplyShading>true</ApplyShading>
+					<InternalLighting>OFF</InternalLighting>
+					<IgnoreSceneLights>false</IgnoreSceneLights>
+				</Figure3D>
 			</Presentation>
 
 				</Group>
@@ -9835,11 +9993,11 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 					<OccurrenceDate>1629273600000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -10243,22 +10401,10 @@ Travel viaje = new Travel(this, main.estacion.get(randomIndex));]]></Code>
 				<FinalDate><![CDATA[1631404800000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>false</BypassInitialScreen>
+			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
-		<Resource>
-			<Path><![CDATA[ciclovias.shx]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[ciclovias.shp]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[ciclovias.dbf]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
 		<Resource>
 			<Path><![CDATA[Rosario.JPG]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
