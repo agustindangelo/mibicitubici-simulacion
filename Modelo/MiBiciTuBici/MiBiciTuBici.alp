@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -237,26 +237,11 @@
 						<Type><![CDATA[int]]></Type>        
 					</Properties>
 				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1629817831483</Id>
-					<Name><![CDATA[estacionesOrdenadas]]></Name>
-					<X>680</X><Y>860</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Station]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-					</Properties>
-
-				</Variable>
 			</Variables>
 			<Events>
 				<Event>
 					<Id>1629817717839</Id>
-					<Name><![CDATA[saveListStations]]></Name>
+					<Name><![CDATA[updateCriticalStations]]></Name>
 					<X>680</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -274,16 +259,20 @@
 						<OccurrenceAtTime>true</OccurrenceAtTime>
 						<OccurrenceDate>1629878400000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 						</OccurrenceTime>
 						<RecurrenceCode Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
-					<Action><![CDATA[estacionesOrdenadas = sortedStations();]]></Action>
+					<Action><![CDATA[List<Station> sortedStations = sortAscending( estacion, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
+
+ranking1.setText(sortedStations.get(0).name);
+ranking2.setText(sortedStations.get(1).name);
+ranking3.setText(sortedStations.get(2).name);]]></Action>
 				</Event>
 			</Events>
 			<Functions>
@@ -304,18 +293,6 @@
 					<Body><![CDATA[varViewArea = viewArea;
 viewArea.navigateTo();
 groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[List<Station>]]></ReturnType>
-					<Id>1629816042557</Id>
-					<Name><![CDATA[sortedStations]]></Name>
-					<X>540</X><Y>900</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return sortAscending(estacion, e -> e.usePercentage);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -562,6 +539,87 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629829051142</Id>
+					<Name><![CDATA[pyCommunicator]]></Name>
+					<X>-140</X><Y>300</Y>
+					<Label><X>-45</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+						<ClassName><![CDATA[PyCommunicator]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+							<ClassName><![CDATA[PyCommunicator]]></ClassName>
+							<ItemName><![CDATA[1569858524853]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[loadLastWorkingConfig]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pythonCommandType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pythonCommand]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pythonExecPath]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA["/home/agu/pyenv/bin/"]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[throwErrorOnFailedAttempt]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[redirectPyOutput]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
 				</EmbeddedObject>
 			</EmbeddedObjects>
 
@@ -6340,7 +6398,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Text>
 				<Text>
 					<Id>1629815774452</Id>
-					<Name><![CDATA[text10]]></Name>
+					<Name><![CDATA[ranking1]]></Name>
 					<X>1050</X><Y>80</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -6351,8 +6409,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[estacionesOrdenadas.get(0).name]]></TextCode>
+					<Text><![CDATA[]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>18</Size>
@@ -6362,7 +6419,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Text>
 				<Text>
 					<Id>1629815982644</Id>
-					<Name><![CDATA[text11]]></Name>
+					<Name><![CDATA[ranking2]]></Name>
 					<X>1050</X><Y>130</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -6373,8 +6430,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[estacionesOrdenadas.get(1).name]]></TextCode>
+					<Text><![CDATA[]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>18</Size>
@@ -6384,7 +6440,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Text>
 				<Text>
 					<Id>1629817132018</Id>
-					<Name><![CDATA[text12]]></Name>
+					<Name><![CDATA[ranking3]]></Name>
 					<X>1050</X><Y>170</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -6395,8 +6451,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[estacionesOrdenadas.get(2).name]]></TextCode>
+					<Text><![CDATA[]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>18</Size>
@@ -7445,10 +7500,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Connector>
 			</Connectors>
 			<AnalysisData>
-    			<Statistics>
-					<Id>1629814814257</Id>
+    			<DataSet>
+					<Id>1629829742523</Id>
 					<Name><![CDATA[usePercentage]]></Name>
-					<X>490</X><Y>450</Y>
+					<X>490</X><Y>530</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7464,9 +7519,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Code><![CDATA[1]]></Code>
 						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
-					<Discrete>false</Discrete>
-					<ValueCode><![CDATA[(double)availableBikes.capacity/(double)stationCapacity * 100.0]]></ValueCode>
-				</Statistics>
+					<FreezeXAxis>true</FreezeXAxis>
+					<VerticalAxisExpression><![CDATA[(double)availableBikes.capacity/(double)stationCapacity * 100.0]]></VerticalAxisExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+				</DataSet>
 			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
@@ -10980,7 +11036,7 @@ main.usersTimeLost += elapsedTime;]]></Code>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["Sheet1"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
+				<AutoImport>true</AutoImport>
 			</TableImportSettings>
 		</ImportSettings>
 		<ExportSettings>
@@ -11202,6 +11258,29 @@ main.usersTimeLost += elapsedTime;]]></Code>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1629828809015</Id>
+					<Name><![CDATA[queryState]]></Name>
+					<X>80</X><Y>480</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="200" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[Attempt attempt = PyCommunicator.runFile(PythonCommandType.PYTHON, 
+											"query_system_state.py");
+traceln(attempt.getFeedback());]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Actualizar estado del sistema]]></LabelText>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 			<Parameters>			
@@ -11221,7 +11300,7 @@ main.usersTimeLost += elapsedTime;]]></Code>
 				<FinalDate><![CDATA[1631404800000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
@@ -11257,6 +11336,12 @@ main.usersTimeLost += elapsedTime;]]></Code>
 		<VersionMajor>8</VersionMajor>
 		<VersionMinor>0</VersionMinor>
 		<VersionBuild>5</VersionBuild>
+    </RequiredLibraryReference>
+    <RequiredLibraryReference>
+		<LibraryName><![CDATA[com.anylogic.libraries.pypeline]]></LibraryName>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>4</VersionMinor>
+		<VersionBuild>0</VersionBuild>
     </RequiredLibraryReference>
 </Model>
 </AnyLogicWorkspace>
