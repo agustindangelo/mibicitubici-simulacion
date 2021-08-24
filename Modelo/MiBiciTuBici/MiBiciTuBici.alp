@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -637,6 +637,72 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
+				<Rectangle>
+					<Id>1629841860644</Id>
+					<Name><![CDATA[rectangle9]]></Name>
+					<X>1000</X><Y>150</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>240</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876870</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Rectangle>
+					<Id>1629841838434</Id>
+					<Name><![CDATA[rectangle8]]></Name>
+					<X>1000</X><Y>100</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>240</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876870</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Rectangle>
+					<Id>1629841782175</Id>
+					<Name><![CDATA[rectangle7]]></Name>
+					<X>1000</X><Y>50</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>240</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876870</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
 				<GISMap>
 					<Id>1628877384032</Id>
 					<Name><![CDATA[map]]></Name>
@@ -6223,11 +6289,11 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<OccurrenceDate>1629878400000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>420</Width>
@@ -6281,7 +6347,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>100</SamplesToKeep>
+					<SamplesToKeep>3000</SamplesToKeep>
 					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
@@ -6300,11 +6366,11 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<OccurrenceDate>1629878400000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>450</Width>
@@ -6348,7 +6414,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>100</SamplesToKeep>
+					<SamplesToKeep>3000</SamplesToKeep>
 					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
@@ -6399,7 +6465,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Text>
 					<Id>1629815774452</Id>
 					<Name><![CDATA[ranking1]]></Name>
-					<X>1050</X><Y>80</Y>
+					<X>1060</X><Y>60</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6420,7 +6486,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Text>
 					<Id>1629815982644</Id>
 					<Name><![CDATA[ranking2]]></Name>
-					<X>1050</X><Y>130</Y>
+					<X>1060</X><Y>110</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6441,7 +6507,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Text>
 					<Id>1629817132018</Id>
 					<Name><![CDATA[ranking3]]></Name>
-					<X>1050</X><Y>170</Y>
+					<X>1060</X><Y>160</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>

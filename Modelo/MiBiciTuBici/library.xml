@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*************************************************
+	         Library Descriptor File 
+*************************************************	         
+-->
+<LibraryDescriptor Version="8.5.7">
+	<Id>1567903824199</Id>
+	<Name><![CDATA[Pypeline]]></Name>
+	<Description><![CDATA[The library that allows you to run Python code within AnyLogic model.]]></Description>
+	<EngineVersion>6</EngineVersion>
+	<IconResourceReference>
+		<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+		<ClassName><![CDATA[Pypeline-libicon.png]]></ClassName>
+	</IconResourceReference>
+	<VersionMajor>1</VersionMajor>
+	<VersionMinor>4</VersionMinor>
+	<VersionBuild>0</VersionBuild>
+	<Provider><![CDATA[Tyler Wolfe-Adam]]></Provider>
+	<JavaPackageName><![CDATA[com.anylogic.libraries.pypeline]]></JavaPackageName>
+	
+    <RequiredLibraryReference>
+        <LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
+        <VersionMajor>1</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <VersionBuild>0</VersionBuild>
+    </RequiredLibraryReference>
+	<ActiveObjectClassEntries>
+	<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClassEntry>
+			<Icon16ResourceReference>
+				<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+				<ClassName><![CDATA[Python-logo-16.png]]></ClassName>
+			</Icon16ResourceReference>
+			<Icon32ResourceReference>
+				<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+				<ClassName><![CDATA[Python-logo-32.png]]></ClassName>
+			</Icon32ResourceReference>
+		<ActiveObjectClass>
+			<Id>1569858524855</Id>
+			<Name><![CDATA[PyCommunicator]]></Name>
+			<Description><![CDATA[<h4>Python Communicator</h4>
+<h5>Dragging this agent into a model allows you to run Python code as part of your model.</h5>
+
+Available functions, with name and description:<br>
+(See code completion for more info)<br>
+<table border="1">
+  <tr>
+    <td><code>isConnected</code></td>
+    <td style="font-size:12">Pings the server to check if it's still alive</td>
+  </tr>
+  <tr>
+    <td><code>run</code></td>
+    <td style="font-size:12">Execute a statement (return void)</td>
+  </tr>
+  <tr>
+    <td><code>runResults</code></td>
+    <td style="font-size:12">Evaluation an expression (return some results)</td>
+  </tr>
+  <tr>
+	<td><code>runFile</code></td>
+	<td style="font-size:12">Runs a file and returns the output. Can be used as part of an active object or staticly.</td>
+  </tr>
+</table>
+Note 1: all calls return an <code>Attempt</code> object. <br>
+You can query the success and feedback using the <code>isSuccessful</code> and <code>getFeedback</code> functions.<br>
+<br>
+In addition to single-line Python code, you can also pass multiline Python code in the form of multiple arguments<br>
+Note 2: For multiline code, make sure all the number of spaces you use for each indentation are consistent.<br>
+<br>
+Node 3: A history of recently ran commands  can be accessed through the variable <code>history</code> located within this object.]]></Description>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1569858524853</Id>
+				<Name><![CDATA[1569858524853]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowchartBlock>true</FlowchartBlock>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<SceneSkybox>null</SceneSkybox>
+			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>false</EnableSteps>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>false</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1569916800000</OccurrenceDate>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1569858524851</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1569858524854</CurrentLevel>
+			<ConnectionsId>1569858524850</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1569878540323</Id>
+					<Name><![CDATA[py]]></Name>
+					<Description><![CDATA[An instance of the <code>PySubProcess</code> object]]></Description>
+					<X>300</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
+						<Type><![CDATA[PySubProcess]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1574960246472</Id>
+					<Name><![CDATA[PYTHON]]></Name>
+					<X>80</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[PythonCommandType]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1574960293631</Id>
+					<Name><![CDATA[PYTHON2]]></Name>
+					<X>80</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[PythonCommandType]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1574960297045</Id>
+					<Name><![CDATA[PYTHON3]]></Name>
+					<X>80</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[PythonCommandType]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1574960298125</Id>
+					<Name><![CDATA[PYTHON_OTHER]]></Name>
+					<X>80</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[PythonCommandType]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1589490530972</Id>
+					<Name><![CDATA[PYTHON_PATH]]></Name>
+					<X>80</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[PythonCommandType]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1589586802472</Id>
+					<Name><![CDATA[PROPERTIES_FILENAME]]></Name>
+					<X>-150</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1597361797787</Id>
+					<Name><![CDATA[objmapper]]></Name>
+					<Description><![CDATA[An instance of Jackson's `ObjectMapper` class; used in the `toJson` and `fromJson` functions.]]></Description>
+					<X>300</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="true">
+						<Type><![CDATA[ObjectMapper]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1589488014296</Id>
+					<Name><![CDATA[loadLastWorkingConfig]]></Name>
+					<X>50</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1589488014294</Id>
+							<Label><![CDATA[Load last working configuration]]></Label>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1570726491560</Id>
+					<Name><![CDATA[pythonCommandType]]></Name>
+					<Description><![CDATA[The preferred command to call Python.<br>
+If <i>(other)</i> is selected, you can specify the alias to Python.<br>
+If <i>(path)</i> is selected, you can specify the full path to the desired python executable.
+]]></Description>
+					<X>50</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[com.anylogic.libraries.pypeline.PythonCommandType]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[self.PYTHON]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1570726491558</Id>
+							<Label><![CDATA[Command to call Python]]></Label>
+							<EditorContolType>RADIO_BUTTONS</EditorContolType>
+							<HideCondition>
+								<Id>0</Id>
+								<ParameterId>1589488014296</ParameterId>
+								<Operation>EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</HideCondition>
+							<PredefParamValue>
+								<Id>0</Id>
+								<Name><![CDATA[python]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON]]></Code>
+								</Value>
+							</PredefParamValue>
+							<PredefParamValue>
+								<Id>0</Id>
+								<Name><![CDATA[python3]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON3]]></Code>
+								</Value>
+							</PredefParamValue>
+							<PredefParamValue>
+								<Id>0</Id>
+								<Name><![CDATA[(other)]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON_OTHER]]></Code>
+								</Value>
+							</PredefParamValue>
+							<PredefParamValue>
+								<Id>0</Id>
+								<Name><![CDATA[(path)]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON_PATH]]></Code>
+								</Value>
+							</PredefParamValue>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>SEPARATOR</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1589488235619</Id>
+					<Name><![CDATA[pythonCommand]]></Name>
+					<Description><![CDATA[The full path to the desired python executable.<br>]]></Description>
+					<X>50</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[// e.g., "python38"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1589488235617</Id>
+							<Label><![CDATA[Python command]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<HideCondition>
+								<Id>1589488235615</Id>
+								<ParameterId>1570726491560</ParameterId>
+								<Operation>NOT_EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON_OTHER]]></Code>
+								</Value>
+							</HideCondition>
+							<HideCondition>
+								<Id>1589488235616</Id>
+								<ParameterId>1589488014296</ParameterId>
+								<Operation>EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</HideCondition>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1578675862658</Id>
+					<Name><![CDATA[pythonExecPath]]></Name>
+					<Description><![CDATA[The full path to the desired python executable.<br>]]></Description>
+					<X>50</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[// e.g., "C:\\Program Files\\Python37\\python.exe"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1578675862656</Id>
+							<Label><![CDATA[Python executable path]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<HideCondition>
+								<Id>0</Id>
+								<ParameterId>1570726491560</ParameterId>
+								<Operation>NOT_EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[self.PYTHON_PATH]]></Code>
+								</Value>
+							</HideCondition>
+							<HideCondition>
+								<Id>0</Id>
+								<ParameterId>1589488014296</ParameterId>
+								<Operation>EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</HideCondition>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1582299117563</Id>
+					<Name><![CDATA[throwErrorOnFailedAttempt]]></Name>
+					<Description><![CDATA[Decides whether to throw an AnyLogic model error if any command does not execute successfully.<br>]]></Description>
+					<X>50</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1582299117561</Id>
+							<Label><![CDATA[Throw error on failed attempt]]></Label>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<HideCondition>
+								<Id>0</Id>
+								<ParameterId>1589488014296</ParameterId>
+								<Operation>EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</HideCondition>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1597358663336</Id>
+					<Name><![CDATA[redirectPyOutput]]></Name>
+					<Description><![CDATA[Whether to redirect output coming from Python to the AnyLogic console.<br>
+If true, anything sent by Python to the standard output (e.g., print statements) or non-halting standard error (e.g., warnings) will be printed to the AnyLogic console.<br>
+When viewed from the developer panel, standard output will be printed in <span style="color:green;">green</span> and standard error will be printed in <span style="color:red;">red</span>.<br>]]></Description>
+					<X>50</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1597358663334</Id>
+							<Label><![CDATA[Redirect Python output]]></Label>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<HideCondition>
+								<Id>0</Id>
+								<ParameterId>1589488014296</ParameterId>
+								<Operation>EQUALS</Operation>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</HideCondition>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1573064066321</Id>
+					<Name><![CDATA[history]]></Name>
+					<Description><![CDATA[Holds the last 500 commands ran by the user, in chronological order (i.e., the first item is the most recently run command).<br>
+Implemented as a list of <code>Pair</code> objects with the command as the first value and the <code>Attempt</code> as the second value.<br>
+For example, to get the code used in the most recent command: <code>history.get(0).getFirst()</code><br>
+And to get the Attempt used in the most recent command: <code>history.get(0).getSecond()</code><br>
+<br>
+Provided as reference for the end-user; for example, if they execute multiple commands sequentially and want the outputs without having to create an object for each call.<br>]]></Description>
+					<X>450</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[LinkedList]]></CollectionClass>
+						<ElementClass><![CDATA[Pair<String, Attempt>]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1575321216484</Id>
+					<Name><![CDATA[serverPyLines]]></Name>
+					<Description><![CDATA[This file is written in the system's temporary file directory and how Python communicates with AnyLogic.]]></Description>
+					<X>750</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="private" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1569878590739</Id>
+					<Name><![CDATA[run]]></Name>
+					<Description><![CDATA[ Execute a statement ("just run" / no expected return)<br>
+@param code the single line of code to be executed<br>
+@return Attempt Contains no feedback if successful, otherwise the error message]]></Description>
+					<X>600</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[code]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1569878595053</Id>
+					<Name><![CDATA[run]]></Name>
+					<Description><![CDATA[ Execute a statement ("just run" / no expected return)<br>
+@param lines the multi-lined code to run, with each line as its own argument<br>
+@return Attempt Contains no feedback if successful, otherwise the error message]]></Description>
+					<X>630</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[lines]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1569878710125</Id>
+					<Name><![CDATA[runResults]]></Name>
+					<Description><![CDATA[Evaluate an expression ("get value" / expecting a return)<br>
+@param code the single line of code to be executed<br>
+@return Attempt Contains the feedback of the returned value if no error, otherwise the error message]]></Description>
+					<X>600</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[code]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1569878750550</Id>
+					<Name><![CDATA[runResults]]></Name>
+					<Description><![CDATA[Evaluate an expression ("get value" / expecting a return)<br>
+@param lines The multi-lined code to run, with each line as its own argument<br>
+@return Attempt Contains the feedback of the returned value if no error, otherwise the error message]]></Description>
+					<X>630</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[lines]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[boolean]]></ReturnType>
+					<Id>1572989835347</Id>
+					<Name><![CDATA[isConnected]]></Name>
+					<Description><![CDATA[Attempts to ping the Python server to see if it's still alive and ready to receive commands<br>
+@return boolean whether the ping was successful]]></Description>
+					<X>600</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1575321216486</Id>
+					<Name><![CDATA[createServerPy]]></Name>
+					<Description><![CDATA[Creates the server Python file
+@return String Path to the server file]]></Description>
+					<X>750</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1581007322208</Id>
+					<Name><![CDATA[toString]]></Name>
+					<X>-100</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1581016103424</Id>
+					<Name><![CDATA[initialize]]></Name>
+					<Description><![CDATA[Uses the currently set value for the preferred Python version (and optionally, the path to the executable) to initialize the Python environment.<br>
+If there is already a running Python environment, this will first try to close it gracefully before creating a new environment.]]></Description>
+					<X>300</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="public" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1581016194646</Id>
+					<Name><![CDATA[runFile]]></Name>
+					<Description><![CDATA[Execute a Python file and get the output.<br>
+@param preferredVersion One of the options for which Python version to run the file<br>
+@param args The file path and any arguments to run (flags and values should be separate strings)<br>
+@return Attempt with any outputs from running the file]]></Description>
+					<X>600</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[preferredVersion]]></Name>
+						<Type><![CDATA[PythonCommandType]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[args]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Attempt]]></ReturnType>
+					<Id>1581020688077</Id>
+					<Name><![CDATA[runFile]]></Name>
+					<Description><![CDATA[Execute a Python file using the preferred version of the running environment.<br>
+@param args The file path, and any arguments to run (flags and values should be separate strings)<br>
+@return Attempt with any outputs from running the file]]></Description>
+					<X>600</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[args]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1582829555051</Id>
+					<Name><![CDATA[validateHistoryLimit]]></Name>
+					<Description><![CDATA[Continues to remove the last entry in `history` until its size is at/under 500.]]></Description>
+					<X>450</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1588104859912</Id>
+					<Name><![CDATA[importProperties]]></Name>
+					<Description><![CDATA[Tries to import the properties file and load it into the model's parameters; if the properties file does not exist, the `generateProperties` function is called.]]></Description>
+					<X>300</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1588105438239</Id>
+					<Name><![CDATA[generateProperties]]></Name>
+					<Description><![CDATA[Builds the properties file at the default properties path (`getDefaultPropertiesPath`) and saves the current parameter values.]]></Description>
+					<X>300</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1589485728564</Id>
+					<Name><![CDATA[getDefaultPropertiesPath]]></Name>
+					<Description><![CDATA[@return The path to the properties file<br>
+<br>
+Note: The path will change based on where the exported library jar is stored (as the properties is designed to be generated next to the library jar file).]]></Description>
+					<X>300</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+				<Function AccessType="public" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1597362027154</Id>
+					<Name><![CDATA[toJson]]></Name>
+					<Description><![CDATA[@param object Any data type that can be converted to JSON<br>
+@return The JSON form of the given object, or `null` if an error was encountered<br>
+<br>
+Note that agents and agent populations are handled manually due to a recursive issue.<br>]]></Description>
+					<X>330</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[object]]></Name>
+						<Type><![CDATA[Object]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1597362055799</Id>
+					<Name><![CDATA[fromJson]]></Name>
+					<Description><![CDATA[@param json A JSON string to be converted to a Java object<br>
+@param clazz The class to convert the provided string to<br>
+@return The object of the specified type (or `null` if errors were encountered)]]></Description>
+					<X>300</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1598376672663</Id>
+					<Name><![CDATA[toAgentJson]]></Name>
+					<Description><![CDATA[As Agent-types cannot be used with ObjectMapper by default due to a recursive error, this function extracts as much useful information as possible.]]></Description>
+					<X>300</X><Y>490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[agentObj]]></Name>
+						<Type><![CDATA[Object]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[includeInvalidFields]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[prettyprint]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[HashMap<String, Object>]]></ReturnType>
+					<Id>1598473547292</Id>
+					<Name><![CDATA[agentToMap]]></Name>
+					<Description><![CDATA[Extracts all public fields from the given agent and puts it into a varname-to-varvalue map. ]]></Description>
+					<X>330</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Agent]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[includeInvalidFields]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[seenAgents]]></Name>
+						<Type><![CDATA[HashSet<Object>]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[int]]></ReturnType>
+					<Id>1598473943538</Id>
+					<Name><![CDATA[agentType]]></Name>
+					<Description><![CDATA[Classifies an object based on its underlying class: `1` for single agents, `2` for agent populations, and `0` for non-agent types.]]></Description>
+					<X>300</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[agentObj]]></Name>
+						<Type><![CDATA[Object]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<HashMap<String, Object>>]]></ReturnType>
+					<Id>1598562546634</Id>
+					<Name><![CDATA[agentPopToList]]></Name>
+					<Description><![CDATA[Creates a list of Map objects, one for each converted agent in the population]]></Description>
+					<X>330</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[agentPop]]></Name>
+						<Type><![CDATA[AgentArrayList<Agent>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[includeInvalidFields]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[seenAgents]]></Name>
+						<Type><![CDATA[HashSet<Object>]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1598564953670</Id>
+					<Name><![CDATA[runResults]]></Name>
+					<Description><![CDATA[Evaluate an expression ("get value" / expecting a return)<br>
+@param return_type The Java class of the return type<br>
+@param code the single line of code to be executed<br>
+@return T The output, in the type specified]]></Description>
+					<X>600</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[return_type]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[code]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1598565117046</Id>
+					<Name><![CDATA[runFile]]></Name>
+					<Description><![CDATA[Execute a Python file and get the output.<br>
+@param return_type The Java class of the return type<br>
+@param preferredVersion One of the options for which Python version to run the file<br>
+@param args The file path and any arguments to run (flags and values should be separate strings)<br>
+@return T The output, in the type specified]]></Description>
+					<X>630</X><Y>330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[return_type]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[preferredVersion]]></Name>
+						<Type><![CDATA[PythonCommandType]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[args]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1598565124530</Id>
+					<Name><![CDATA[runFile]]></Name>
+					<Description><![CDATA[Execute a Python file using the preferred version of the running environment.<br>
+@param return_type The Java class of the return type<br>
+@param args The file path, and any arguments to run (flags and values should be separate strings)<br>
+@return T The output, in the type specified]]></Description>
+					<X>630</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[return_type]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[args]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1598565381265</Id>
+					<Name><![CDATA[runResults]]></Name>
+					<Description><![CDATA[Evaluate an expression ("get value" / expecting a return)<br>
+@param return_type The Java class of the return type<br>
+@param lines The multi-lined code to run, with each line as its own argument<br>
+@return T The output, in the type specified]]></Description>
+					<X>630</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[return_type]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[lines]]></Name>
+						<Type><![CDATA[String...]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="public" StaticFunction="true">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1598643746896</Id>
+					<Name><![CDATA[toJson]]></Name>
+					<Description><![CDATA[@param object Any data type that can be converted to JSON<br>
+@param prettyprint Whether to output JSON in "pretty" format (with newlines, tabs, etc.)
+@return The JSON form of the given object, or `null` if an error was encountered<br>
+<br>
+Note that agents and agent populations are handled manually due to a recursive issue.<br>]]></Description>
+					<X>300</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[object]]></Name>
+						<Type><![CDATA[Object]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[prettyprint]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1599336077784</Id>
+					<Name><![CDATA[fromAgentJson]]></Name>
+					<Description><![CDATA[A function specifically for converting the given JSON to an agent class.<br>
+(Using <code>fromJson</code> will result in a JsonMappingException regarding conflicting setter definitions for the proper "networkNode" (i.e., internal problems)<br>
+@param json A JSON string to be converted to an AL agent<br>
+@param clazz The class of the AL agent type to convert the provided string to<br>
+@return The agent of the specified type (or `null` if errors were encountered)]]></Description>
+					<X>300</X><Y>610</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList]]></ReturnType>
+					<Id>1599341550432</Id>
+					<Name><![CDATA[fromPopulationJson]]></Name>
+					<Description><![CDATA[A function specifically for converting the given JSON to an arraylist of agents.<br>
+@param json A JSON string to be converted (should be a list of dicts, mapping parameter name to value)<br>
+@param agent_clazz The class of the AL agent type<br>
+@param owner The owner of the population (e.g., your root agent)<br>
+@return AgentArrayList An access-only ArrayList of the agents]]></Description>
+					<X>300</X><Y>670</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[agent_clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[owner]]></Name>
+						<Type><![CDATA[Agent]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[T]]></ReturnType>
+					<Id>1599503670262</Id>
+					<Name><![CDATA[fromAgentJson]]></Name>
+					<Description><![CDATA[A function specifically for converting the given JSON to an agent class.<br>
+(Using <code>fromJson</code> will result in a JsonMappingException regarding conflicting setter definitions for the proper "networkNode" (i.e., internal problems)<br>
+@param json A JSON string to be converted to an AL agent<br>
+@param clazz The class of the AL agent type to convert the provided string to<br>
+@return The agent of the specified type (or `null` if errors were encountered)]]></Description>
+					<X>330</X><Y>640</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[engine]]></Name>
+						<Type><![CDATA[Engine]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[owner]]></Name>
+						<Type><![CDATA[Agent]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[population]]></Name>
+						<Type><![CDATA[AgentArrayList]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[AgentArrayList]]></ReturnType>
+					<Id>1599503959400</Id>
+					<Name><![CDATA[fromPopulationJson]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>330</X><Y>700</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[agent_clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[engine]]></Name>
+						<Type><![CDATA[Engine]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[owner]]></Name>
+						<Type><![CDATA[Agent]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[AgentArrayList]]></ReturnType>
+					<Id>1599504104781</Id>
+					<Name><![CDATA[fromPopulationJson]]></Name>
+					<X>330</X><Y>730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[json]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[agent_clazz]]></Name>
+						<Type><![CDATA[Class<T>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[engine]]></Name>
+						<Type><![CDATA[Engine]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[owner]]></Name>
+						<Type><![CDATA[Agent]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[population]]></Name>
+						<Type><![CDATA[AgentArrayList]]></Type>
+					</Parameter>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1600284468018</Id>
+					<Name><![CDATA[modifyPathAsNeeded]]></Name>
+					<Description><![CDATA[Anaconda environments (including its base) add specific folders inside the environment to the system path before calling Python. Because Pypeline works through a "normal" command-prompt, these are not added in by default.<br>
+If the 'conda-meta' directory - present in all Anaconda environments - is located in the same folder as the provided executable, this function will add all the paths that Anaconda does. Like Anaconda, this may include directories that don't exist on the user's machine (has no effect, though).<br>]]></Description>
+					<X>300</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+				</Function>
+			</Functions>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1569858524850</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+
+			<Presentation>
+				<Level>
+					<Id>1569858524854</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+				<Image>
+					<Id>1582833534630</Id>
+					<Name><![CDATA[image2]]></Name>
+					<X>5</X><Y>5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[return true;]]></OnClickCode>
+					<EmbeddedIcon>true</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>32</Width>
+					<Height>32</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[com.anylogic.libraries.pypeline]]></PackageName>
+							<ClassName><![CDATA[Python-logo.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>true</OriginalSize>
+				</Image>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
+		</ActiveObjectClassEntry>
+	</ActiveObjectClassEntries>
+	<JavaClasses>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1569858562164</Id>
+			<Name><![CDATA[PySubProcess]]></Name>
+		</JavaClass>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1569861582393</Id>
+			<Name><![CDATA[Attempt]]></Name>
+		</JavaClass>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1589584967334</Id>
+			<Name><![CDATA[PyException]]></Name>
+		</JavaClass>
+	</JavaClasses>
+    
+
+</LibraryDescriptor>
