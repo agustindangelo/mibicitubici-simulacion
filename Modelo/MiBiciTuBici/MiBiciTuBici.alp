@@ -24,6 +24,18 @@
 				<Name><![CDATA[turista]]></Name>
 			</Option>
 		</OptionList>
+		<OptionList>
+			<Id>1629806022594</Id>
+			<Name><![CDATA[BikeType]]></Name>
+			<Option>
+				<Id>1629806022595</Id>
+				<Name><![CDATA[bike]]></Name>
+			</Option>
+			<Option>
+				<Id>1629806022596</Id>
+				<Name><![CDATA[tandem]]></Name>
+			</Option>
+		</OptionList>
 	</OptionLists>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
@@ -32,6 +44,7 @@
 			<Name><![CDATA[Main]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import java.text.SimpleDateFormat;]]></Import>
+			<StartupCode><![CDATA[bicisEnDesuso = (int)estacion.totalBikes();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1628788239395</Id>
@@ -170,7 +183,109 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629806942746</Id>
+					<Name><![CDATA[bicisEnDesuso]]></Name>
+					<X>170</X><Y>880</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629806971428</Id>
+					<Name><![CDATA[bicisEnUso]]></Name>
+					<X>170</X><Y>920</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629810189367</Id>
+					<Name><![CDATA[usersTimeLost]]></Name>
+					<X>530</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629810278629</Id>
+					<Name><![CDATA[delayedUsers]]></Name>
+					<X>530</X><Y>860</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1629817831483</Id>
+					<Name><![CDATA[estacionesOrdenadas]]></Name>
+					<X>680</X><Y>860</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Station]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
 			</Variables>
+			<Events>
+				<Event>
+					<Id>1629817717839</Id>
+					<Name><![CDATA[saveListStations]]></Name>
+					<X>680</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1629878400000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[estacionesOrdenadas = sortedStations();]]></Action>
+				</Event>
+			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -189,6 +304,18 @@
 					<Body><![CDATA[varViewArea = viewArea;
 viewArea.navigateTo();
 groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[List<Station>]]></ReturnType>
+					<Id>1629816042557</Id>
+					<Name><![CDATA[sortedStations]]></Name>
+					<X>540</X><Y>900</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return sortAscending(estacion, e -> e.usePercentage);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -274,6 +401,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<StatisticsItem>
+						<Id>1629809259710</Id>
+						<Name><![CDATA[totalBikes]]></Name>
+						<Type>sum</Type>
+						<Expression><![CDATA[item.bikes + item.tandem]]></Expression>
+						<Condition><![CDATA[]]></Condition>
+					</StatisticsItem>
 					<InEnvironment>true</InEnvironment>	
 					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
 					<XCode Class="CodeValue">
@@ -459,9 +593,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Height>550</Height>
 					<GISShapes>
 					</GISShapes>
-					<Latitude>-32.96</Latitude>
-					<Longitude>-60.67</Longitude>
-					<Scale>36310</Scale>
+					<Latitude>-32.9478877661011</Latitude>
+					<Longitude>-60.657886553340454</Longitude>
+					<Scale>40000</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
 					<ShowTiles>true</ShowTiles>
@@ -1791,7 +1925,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Point><X>-32.93552100000001</X><Y>-60.658314999999995</Y></Point>
 						<Point><X>-32.935277</X><Y>-60.659676</Y></Point>
 						<Point><X>-32.935032</X><Y>-60.661039</Y></Point>
-						<Point><X>-32.934788000000005</X><Y>-60.662395</Y></Point>
+						<Point><X>-32.93334897744594</X><Y>-60.67095495417288</Y></Point>
+						<Point><X>-32.9335667449701</X><Y>-60.67776958921475</Y></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 
@@ -1811,8 +1946,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LineWidth>1</LineWidth>
 					<LineStyle>SOLID</LineStyle>
 					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.934788000000005</Latitude>	
-					<Longitude>-60.662395</Longitude>
+					<Latitude>-32.9335667449701</Latitude>	
+					<Longitude>-60.67776958921475</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
@@ -2111,30 +2246,10 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 
 			<Presentation>
-				<GISPoint>
-					<Id>1628879119197</Id>
-					<Name><![CDATA[gisPoint12]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.962957</Latitude>	
-					<Longitude>-60.70135</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119197" TargetId="1628879119198">
+				<GISRoute SourceId="1628879119227">
 
-					<Id>1628879119534</Id>
-					<Name><![CDATA[CicloviasYBicisendas_1026]]></Name>
+					<Id>1628879119367</Id>
+					<Name><![CDATA[CicloviasYBicisendas_950]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -2148,24 +2263,34 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LineStyle>DASHED</LineStyle>
 					<ReadOnly>false</ReadOnly>
 					<Points>
-						<Point><X>-32.962957</X><Y>-60.70135</Y></Point>
-						<Point><X>-32.96366</X><Y>-60.701323</Y></Point>
-						<Point><X>-32.964832</X><Y>-60.701271000000006</Y></Point>
-						<Point><X>-32.965396</X><Y>-60.70124899999999</Y></Point>
-						<Point><X>-32.965997</X><Y>-60.701226000000005</Y></Point>
-						<Point><X>-32.966629</X><Y>-60.701204999999995</Y></Point>
-						<Point><X>-32.967163</X><Y>-60.701189</Y></Point>
-						<Point><X>-32.968328</X><Y>-60.701139000000005</Y></Point>
-						<Point><X>-32.96889</X><Y>-60.701117999999994</Y></Point>
-						<Point><X>-32.969501</X><Y>-60.701088000000006</Y></Point>
+						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
+						<Point><X>-32.974741</X><Y>-60.671046999999994</Y></Point>
+						<Point><X>-32.974497</X><Y>-60.672408</Y></Point>
+						<Point><X>-32.97427</X><Y>-60.673669</Y></Point>
+						<Point><X>-32.97423</X><Y>-60.673896000000006</Y></Point>
+						<Point><X>-32.974007</X><Y>-60.67513600000001</Y></Point>
+						<Point><X>-32.973762</X><Y>-60.676500999999995</Y></Point>
+						<Point><X>-32.973519</X><Y>-60.677854999999994</Y></Point>
+						<Point><X>-32.973274</X><Y>-60.67921900000001</Y></Point>
+						<Point><X>-32.97303</X><Y>-60.680579</Y></Point>
+						<Point><X>-32.972908</X><Y>-60.681259</Y></Point>
+						<Point><X>-32.972786</X><Y>-60.68193800000001</Y></Point>
+						<Point><X>-32.972664</X><Y>-60.68261699999999</Y></Point>
+						<Point><X>-32.972542</X><Y>-60.683297</Y></Point>
+						<Point><X>-32.972419</X><Y>-60.683982</Y></Point>
+						<Point><X>-32.972297</X><Y>-60.684661</Y></Point>
+						<Point><X>-32.972054</X><Y>-60.686018</Y></Point>
+						<Point><X>-32.971829</X><Y>-60.68727</Y></Point>
+						<Point><X>-32.9713</X><Y>-60.69006799999999</Y></Point>
+						<Point><X>-32.970544</X><Y>-60.691532</Y></Point>
 						<Point><X>-32.970625</X><Y>-60.701041</Y></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 
 				</GISRoute>
 				<GISPoint>
-					<Id>1628879119198</Id>
-					<Name><![CDATA[gisPoint13]]></Name>
+					<Id>1628879119227</Id>
+					<Name><![CDATA[gisPoint42]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -2178,8 +2303,1023 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LineWidth>1</LineWidth>
 					<LineStyle>SOLID</LineStyle>
 					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.970625</Latitude>	
-					<Longitude>-60.701041</Longitude>
+					<Latitude>-32.975017</Latitude>	
+					<Longitude>-60.669507</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119186" TargetId="1628879119227">
+
+					<Id>1628879119421</Id>
+					<Name><![CDATA[CicloviasYBicisendas_951]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
+						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119186</Id>
+					<Name><![CDATA[gisPoint1]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.974848</Latitude>	
+					<Longitude>-60.669465</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119275" TargetId="1628879119186">
+
+					<Id>1628879119374</Id>
+					<Name><![CDATA[CicloviasYBicisendas_872]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
+						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119275</Id>
+					<Name><![CDATA[gisPoint90]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.974881</Latitude>	
+					<Longitude>-60.669285</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119263" TargetId="1628879119275">
+
+					<Id>1628879119435</Id>
+					<Name><![CDATA[CicloviasYBicisendas_822]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
+						<Point><X>-32.96463500000001</X><Y>-60.66678300000001</Y></Point>
+						<Point><X>-32.965187</X><Y>-60.666916</Y></Point>
+						<Point><X>-32.965339</X><Y>-60.66695300000001</Y></Point>
+						<Point><X>-32.965784</X><Y>-60.667061</Y></Point>
+						<Point><X>-32.966928</X><Y>-60.667339000000005</Y></Point>
+						<Point><X>-32.968076</X><Y>-60.667619</Y></Point>
+						<Point><X>-32.968652</X><Y>-60.667759</Y></Point>
+						<Point><X>-32.969232</X><Y>-60.66790000000001</Y></Point>
+						<Point><X>-32.969717</X><Y>-60.66801799999999</Y></Point>
+						<Point><X>-32.96988</X><Y>-60.668057999999995</Y></Point>
+						<Point><X>-32.970378</X><Y>-60.66818</Y></Point>
+						<Point><X>-32.970951</X><Y>-60.66832</Y></Point>
+						<Point><X>-32.971526000000004</X><Y>-60.668462000000005</Y></Point>
+						<Point><X>-32.972669</X><Y>-60.668742</Y></Point>
+						<Point><X>-32.973819</X><Y>-60.669025000000005</Y></Point>
+						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119263</Id>
+					<Name><![CDATA[gisPoint78]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.963556</Latitude>	
+					<Longitude>-60.66651900000001</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute TargetId="1628879119263">
+
+					<Id>1628879119494</Id>
+					<Name><![CDATA[CicloviasYBicisendas_769]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.964932</X><Y>-60.65878699999999</Y></Point>
+						<Point><X>-32.964714</X><Y>-60.660015</Y></Point>
+						<Point><X>-32.964472</X><Y>-60.66137400000001</Y></Point>
+						<Point><X>-32.96423</X><Y>-60.662734</Y></Point>
+						<Point><X>-32.964173</X><Y>-60.663056000000005</Y></Point>
+						<Point><X>-32.963987</X><Y>-60.664097</Y></Point>
+						<Point><X>-32.963745</X><Y>-60.665454999999994</Y></Point>
+						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119263" TargetId="1628879119235">
+
+					<Id>1628879119448</Id>
+					<Name><![CDATA[CicloviasYBicisendas_854]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
+						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119235</Id>
+					<Name><![CDATA[gisPoint50]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.963523</Latitude>	
+					<Longitude>-60.66669900000001</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119186" TargetId="1628879119235">
+
+					<Id>1628879119381</Id>
+					<Name><![CDATA[CicloviasYBicisendas_870]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
+						<Point><X>-32.973787</X><Y>-60.669204</Y></Point>
+						<Point><X>-32.972637</X><Y>-60.668921</Y></Point>
+						<Point><X>-32.972061</X><Y>-60.668779</Y></Point>
+						<Point><X>-32.971494</X><Y>-60.668641</Y></Point>
+						<Point><X>-32.970919</X><Y>-60.668499</Y></Point>
+						<Point><X>-32.970346</X><Y>-60.668359</Y></Point>
+						<Point><X>-32.969765</X><Y>-60.66821800000001</Y></Point>
+						<Point><X>-32.9692</X><Y>-60.66808000000001</Y></Point>
+						<Point><X>-32.968621</X><Y>-60.667939</Y></Point>
+						<Point><X>-32.96812</X><Y>-60.667817</Y></Point>
+						<Point><X>-32.966899</X><Y>-60.66752000000001</Y></Point>
+						<Point><X>-32.966667</X><Y>-60.667464</Y></Point>
+						<Point><X>-32.96592</X><Y>-60.66728199999999</Y></Point>
+						<Point><X>-32.965752</X><Y>-60.667241</Y></Point>
+						<Point><X>-32.965153</X><Y>-60.667096</Y></Point>
+						<Point><X>-32.964605</X><Y>-60.666963</Y></Point>
+						<Point><X>-32.964117</X><Y>-60.66684399999999</Y></Point>
+						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119192" TargetId="1628879119235">
+
+					<Id>1628879119405</Id>
+					<Name><![CDATA[CicloviasYBicisendas_783]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
+						<Point><X>-32.96302</X><Y>-60.669515</Y></Point>
+						<Point><X>-32.963263</X><Y>-60.668155</Y></Point>
+						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119192</Id>
+					<Name><![CDATA[gisPoint7]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.962795</Latitude>	
+					<Longitude>-60.67077200000001</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119192" TargetId="1628879119189">
+
+					<Id>1628879119486</Id>
+					<Name><![CDATA[CicloviasYBicisendas_831]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
+						<Point><X>-32.963385</X><Y>-60.67092099999999</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119189</Id>
+					<Name><![CDATA[gisPoint4]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.963385</Latitude>	
+					<Longitude>-60.67092099999999</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119234" TargetId="1628879119192">
+
+					<Id>1628879119496</Id>
+					<Name><![CDATA[CicloviasYBicisendas_859]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
+						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119234</Id>
+					<Name><![CDATA[gisPoint49]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.962641</Latitude>	
+					<Longitude>-60.670733000000006</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119234">
+
+					<Id>1628879119470</Id>
+					<Name><![CDATA[CicloviasYBicisendas_858]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
+						<Point><X>-32.962865</X><Y>-60.669477</Y></Point>
+						<Point><X>-32.963109</X><Y>-60.668116</Y></Point>
+						<Point><X>-32.963391</X><Y>-60.666557000000005</Y></Point>
+						<Point><X>-32.963594</X><Y>-60.665417</Y></Point>
+						<Point><X>-32.963836</X><Y>-60.664059</Y></Point>
+						<Point><X>-32.964013</X><Y>-60.66306300000001</Y></Point>
+						<Point><X>-32.964078</X><Y>-60.662696000000004</Y></Point>
+						<Point><X>-32.96432</X><Y>-60.661336</Y></Point>
+						<Point><X>-32.964562</X><Y>-60.659977000000005</Y></Point>
+						<Point><X>-32.964781</X><Y>-60.658747</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119234" TargetId="1628879119205">
+
+					<Id>1628879119540</Id>
+					<Name><![CDATA[CicloviasYBicisendas_334]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
+						<Point><X>-32.96158</X><Y>-60.670465</Y></Point>
+						<Point><X>-32.960946</X><Y>-60.670305</Y></Point>
+						<Point><X>-32.960435</X><Y>-60.670176</Y></Point>
+						<Point><X>-32.959857</X><Y>-60.67003</Y></Point>
+						<Point><X>-32.959283</X><Y>-60.66988500000001</Y></Point>
+						<Point><X>-32.958134</X><Y>-60.66959500000001</Y></Point>
+						<Point><X>-32.957563</X><Y>-60.66945100000001</Y></Point>
+						<Point><X>-32.956988</X><Y>-60.669306</Y></Point>
+						<Point><X>-32.956416</X><Y>-60.66916100000001</Y></Point>
+						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119205</Id>
+					<Name><![CDATA[gisPoint20]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.955947</Latitude>	
+					<Longitude>-60.669043</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119205" TargetId="1628879119277">
+
+					<Id>1628879119417</Id>
+					<Name><![CDATA[CicloviasYBicisendas_461]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
+						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119277</Id>
+					<Name><![CDATA[gisPoint92]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.955973</Latitude>	
+					<Longitude>-60.669269</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute TargetId="1628879119277">
+
+					<Id>1628879119389</Id>
+					<Name><![CDATA[CicloviasYBicisendas_460]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.955857</X><Y>-60.66924100000001</Y></Point>
+						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119251" TargetId="1628879119277">
+
+					<Id>1628879119469</Id>
+					<Name><![CDATA[CicloviasYBicisendas_875]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.963348</X><Y>-60.671125</Y></Point>
+						<Point><X>-32.962758</X><Y>-60.67097600000001</Y></Point>
+						<Point><X>-32.962604</X><Y>-60.670938</Y></Point>
+						<Point><X>-32.961543</X><Y>-60.670671</Y></Point>
+						<Point><X>-32.960397</X><Y>-60.670384</Y></Point>
+						<Point><X>-32.959245</X><Y>-60.67009399999999</Y></Point>
+						<Point><X>-32.958671</X><Y>-60.66994900000001</Y></Point>
+						<Point><X>-32.958096000000005</X><Y>-60.669805</Y></Point>
+						<Point><X>-32.957525</X><Y>-60.669662</Y></Point>
+						<Point><X>-32.95695</X><Y>-60.669518</Y></Point>
+						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119251</Id>
+					<Name><![CDATA[gisPoint66]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.963348</Latitude>	
+					<Longitude>-60.671125</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute TargetId="1628879119277">
+
+					<Id>1628879119548</Id>
+					<Name><![CDATA[CicloviasYBicisendas_996]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.95866934897849</X><Y>-60.69258919756807</Y></Point>
+						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1628879119205">
+
+					<Id>1628879119450</Id>
+					<Name><![CDATA[CicloviasYBicisendas_459]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.955829</X><Y>-60.66901299999999</Y></Point>
+						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119205">
+
+					<Id>1628879119520</Id>
+					<Name><![CDATA[CicloviasYBicisendas_260]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
+						<Point><X>-32.955903</X><Y>-60.66866799999999</Y></Point>
+						<Point><X>-32.95579</X><Y>-60.66769000000001</Y></Point>
+						<Point><X>-32.955619</X><Y>-60.666225000000004</Y></Point>
+						<Point><X>-32.955448</X><Y>-60.664747</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119275" TargetId="1628879119210">
+
+					<Id>1628879119392</Id>
+					<Name><![CDATA[CicloviasYBicisendas_871]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
+						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119210</Id>
+					<Name><![CDATA[gisPoint25]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.975049</Latitude>	
+					<Longitude>-60.669329</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119210" TargetId="1628879119227">
+
+					<Id>1628879119526</Id>
+					<Name><![CDATA[CicloviasYBicisendas_873]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
+						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119210" TargetId="1628879119247">
+
+					<Id>1628879119385</Id>
+					<Name><![CDATA[CicloviasYBicisendas_836]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
+						<Point><X>-32.975227</X><Y>-60.66833700000001</Y></Point>
+						<Point><X>-32.975472</X><Y>-60.666972</Y></Point>
+						<Point><X>-32.975715</X><Y>-60.665620000000004</Y></Point>
+						<Point><X>-32.975839</X><Y>-60.664933</Y></Point>
+						<Point><X>-32.975961</X><Y>-60.66425099999999</Y></Point>
+						<Point><X>-32.976205</X><Y>-60.662893</Y></Point>
+						<Point><X>-32.976431</X><Y>-60.661671</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119247</Id>
+					<Name><![CDATA[gisPoint62]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.976431</Latitude>	
+					<Longitude>-60.661671</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119210" TargetId="1628879119236">
+
+					<Id>1628879119518</Id>
+					<Name><![CDATA[CicloviasYBicisendas_828]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
+						<Point><X>-32.976114</X><Y>-60.669587</Y></Point>
+						<Point><X>-32.976686</X><Y>-60.669726000000004</Y></Point>
+						<Point><X>-32.977265</X><Y>-60.669866</Y></Point>
+						<Point><X>-32.97841</X><Y>-60.670144</Y></Point>
+						<Point><X>-32.97956</X><Y>-60.670423</Y></Point>
+						<Point><X>-32.980705</X><Y>-60.670701</Y></Point>
+						<Point><X>-32.981857</X><Y>-60.670986</Y></Point>
+						<Point><X>-32.983019</X><Y>-60.67126199999999</Y></Point>
+						<Point><X>-32.984152</X><Y>-60.671537</Y></Point>
+						<Point><X>-32.99158072448814</X><Y>-60.67335745892148</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119236</Id>
+					<Name><![CDATA[gisPoint51]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.99158072448814</Latitude>	
+					<Longitude>-60.67335745892148</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119217" TargetId="1628879119275">
+
+					<Id>1628879119550</Id>
+					<Name><![CDATA[CicloviasYBicisendas_943]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.976248000000005</X><Y>-60.66163</Y></Point>
+						<Point><X>-32.976037</X><Y>-60.662851</Y></Point>
+						<Point><X>-32.975793</X><Y>-60.66420899999999</Y></Point>
+						<Point><X>-32.975547</X><Y>-60.665577</Y></Point>
+						<Point><X>-32.975304</X><Y>-60.66693</Y></Point>
+						<Point><X>-32.975059</X><Y>-60.66829500000001</Y></Point>
+						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119217</Id>
+					<Name><![CDATA[gisPoint32]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.976248000000005</Latitude>	
+					<Longitude>-60.66163</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1629568670953" TargetId="1628879119186">
+
+					<Id>1628879119500</Id>
+					<Name><![CDATA[CicloviasYBicisendas_204]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.9708316070228</X><Y>-60.710928886131384</Y></Point>
+						<Point><X>-32.97037</X><Y>-60.691566</Y></Point>
+						<Point><X>-32.971177</X><Y>-60.689987</Y></Point>
+						<Point><X>-32.971622</X><Y>-60.687438</Y></Point>
+						<Point><X>-32.971657</X><Y>-60.687245</Y></Point>
+						<Point><X>-32.971884</X><Y>-60.685976</Y></Point>
+						<Point><X>-32.972126</X><Y>-60.68463100000001</Y></Point>
+						<Point><X>-32.972248</X><Y>-60.683951</Y></Point>
+						<Point><X>-32.97237</X><Y>-60.683274</Y></Point>
+						<Point><X>-32.972492</X><Y>-60.682590000000005</Y></Point>
+						<Point><X>-32.972614</X><Y>-60.681915</Y></Point>
+						<Point><X>-32.972736</X><Y>-60.681232</Y></Point>
+						<Point><X>-32.972858</X><Y>-60.680553</Y></Point>
+						<Point><X>-32.973103</X><Y>-60.679187999999996</Y></Point>
+						<Point><X>-32.973348</X><Y>-60.677823</Y></Point>
+						<Point><X>-32.973592</X><Y>-60.676464</Y></Point>
+						<Point><X>-32.973835</X><Y>-60.675113</Y></Point>
+						<Point><X>-32.974061</X><Y>-60.673854000000006</Y></Point>
+						<Point><X>-32.974102</X><Y>-60.67362700000001</Y></Point>
+						<Point><X>-32.974256000000004</X><Y>-60.67276400000001</Y></Point>
+						<Point><X>-32.974324</X><Y>-60.672385</Y></Point>
+						<Point><X>-32.974447</X><Y>-60.671702999999994</Y></Point>
+						<Point><X>-32.974569</X><Y>-60.67102400000001</Y></Point>
+						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute SourceId="1628879119227" TargetId="1628879119260">
+
+					<Id>1628879119506</Id>
+					<Name><![CDATA[CicloviasYBicisendas_876]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
+						<Point><X>-32.976082</X><Y>-60.669764</Y></Point>
+						<Point><X>-32.977233</X><Y>-60.670043</Y></Point>
+						<Point><X>-32.978378</X><Y>-60.67032</Y></Point>
+						<Point><X>-32.97953</X><Y>-60.67059900000001</Y></Point>
+						<Point><X>-32.980674</X><Y>-60.67087599999999</Y></Point>
+						<Point><X>-32.981821</X><Y>-60.671154</Y></Point>
+						<Point><X>-32.983016</X><Y>-60.671443</Y></Point>
+						<Point><X>-32.984047000000004</X><Y>-60.671693</Y></Point>
+						<Point><X>-32.991551726546014</X><Y>-60.67351745892148</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1628879119260</Id>
+					<Name><![CDATA[gisPoint75]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.991551726546014</Latitude>	
+					<Longitude>-60.67351745892148</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119260">
+
+					<Id>1629568370449</Id>
+					<Name><![CDATA[gisRoute9]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.991551726546014</X><Y>-60.67351745892148</Y></Point>
+						<Point><X>-32.99031537034782</X><Y>-60.63680140241732</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISPoint>
+					<Id>1629568670953</Id>
+					<Name><![CDATA[gisPoint2]]></Name>
+					<X>240</X><Y>376</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.9708316070228</Latitude>	
+					<Longitude>-60.710928886131384</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
@@ -2241,7 +3381,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Point><X>-32.98327</X><Y>-60.66326900000001</Y></Point>
 						<Point><X>-32.984018</X><Y>-60.663457</Y></Point>
 						<Point><X>-32.984378</X><Y>-60.663548</Y></Point>
-						<Point><X>-32.985655</X><Y>-60.66387</Y></Point>
+						<Point><X>-32.99113576224912</X><Y>-60.665297640427085</Y></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 
@@ -2261,11 +3401,34 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LineWidth>1</LineWidth>
 					<LineStyle>SOLID</LineStyle>
 					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.985655</Latitude>	
-					<Longitude>-60.66387</Longitude>
+					<Latitude>-32.99113576224912</Latitude>	
+					<Longitude>-60.665297640427085</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
+				<GISRoute SourceId="1628879119243">
+
+					<Id>1629568438068</Id>
+					<Name><![CDATA[gisRoute10]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.99113576224912</X><Y>-60.665297640427085</Y></Point>
+						<Point><X>-33.00933437575462</X><Y>-60.66469529999267</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
 			</Presentation>
 
 						</GISNetwork>
@@ -2712,92 +3875,6 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 
 						</GISNetwork>
 						<GISNetwork>
-							<Id>1628879120145</Id>
-							<Name><![CDATA[network12]]></Name>
-							<X>0</X><Y>0</Y>
-							<Label><X>10</X><Y>0</Y></Label>
-							<PublicFlag>true</PublicFlag>
-							<PresentationFlag>true</PresentationFlag>
-							<ShowLabel>false</ShowLabel>
-							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-
-			<Presentation>
-				<GISPoint>
-					<Id>1628879119246</Id>
-					<Name><![CDATA[gisPoint61]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.962968</Latitude>	
-					<Longitude>-60.70140000000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119246" TargetId="1628879119284">
-
-					<Id>1628879119498</Id>
-					<Name><![CDATA[CicloviasYBicisendas_85]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962968</X><Y>-60.70140000000001</Y></Point>
-						<Point><X>-32.963671</X><Y>-60.701373</Y></Point>
-						<Point><X>-32.964843</X><Y>-60.701321</Y></Point>
-						<Point><X>-32.965407</X><Y>-60.701299</Y></Point>
-						<Point><X>-32.966008</X><Y>-60.701276</Y></Point>
-						<Point><X>-32.96664</X><Y>-60.701255</Y></Point>
-						<Point><X>-32.967174</X><Y>-60.701239</Y></Point>
-						<Point><X>-32.968339</X><Y>-60.701189</Y></Point>
-						<Point><X>-32.968901</X><Y>-60.701168</Y></Point>
-						<Point><X>-32.969512</X><Y>-60.701138</Y></Point>
-						<Point><X>-32.970636</X><Y>-60.701091000000005</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119284</Id>
-					<Name><![CDATA[gisPoint99]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.970636</Latitude>	
-					<Longitude>-60.701091000000005</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-			</Presentation>
-
-						</GISNetwork>
-						<GISNetwork>
 							<Id>1628879120156</Id>
 							<Name><![CDATA[network13]]></Name>
 							<X>0</X><Y>0</Y>
@@ -2874,88 +3951,6 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ReadOnly>false</ReadOnly>
 					<Latitude>-32.966277</Latitude>	
 					<Longitude>-60.624255</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-			</Presentation>
-
-						</GISNetwork>
-						<GISNetwork>
-							<Id>1628879120167</Id>
-							<Name><![CDATA[network14]]></Name>
-							<X>0</X><Y>0</Y>
-							<Label><X>10</X><Y>0</Y></Label>
-							<PublicFlag>true</PublicFlag>
-							<PresentationFlag>true</PresentationFlag>
-							<ShowLabel>false</ShowLabel>
-							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-
-			<Presentation>
-				<GISPoint>
-					<Id>1628879119276</Id>
-					<Name><![CDATA[gisPoint91]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.959441</Latitude>	
-					<Longitude>-60.711898</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119280" TargetId="1628879119276">
-
-					<Id>1628879119403</Id>
-					<Name><![CDATA[CicloviasYBicisendas_1017]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.959655000000005</X><Y>-60.71989800000001</Y></Point>
-						<Point><X>-32.959623</X><Y>-60.718755</Y></Point>
-						<Point><X>-32.959572</X><Y>-60.716479</Y></Point>
-						<Point><X>-32.959535</X><Y>-60.71515900000001</Y></Point>
-						<Point><X>-32.959507</X><Y>-60.714188</Y></Point>
-						<Point><X>-32.959475</X><Y>-60.713069</Y></Point>
-						<Point><X>-32.959441</X><Y>-60.711898</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119280</Id>
-					<Name><![CDATA[gisPoint95]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.959655000000005</Latitude>	
-					<Longitude>-60.71989800000001</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
@@ -3630,7 +4625,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
-				<GISRoute SourceId="1628879119270" TargetId="1628879119230">
+				<GISRoute TargetId="1628879119230">
 
 					<Id>1628879119414</Id>
 					<Name><![CDATA[CicloviasYBicisendas_983]]></Name>
@@ -3647,62 +4642,12 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<LineStyle>DASHED</LineStyle>
 					<ReadOnly>false</ReadOnly>
 					<Points>
-						<Point><X>-32.959471</X><Y>-60.71990400000001</Y></Point>
-						<Point><X>-32.959439</X><Y>-60.71876000000001</Y></Point>
-						<Point><X>-32.959388</X><Y>-60.716484</Y></Point>
-						<Point><X>-32.959351</X><Y>-60.715164</Y></Point>
-						<Point><X>-32.959323</X><Y>-60.714193</Y></Point>
-						<Point><X>-32.959292</X><Y>-60.713074999999996</Y></Point>
-						<Point><X>-32.959258</X><Y>-60.71190299999999</Y></Point>
-						<Point><X>-32.959252</X><Y>-60.71175800000001</Y></Point>
-						<Point><X>-32.959224</X><Y>-60.710626</Y></Point>
-						<Point><X>-32.959195</X><Y>-60.70948299999999</Y></Point>
-						<Point><X>-32.959167</X><Y>-60.708346</Y></Point>
-						<Point><X>-32.959138</X><Y>-60.707204000000004</Y></Point>
-						<Point><X>-32.959109</X><Y>-60.706059</Y></Point>
-						<Point><X>-32.959081</X><Y>-60.704918</Y></Point>
-						<Point><X>-32.959052</X><Y>-60.70376900000001</Y></Point>
-						<Point><X>-32.959023</X><Y>-60.702622000000005</Y></Point>
-						<Point><X>-32.958995</X><Y>-60.70152000000001</Y></Point>
-						<Point><X>-32.958825</X><Y>-60.700446</Y></Point>
-						<Point><X>-32.958788000000006</X><Y>-60.699119</Y></Point>
-						<Point><X>-32.958756</X><Y>-60.697838000000004</Y></Point>
-						<Point><X>-32.958723</X><Y>-60.696549</Y></Point>
-						<Point><X>-32.95869</X><Y>-60.69526199999999</Y></Point>
-						<Point><X>-32.958657</X><Y>-60.69397200000001</Y></Point>
-						<Point><X>-32.958622</X><Y>-60.693031000000005</Y></Point>
-						<Point><X>-32.958508</X><Y>-60.69206299999999</Y></Point>
-						<Point><X>-32.958397</X><Y>-60.69111</Y></Point>
-						<Point><X>-32.958227</X><Y>-60.68964400000001</Y></Point>
-						<Point><X>-32.958189</X><Y>-60.689317</Y></Point>
-						<Point><X>-32.958057</X><Y>-60.68817700000001</Y></Point>
-						<Point><X>-32.957887</X><Y>-60.68671200000001</Y></Point>
-						<Point><X>-32.957716</X><Y>-60.68523900000001</Y></Point>
+						<Point><X>-32.95866934897849</X><Y>-60.69269901606246</Y></Point>
 						<Point><X>-32.95756</X><Y>-60.683896000000004</Y></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 
 				</GISRoute>
-				<GISPoint>
-					<Id>1628879119270</Id>
-					<Name><![CDATA[gisPoint85]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.959471</Latitude>	
-					<Longitude>-60.71990400000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
 				<GISRoute SourceId="1628879119209" TargetId="1628879119230">
 
 					<Id>1628879119465</Id>
@@ -3809,1197 +4754,6 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Bidirectional>true</Bidirectional>
 
 				</GISRoute>
-			</Presentation>
-
-						</GISNetwork>
-						<GISNetwork>
-							<Id>1629123403075</Id>
-							<Name><![CDATA[network20]]></Name>
-							<X>0</X><Y>0</Y>
-							<Label><X>10</X><Y>0</Y></Label>
-							<PublicFlag>true</PublicFlag>
-							<PresentationFlag>true</PresentationFlag>
-							<ShowLabel>false</ShowLabel>
-							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-
-			<Presentation>
-				<GISRoute TargetId="1628879119263">
-
-					<Id>1628879119494</Id>
-					<Name><![CDATA[CicloviasYBicisendas_769]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.964932</X><Y>-60.65878699999999</Y></Point>
-						<Point><X>-32.964714</X><Y>-60.660015</Y></Point>
-						<Point><X>-32.964472</X><Y>-60.66137400000001</Y></Point>
-						<Point><X>-32.96423</X><Y>-60.662734</Y></Point>
-						<Point><X>-32.964173</X><Y>-60.663056000000005</Y></Point>
-						<Point><X>-32.963987</X><Y>-60.664097</Y></Point>
-						<Point><X>-32.963745</X><Y>-60.665454999999994</Y></Point>
-						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119263</Id>
-					<Name><![CDATA[gisPoint78]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.963556</Latitude>	
-					<Longitude>-60.66651900000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119263" TargetId="1628879119275">
-
-					<Id>1628879119435</Id>
-					<Name><![CDATA[CicloviasYBicisendas_822]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
-						<Point><X>-32.96463500000001</X><Y>-60.66678300000001</Y></Point>
-						<Point><X>-32.965187</X><Y>-60.666916</Y></Point>
-						<Point><X>-32.965339</X><Y>-60.66695300000001</Y></Point>
-						<Point><X>-32.965784</X><Y>-60.667061</Y></Point>
-						<Point><X>-32.966928</X><Y>-60.667339000000005</Y></Point>
-						<Point><X>-32.968076</X><Y>-60.667619</Y></Point>
-						<Point><X>-32.968652</X><Y>-60.667759</Y></Point>
-						<Point><X>-32.969232</X><Y>-60.66790000000001</Y></Point>
-						<Point><X>-32.969717</X><Y>-60.66801799999999</Y></Point>
-						<Point><X>-32.96988</X><Y>-60.668057999999995</Y></Point>
-						<Point><X>-32.970378</X><Y>-60.66818</Y></Point>
-						<Point><X>-32.970951</X><Y>-60.66832</Y></Point>
-						<Point><X>-32.971526000000004</X><Y>-60.668462000000005</Y></Point>
-						<Point><X>-32.972669</X><Y>-60.668742</Y></Point>
-						<Point><X>-32.973819</X><Y>-60.669025000000005</Y></Point>
-						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119275</Id>
-					<Name><![CDATA[gisPoint90]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.974881</Latitude>	
-					<Longitude>-60.669285</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119275" TargetId="1628879119186">
-
-					<Id>1628879119374</Id>
-					<Name><![CDATA[CicloviasYBicisendas_872]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
-						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119186</Id>
-					<Name><![CDATA[gisPoint1]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.974848</Latitude>	
-					<Longitude>-60.669465</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119186" TargetId="1628879119235">
-
-					<Id>1628879119381</Id>
-					<Name><![CDATA[CicloviasYBicisendas_870]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
-						<Point><X>-32.973787</X><Y>-60.669204</Y></Point>
-						<Point><X>-32.972637</X><Y>-60.668921</Y></Point>
-						<Point><X>-32.972061</X><Y>-60.668779</Y></Point>
-						<Point><X>-32.971494</X><Y>-60.668641</Y></Point>
-						<Point><X>-32.970919</X><Y>-60.668499</Y></Point>
-						<Point><X>-32.970346</X><Y>-60.668359</Y></Point>
-						<Point><X>-32.969765</X><Y>-60.66821800000001</Y></Point>
-						<Point><X>-32.9692</X><Y>-60.66808000000001</Y></Point>
-						<Point><X>-32.968621</X><Y>-60.667939</Y></Point>
-						<Point><X>-32.96812</X><Y>-60.667817</Y></Point>
-						<Point><X>-32.966899</X><Y>-60.66752000000001</Y></Point>
-						<Point><X>-32.966667</X><Y>-60.667464</Y></Point>
-						<Point><X>-32.96592</X><Y>-60.66728199999999</Y></Point>
-						<Point><X>-32.965752</X><Y>-60.667241</Y></Point>
-						<Point><X>-32.965153</X><Y>-60.667096</Y></Point>
-						<Point><X>-32.964605</X><Y>-60.666963</Y></Point>
-						<Point><X>-32.964117</X><Y>-60.66684399999999</Y></Point>
-						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119235</Id>
-					<Name><![CDATA[gisPoint50]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.963523</Latitude>	
-					<Longitude>-60.66669900000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119192" TargetId="1628879119235">
-
-					<Id>1628879119405</Id>
-					<Name><![CDATA[CicloviasYBicisendas_783]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
-						<Point><X>-32.96302</X><Y>-60.669515</Y></Point>
-						<Point><X>-32.963263</X><Y>-60.668155</Y></Point>
-						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119192</Id>
-					<Name><![CDATA[gisPoint7]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.962795</Latitude>	
-					<Longitude>-60.67077200000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119192" TargetId="1628879119189">
-
-					<Id>1628879119486</Id>
-					<Name><![CDATA[CicloviasYBicisendas_831]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
-						<Point><X>-32.963385</X><Y>-60.67092099999999</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119189</Id>
-					<Name><![CDATA[gisPoint4]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.963385</Latitude>	
-					<Longitude>-60.67092099999999</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119234" TargetId="1628879119192">
-
-					<Id>1628879119496</Id>
-					<Name><![CDATA[CicloviasYBicisendas_859]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
-						<Point><X>-32.962795</X><Y>-60.67077200000001</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119234</Id>
-					<Name><![CDATA[gisPoint49]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.962641</Latitude>	
-					<Longitude>-60.670733000000006</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119234">
-
-					<Id>1628879119470</Id>
-					<Name><![CDATA[CicloviasYBicisendas_858]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
-						<Point><X>-32.962865</X><Y>-60.669477</Y></Point>
-						<Point><X>-32.963109</X><Y>-60.668116</Y></Point>
-						<Point><X>-32.963391</X><Y>-60.666557000000005</Y></Point>
-						<Point><X>-32.963594</X><Y>-60.665417</Y></Point>
-						<Point><X>-32.963836</X><Y>-60.664059</Y></Point>
-						<Point><X>-32.964013</X><Y>-60.66306300000001</Y></Point>
-						<Point><X>-32.964078</X><Y>-60.662696000000004</Y></Point>
-						<Point><X>-32.96432</X><Y>-60.661336</Y></Point>
-						<Point><X>-32.964562</X><Y>-60.659977000000005</Y></Point>
-						<Point><X>-32.964781</X><Y>-60.658747</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119234" TargetId="1628879119205">
-
-					<Id>1628879119540</Id>
-					<Name><![CDATA[CicloviasYBicisendas_334]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.962641</X><Y>-60.670733000000006</Y></Point>
-						<Point><X>-32.96158</X><Y>-60.670465</Y></Point>
-						<Point><X>-32.960946</X><Y>-60.670305</Y></Point>
-						<Point><X>-32.960435</X><Y>-60.670176</Y></Point>
-						<Point><X>-32.959857</X><Y>-60.67003</Y></Point>
-						<Point><X>-32.959283</X><Y>-60.66988500000001</Y></Point>
-						<Point><X>-32.958134</X><Y>-60.66959500000001</Y></Point>
-						<Point><X>-32.957563</X><Y>-60.66945100000001</Y></Point>
-						<Point><X>-32.956988</X><Y>-60.669306</Y></Point>
-						<Point><X>-32.956416</X><Y>-60.66916100000001</Y></Point>
-						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119205</Id>
-					<Name><![CDATA[gisPoint20]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.955947</Latitude>	
-					<Longitude>-60.669043</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119205" TargetId="1628879119277">
-
-					<Id>1628879119417</Id>
-					<Name><![CDATA[CicloviasYBicisendas_461]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
-						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119277</Id>
-					<Name><![CDATA[gisPoint92]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.955973</Latitude>	
-					<Longitude>-60.669269</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute TargetId="1628879119277">
-
-					<Id>1628879119389</Id>
-					<Name><![CDATA[CicloviasYBicisendas_460]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.955857</X><Y>-60.66924100000001</Y></Point>
-						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119251" TargetId="1628879119277">
-
-					<Id>1628879119469</Id>
-					<Name><![CDATA[CicloviasYBicisendas_875]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.963348</X><Y>-60.671125</Y></Point>
-						<Point><X>-32.962758</X><Y>-60.67097600000001</Y></Point>
-						<Point><X>-32.962604</X><Y>-60.670938</Y></Point>
-						<Point><X>-32.961543</X><Y>-60.670671</Y></Point>
-						<Point><X>-32.960397</X><Y>-60.670384</Y></Point>
-						<Point><X>-32.959245</X><Y>-60.67009399999999</Y></Point>
-						<Point><X>-32.958671</X><Y>-60.66994900000001</Y></Point>
-						<Point><X>-32.958096000000005</X><Y>-60.669805</Y></Point>
-						<Point><X>-32.957525</X><Y>-60.669662</Y></Point>
-						<Point><X>-32.95695</X><Y>-60.669518</Y></Point>
-						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119251</Id>
-					<Name><![CDATA[gisPoint66]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.963348</Latitude>	
-					<Longitude>-60.671125</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119238" TargetId="1628879119277">
-
-					<Id>1628879119548</Id>
-					<Name><![CDATA[CicloviasYBicisendas_996]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.959441</X><Y>-60.71189999999999</Y></Point>
-						<Point><X>-32.959437</X><Y>-60.71175</Y></Point>
-						<Point><X>-32.959407</X><Y>-60.71061900000001</Y></Point>
-						<Point><X>-32.959377</X><Y>-60.709476</Y></Point>
-						<Point><X>-32.959347</X><Y>-60.708338</Y></Point>
-						<Point><X>-32.959317</X><Y>-60.707197</Y></Point>
-						<Point><X>-32.959287</X><Y>-60.706052</Y></Point>
-						<Point><X>-32.959257</X><Y>-60.70491100000001</Y></Point>
-						<Point><X>-32.959226</X><Y>-60.70376199999999</Y></Point>
-						<Point><X>-32.959196</X><Y>-60.702615</Y></Point>
-						<Point><X>-32.959167</X><Y>-60.701513000000006</Y></Point>
-						<Point><X>-32.959002</X><Y>-60.700446</Y></Point>
-						<Point><X>-32.958969</X><Y>-60.699248999999995</Y></Point>
-						<Point><X>-32.958968</X><Y>-60.699113</Y></Point>
-						<Point><X>-32.958935</X><Y>-60.69783300000001</Y></Point>
-						<Point><X>-32.958902</X><Y>-60.696543</Y></Point>
-						<Point><X>-32.958869</X><Y>-60.695257</Y></Point>
-						<Point><X>-32.958836</X><Y>-60.693967</Y></Point>
-						<Point><X>-32.958733</X><Y>-60.69302600000001</Y></Point>
-						<Point><X>-32.958724</X><Y>-60.69293199999999</Y></Point>
-						<Point><X>-32.958618</X><Y>-60.692018999999995</Y></Point>
-						<Point><X>-32.95856</X><Y>-60.69151300000001</Y></Point>
-						<Point><X>-32.958344</X><Y>-60.689674</Y></Point>
-						<Point><X>-32.958174</X><Y>-60.688207</Y></Point>
-						<Point><X>-32.958003</X><Y>-60.686741000000005</Y></Point>
-						<Point><X>-32.95783200000001</X><Y>-60.68526800000001</Y></Point>
-						<Point><X>-32.957785</X><Y>-60.684864</Y></Point>
-						<Point><X>-32.957677</X><Y>-60.68392600000001</Y></Point>
-						<Point><X>-32.95765</X><Y>-60.683696</Y></Point>
-						<Point><X>-32.957494</X><Y>-60.682351</Y></Point>
-						<Point><X>-32.957323</X><Y>-60.680885999999994</Y></Point>
-						<Point><X>-32.957315</X><Y>-60.68081200000001</Y></Point>
-						<Point><X>-32.957152</X><Y>-60.679413</Y></Point>
-						<Point><X>-32.956982</X><Y>-60.67795</Y></Point>
-						<Point><X>-32.956844</X><Y>-60.676758</Y></Point>
-						<Point><X>-32.956812</X><Y>-60.676483000000005</Y></Point>
-						<Point><X>-32.956641</X><Y>-60.675012</Y></Point>
-						<Point><X>-32.956471</X><Y>-60.673553</Y></Point>
-						<Point><X>-32.956375</X><Y>-60.67272</Y></Point>
-						<Point><X>-32.956301</X><Y>-60.67208599999999</Y></Point>
-						<Point><X>-32.956131</X><Y>-60.670623</Y></Point>
-						<Point><X>-32.955973</X><Y>-60.669269</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119238</Id>
-					<Name><![CDATA[gisPoint53]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.959441</Latitude>	
-					<Longitude>-60.71189999999999</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute TargetId="1628879119205">
-
-					<Id>1628879119450</Id>
-					<Name><![CDATA[CicloviasYBicisendas_459]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.955829</X><Y>-60.66901299999999</Y></Point>
-						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119205">
-
-					<Id>1628879119520</Id>
-					<Name><![CDATA[CicloviasYBicisendas_260]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.955947</X><Y>-60.669043</Y></Point>
-						<Point><X>-32.955903</X><Y>-60.66866799999999</Y></Point>
-						<Point><X>-32.95579</X><Y>-60.66769000000001</Y></Point>
-						<Point><X>-32.955619</X><Y>-60.666225000000004</Y></Point>
-						<Point><X>-32.955448</X><Y>-60.664747</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119263" TargetId="1628879119235">
-
-					<Id>1628879119448</Id>
-					<Name><![CDATA[CicloviasYBicisendas_854]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.963556</X><Y>-60.66651900000001</Y></Point>
-						<Point><X>-32.963523</X><Y>-60.66669900000001</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119186" TargetId="1628879119227">
-
-					<Id>1628879119421</Id>
-					<Name><![CDATA[CicloviasYBicisendas_951]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
-						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119227</Id>
-					<Name><![CDATA[gisPoint42]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.975017</Latitude>	
-					<Longitude>-60.669507</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119227" TargetId="1628879119187">
-
-					<Id>1628879119367</Id>
-					<Name><![CDATA[CicloviasYBicisendas_950]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
-						<Point><X>-32.974741</X><Y>-60.671046999999994</Y></Point>
-						<Point><X>-32.974497</X><Y>-60.672408</Y></Point>
-						<Point><X>-32.97427</X><Y>-60.673669</Y></Point>
-						<Point><X>-32.97423</X><Y>-60.673896000000006</Y></Point>
-						<Point><X>-32.974007</X><Y>-60.67513600000001</Y></Point>
-						<Point><X>-32.973762</X><Y>-60.676500999999995</Y></Point>
-						<Point><X>-32.973519</X><Y>-60.677854999999994</Y></Point>
-						<Point><X>-32.973274</X><Y>-60.67921900000001</Y></Point>
-						<Point><X>-32.97303</X><Y>-60.680579</Y></Point>
-						<Point><X>-32.972908</X><Y>-60.681259</Y></Point>
-						<Point><X>-32.972786</X><Y>-60.68193800000001</Y></Point>
-						<Point><X>-32.972664</X><Y>-60.68261699999999</Y></Point>
-						<Point><X>-32.972542</X><Y>-60.683297</Y></Point>
-						<Point><X>-32.972419</X><Y>-60.683982</Y></Point>
-						<Point><X>-32.972297</X><Y>-60.684661</Y></Point>
-						<Point><X>-32.972054</X><Y>-60.686018</Y></Point>
-						<Point><X>-32.971829</X><Y>-60.68727</Y></Point>
-						<Point><X>-32.9713</X><Y>-60.69006799999999</Y></Point>
-						<Point><X>-32.970544</X><Y>-60.691532</Y></Point>
-						<Point><X>-32.970598</X><Y>-60.693555</Y></Point>
-						<Point><X>-32.970631</X><Y>-60.694822</Y></Point>
-						<Point><X>-32.970648</X><Y>-60.69545800000001</Y></Point>
-						<Point><X>-32.970679</X><Y>-60.69667700000001</Y></Point>
-						<Point><X>-32.970703</X><Y>-60.69760699999999</Y></Point>
-						<Point><X>-32.970718</X><Y>-60.698172</Y></Point>
-						<Point><X>-32.970742</X><Y>-60.699114</Y></Point>
-						<Point><X>-32.970767</X><Y>-60.70008500000001</Y></Point>
-						<Point><X>-32.970792</X><Y>-60.701062</Y></Point>
-						<Point><X>-32.970824</X><Y>-60.702285999999994</Y></Point>
-						<Point><X>-32.97085</X><Y>-60.70332799999999</Y></Point>
-						<Point><X>-32.97088</X><Y>-60.704462</Y></Point>
-						<Point><X>-32.970909</X><Y>-60.705607</Y></Point>
-						<Point><X>-32.970928</X><Y>-60.706343</Y></Point>
-						<Point><X>-32.971032</X><Y>-60.709768000000004</Y></Point>
-						<Point><X>-32.971046</X><Y>-60.710354</Y></Point>
-						<Point><X>-32.971079</X><Y>-60.711378</Y></Point>
-						<Point><X>-32.971204</X><Y>-60.715844999999995</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119187</Id>
-					<Name><![CDATA[gisPoint2]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.971204</Latitude>	
-					<Longitude>-60.715844999999995</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119227" TargetId="1628879119260">
-
-					<Id>1628879119506</Id>
-					<Name><![CDATA[CicloviasYBicisendas_876]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
-						<Point><X>-32.976082</X><Y>-60.669764</Y></Point>
-						<Point><X>-32.977233</X><Y>-60.670043</Y></Point>
-						<Point><X>-32.978378</X><Y>-60.67032</Y></Point>
-						<Point><X>-32.97953</X><Y>-60.67059900000001</Y></Point>
-						<Point><X>-32.980674</X><Y>-60.67087599999999</Y></Point>
-						<Point><X>-32.981821</X><Y>-60.671154</Y></Point>
-						<Point><X>-32.983016</X><Y>-60.671443</Y></Point>
-						<Point><X>-32.984047000000004</X><Y>-60.671693</Y></Point>
-						<Point><X>-32.985288</X><Y>-60.67198</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119260</Id>
-					<Name><![CDATA[gisPoint75]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.985288</Latitude>	
-					<Longitude>-60.67198</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119210" TargetId="1628879119227">
-
-					<Id>1628879119526</Id>
-					<Name><![CDATA[CicloviasYBicisendas_873]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
-						<Point><X>-32.975017</X><Y>-60.669507</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119210</Id>
-					<Name><![CDATA[gisPoint25]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.975049</Latitude>	
-					<Longitude>-60.669329</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119210" TargetId="1628879119247">
-
-					<Id>1628879119385</Id>
-					<Name><![CDATA[CicloviasYBicisendas_836]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
-						<Point><X>-32.975227</X><Y>-60.66833700000001</Y></Point>
-						<Point><X>-32.975472</X><Y>-60.666972</Y></Point>
-						<Point><X>-32.975715</X><Y>-60.665620000000004</Y></Point>
-						<Point><X>-32.975839</X><Y>-60.664933</Y></Point>
-						<Point><X>-32.975961</X><Y>-60.66425099999999</Y></Point>
-						<Point><X>-32.976205</X><Y>-60.662893</Y></Point>
-						<Point><X>-32.976431</X><Y>-60.661671</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119247</Id>
-					<Name><![CDATA[gisPoint62]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.976431</Latitude>	
-					<Longitude>-60.661671</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119275" TargetId="1628879119210">
-
-					<Id>1628879119392</Id>
-					<Name><![CDATA[CicloviasYBicisendas_871]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
-						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISRoute SourceId="1628879119210" TargetId="1628879119236">
-
-					<Id>1628879119518</Id>
-					<Name><![CDATA[CicloviasYBicisendas_828]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.975049</X><Y>-60.669329</Y></Point>
-						<Point><X>-32.976114</X><Y>-60.669587</Y></Point>
-						<Point><X>-32.976686</X><Y>-60.669726000000004</Y></Point>
-						<Point><X>-32.977265</X><Y>-60.669866</Y></Point>
-						<Point><X>-32.97841</X><Y>-60.670144</Y></Point>
-						<Point><X>-32.97956</X><Y>-60.670423</Y></Point>
-						<Point><X>-32.980705</X><Y>-60.670701</Y></Point>
-						<Point><X>-32.981857</X><Y>-60.670986</Y></Point>
-						<Point><X>-32.983019</X><Y>-60.67126199999999</Y></Point>
-						<Point><X>-32.984152</X><Y>-60.671537</Y></Point>
-						<Point><X>-32.985317</X><Y>-60.67182</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119236</Id>
-					<Name><![CDATA[gisPoint51]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.985317</Latitude>	
-					<Longitude>-60.67182</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119191" TargetId="1628879119186">
-
-					<Id>1628879119500</Id>
-					<Name><![CDATA[CicloviasYBicisendas_204]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.970741</X><Y>-60.71570200000001</Y></Point>
-						<Point><X>-32.970764</X><Y>-60.715569</Y></Point>
-						<Point><X>-32.970836</X><Y>-60.715344</Y></Point>
-						<Point><X>-32.970907</X><Y>-60.71512100000001</Y></Point>
-						<Point><X>-32.970952</X><Y>-60.714942</Y></Point>
-						<Point><X>-32.970983</X><Y>-60.71477000000001</Y></Point>
-						<Point><X>-32.970995</X><Y>-60.714601</Y></Point>
-						<Point><X>-32.970994</X><Y>-60.714394</Y></Point>
-						<Point><X>-32.970991</X><Y>-60.71403900000001</Y></Point>
-						<Point><X>-32.970921</X><Y>-60.711459</Y></Point>
-						<Point><X>-32.970917</X><Y>-60.711287</Y></Point>
-						<Point><X>-32.970896</X><Y>-60.710662</Y></Point>
-						<Point><X>-32.970869</X><Y>-60.709821999999996</Y></Point>
-						<Point><X>-32.970848</X><Y>-60.70918700000001</Y></Point>
-						<Point><X>-32.970807</X><Y>-60.70792600000001</Y></Point>
-						<Point><X>-32.970777</X><Y>-60.706782</Y></Point>
-						<Point><X>-32.970748</X><Y>-60.70563800000001</Y></Point>
-						<Point><X>-32.970717</X><Y>-60.70447000000001</Y></Point>
-						<Point><X>-32.970676</X><Y>-60.702842999999994</Y></Point>
-						<Point><X>-32.970651</X><Y>-60.70191</Y></Point>
-						<Point><X>-32.97063</X><Y>-60.701068</Y></Point>
-						<Point><X>-32.970603</X><Y>-60.70000700000001</Y></Point>
-						<Point><X>-32.97058</X><Y>-60.699124</Y></Point>
-						<Point><X>-32.970556</X><Y>-60.698178</Y></Point>
-						<Point><X>-32.970518</X><Y>-60.696681</Y></Point>
-						<Point><X>-32.970468</X><Y>-60.69479900000001</Y></Point>
-						<Point><X>-32.970435</X><Y>-60.693522</Y></Point>
-						<Point><X>-32.97037</X><Y>-60.691566</Y></Point>
-						<Point><X>-32.971177</X><Y>-60.689987</Y></Point>
-						<Point><X>-32.971622</X><Y>-60.687438</Y></Point>
-						<Point><X>-32.971657</X><Y>-60.687245</Y></Point>
-						<Point><X>-32.971884</X><Y>-60.685976</Y></Point>
-						<Point><X>-32.972126</X><Y>-60.68463100000001</Y></Point>
-						<Point><X>-32.972248</X><Y>-60.683951</Y></Point>
-						<Point><X>-32.97237</X><Y>-60.683274</Y></Point>
-						<Point><X>-32.972492</X><Y>-60.682590000000005</Y></Point>
-						<Point><X>-32.972614</X><Y>-60.681915</Y></Point>
-						<Point><X>-32.972736</X><Y>-60.681232</Y></Point>
-						<Point><X>-32.972858</X><Y>-60.680553</Y></Point>
-						<Point><X>-32.973103</X><Y>-60.679187999999996</Y></Point>
-						<Point><X>-32.973348</X><Y>-60.677823</Y></Point>
-						<Point><X>-32.973592</X><Y>-60.676464</Y></Point>
-						<Point><X>-32.973835</X><Y>-60.675113</Y></Point>
-						<Point><X>-32.974061</X><Y>-60.673854000000006</Y></Point>
-						<Point><X>-32.974102</X><Y>-60.67362700000001</Y></Point>
-						<Point><X>-32.974256000000004</X><Y>-60.67276400000001</Y></Point>
-						<Point><X>-32.974324</X><Y>-60.672385</Y></Point>
-						<Point><X>-32.974447</X><Y>-60.671702999999994</Y></Point>
-						<Point><X>-32.974569</X><Y>-60.67102400000001</Y></Point>
-						<Point><X>-32.974848</X><Y>-60.669465</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119191</Id>
-					<Name><![CDATA[gisPoint6]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.970741</Latitude>	
-					<Longitude>-60.71570200000001</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
-				<GISRoute SourceId="1628879119217" TargetId="1628879119275">
-
-					<Id>1628879119550</Id>
-					<Name><![CDATA[CicloviasYBicisendas_943]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>-32.976248000000005</X><Y>-60.66163</Y></Point>
-						<Point><X>-32.976037</X><Y>-60.662851</Y></Point>
-						<Point><X>-32.975793</X><Y>-60.66420899999999</Y></Point>
-						<Point><X>-32.975547</X><Y>-60.665577</Y></Point>
-						<Point><X>-32.975304</X><Y>-60.66693</Y></Point>
-						<Point><X>-32.975059</X><Y>-60.66829500000001</Y></Point>
-						<Point><X>-32.974881</X><Y>-60.669285</Y></Point>
-					</Points>
-					<Bidirectional>true</Bidirectional>
-
-				</GISRoute>
-				<GISPoint>
-					<Id>1628879119217</Id>
-					<Name><![CDATA[gisPoint32]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>SOLID</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Latitude>-32.976248000000005</Latitude>	
-					<Longitude>-60.66163</Longitude>
-					<Radius>3</Radius>
-					<FillColor>2144175423</FillColor>
-				</GISPoint>
 			</Presentation>
 
 						</GISNetwork>
@@ -5484,6 +5238,491 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			</Presentation>
 
 						</GISNetwork>
+						<GISNetwork>
+							<Id>1629566362154</Id>
+							<Name><![CDATA[network28]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629566336627</Id>
+					<Name><![CDATA[gisRoute]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.87277187242777</X><Y>-60.68926718811231</Y></Point>
+						<Point><X>-32.87689925349398</X><Y>-60.68794936617962</Y></Point>
+						<Point><X>-32.87849020381979</X><Y>-60.68781209306163</Y></Point>
+						<Point><X>-32.878882172704195</X><Y>-60.68783954768523</Y></Point>
+						<Point><X>-32.87959693503107</X><Y>-60.687894456932426</Y></Point>
+						<Point><X>-32.880473087439626</X><Y>-60.68783954768523</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629566437085</Id>
+							<Name><![CDATA[network29]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629566401851</Id>
+					<Name><![CDATA[gisRoute1]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.88600648150505</X><Y>-60.71005033817585</Y></Point>
+						<Point><X>-32.887343666567205</X><Y>-60.70944633645669</Y></Point>
+						<Point><X>-32.889441623152756</X><Y>-60.70832069688919</Y></Point>
+						<Point><X>-32.89181617342072</X><Y>-60.706755783344114</Y></Point>
+						<Point><X>-32.89319937725185</X><Y>-60.70645378248454</Y></Point>
+						<Point><X>-32.89379875887173</X><Y>-60.70634396399015</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629566576991</Id>
+							<Name><![CDATA[network30]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629566541707</Id>
+					<Name><![CDATA[gisRoute2]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.91306902147242</X><Y>-60.69193028660141</Y></Point>
+						<Point><X>-32.91417532072931</X><Y>-60.692095014342996</Y></Point>
+						<Point><X>-32.91479760798528</X><Y>-60.692095014342996</Y></Point>
+						<Point><X>-32.915350748540135</X><Y>-60.691847922730624</Y></Point>
+						<Point><X>-32.91648006643984</X><Y>-60.69143610337666</Y></Point>
+						<Point><X>-32.917862885060245</X><Y>-60.69036537305634</Y></Point>
+						<Point><X>-32.91952223888607</X><Y>-60.68910246037084</Y></Point>
+						<Point><X>-32.921020239923614</X><Y>-60.687729729190956</Y></Point>
+						<Point><X>-32.92242603321746</X><Y>-60.6858902694099</Y></Point>
+						<Point><X>-32.925007103742125</X><Y>-60.682238804471396</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629567728628</Id>
+							<Name><![CDATA[network31]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629567712366</Id>
+					<Name><![CDATA[gisRoute3]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.92198816557004</X><Y>-60.67474369222935</Y></Point>
+						<Point><X>-32.9218959826313</X><Y>-60.670268588582914</Y></Point>
+						<Point><X>-32.921942074112685</X><Y>-60.66939004062778</Y></Point>
+						<Point><X>-32.922449078823334</X><Y>-60.66755058084672</Y></Point>
+						<Point><X>-32.922909989675894</X><Y>-60.66626021353763</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629567759081</Id>
+							<Name><![CDATA[network32]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629567755547</Id>
+					<Name><![CDATA[gisRoute4]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.926528056474176</X><Y>-60.67205313911677</Y></Point>
+						<Point><X>-32.92634369995979</X><Y>-60.66584839418367</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629567867847</Id>
+							<Name><![CDATA[network33]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629567829069</Id>
+					<Name><![CDATA[gisRoute5]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.925537135692686</X><Y>-60.66126347204285</Y></Point>
+						<Point><X>-32.92620543232188</X><Y>-60.65964364925059</Y></Point>
+						<Point><X>-32.927956806435795</X><Y>-60.65623927592446</Y></Point>
+						<Point><X>-32.92887856835985</X><Y>-60.65434490689622</Y></Point>
+						<Point><X>-32.930837280560404</X><Y>-60.65006198561496</Y></Point>
+						<Point><X>-32.93129814771666</X><Y>-60.64934816540141</Y></Point>
+						<Point><X>-32.932542477045224</X><Y>-60.64748125099676</Y></Point>
+						<Point><X>-32.933602447481704</X><Y>-60.64652033917085</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629568164460</Id>
+							<Name><![CDATA[network34]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629568151266</Id>
+					<Name><![CDATA[gisRoute6]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.97953764964795</X><Y>-60.64426906003591</Y></Point>
+						<Point><X>-32.99054564916639</X><Y>-60.64668506691251</Y></Point>
+						<Point><X>-32.99966420737225</X><Y>-60.648661799811556</Y></Point>
+						<Point><X>-33.00302586229689</X><Y>-60.64932071077791</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629568229108</Id>
+							<Name><![CDATA[network35]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629568210335</Id>
+					<Name><![CDATA[gisRoute7]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.990637760525594</X><Y>-60.643610149069566</Y></Point>
+						<Point><X>-32.99478267219155</X><Y>-60.64465342476628</Y></Point>
+						<Point><X>-32.994736618686986</X><Y>-60.642951238103215</Y></Point>
+						<Point><X>-33.00284166534415</X><Y>-60.64262178262005</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629568291664</Id>
+							<Name><![CDATA[network36]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629568287468</Id>
+					<Name><![CDATA[gisRoute8]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-33.002335121741055</X><Y>-60.625215551259046</Y></Point>
+						<Point><X>-33.00307191147497</X><Y>-60.64932071077791</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+						<GISNetwork>
+							<Id>1629568475740</Id>
+							<Name><![CDATA[network37]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRoute>
+
+					<Id>1629568468429</Id>
+					<Name><![CDATA[gisRoute11]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-33.025863303438605</X><Y>-60.68094843716257</Y></Point>
+						<Point><X>-33.00947251333688</X><Y>-60.67737933609486</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+				<GISPoint>
+					<Id>1628879119246</Id>
+					<Name><![CDATA[gisPoint61]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.962968</Latitude>	
+					<Longitude>-60.70140000000001</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+						<GISNetwork>
+							<Id>1629568652274</Id>
+							<Name><![CDATA[network12]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISPoint>
+					<Id>1628879119197</Id>
+					<Name><![CDATA[gisPoint12]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>-32.962957</Latitude>	
+					<Longitude>-60.70135</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISRoute SourceId="1628879119197">
+
+					<Id>1628879119534</Id>
+					<Name><![CDATA[CicloviasYBicisendas_1026]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>-32.962957</X><Y>-60.70135</Y></Point>
+						<Point><X>-32.96366</X><Y>-60.701323</Y></Point>
+						<Point><X>-32.964832</X><Y>-60.701271000000006</Y></Point>
+						<Point><X>-32.965396</X><Y>-60.70124899999999</Y></Point>
+						<Point><X>-32.965997</X><Y>-60.701226000000005</Y></Point>
+						<Point><X>-32.966629</X><Y>-60.701204999999995</Y></Point>
+						<Point><X>-32.967163</X><Y>-60.701189</Y></Point>
+						<Point><X>-32.968328</X><Y>-60.701139000000005</Y></Point>
+						<Point><X>-32.96889</X><Y>-60.701117999999994</Y></Point>
+						<Point><X>-32.969501</X><Y>-60.701088000000006</Y></Point>
+						<Point><X>-32.970625</X><Y>-60.701041</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
 			</Presentation>
 
 				</GISMap>
@@ -5745,6 +5984,426 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<FillColor>-4144960</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
+				<Rectangle>
+					<Id>1629569072231</Id>
+					<Name><![CDATA[rectangle5]]></Name>
+					<X>-260</X><Y>410</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>230</Width>
+					<Height>170</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-2097152001</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1629569086168</Id>
+					<Name><![CDATA[text5]]></Name>
+					<X>-240</X><Y>430</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Referencias:]]></Text>
+					<Font>
+						<Name>Arial</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1629569414109</Id>
+					<Name><![CDATA[text6]]></Name>
+					<X>-220</X><Y>450</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Estaciones:]]></Text>
+					<Font>
+						<Name>Arial</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1629569564700</Id>
+					<Name><![CDATA[group]]></Name>
+					<X>-200</X><Y>490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Oval>
+					<Id>1629569321255</Id>
+					<Name><![CDATA[oval]]></Name>
+					<X>0</X><Y>-10</Y>
+					<Label><X>0</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<RadiusX>5</RadiusX>
+					<RadiusY>40</RadiusY>
+					<Rotation>0.0</Rotation>
+					<FillColor>-16776961</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Oval>
+				<Oval>
+					<Id>1629569364286</Id>
+					<Name><![CDATA[oval2]]></Name>
+					<X>0</X><Y>10</Y>
+					<Label><X>0</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<RadiusX>5</RadiusX>
+					<RadiusY>40</RadiusY>
+					<Rotation>0.0</Rotation>
+					<FillColor>-65536</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Oval>
+			</Presentation>
+
+				</Group>
+				<Text>
+					<Id>1629569572006</Id>
+					<Name><![CDATA[text7]]></Name>
+					<X>-180</X><Y>475</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[BIcicletas disponibles]]></Text>
+					<Font>
+						<Name>Arial</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1629569741437</Id>
+					<Name><![CDATA[text8]]></Name>
+					<X>-180</X><Y>495</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Bicicletas no disponibles]]></Text>
+					<Font>
+						<Name>Arial</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<TimePlot>
+					<Id>1629807296118</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>20</X><Y>980</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1629878400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>420</Width>
+					<Height>250</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>340</Width>
+						<Height>160</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Bicicletas En Uso]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-12004916</Color>
+					<Expression2><![CDATA[bicisEnUso]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Bicicletas En Desuso]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[my_dataset1]]></Expression>
+					<Color>-8097537</Color>
+					<Expression2><![CDATA[bicisEnDesuso]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<TimePlot>
+					<Id>1629810381674</Id>
+					<Name><![CDATA[plot1]]></Name>
+					<X>460</X><Y>980</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1629878400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>450</Width>
+					<Height>250</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>370</Width>
+						<Height>160</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Tiempo de los Usuarios en Espera]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[usersTimeLost]]></Expression>
+					<Color>-65536</Color>
+					<Expression2><![CDATA[usersTimeLost]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+				<Rectangle>
+					<Id>1629815523070</Id>
+					<Name><![CDATA[rectangle6]]></Name>
+					<X>1000</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>240</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14774017</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1629815558037</Id>
+					<Name><![CDATA[text9]]></Name>
+					<X>1080</X><Y>10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Ranking]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1629815774452</Id>
+					<Name><![CDATA[text10]]></Name>
+					<X>1050</X><Y>80</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[text]]></Text>
+					<TextCode><![CDATA[estacionesOrdenadas.get(0).name]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>18</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1629815982644</Id>
+					<Name><![CDATA[text11]]></Name>
+					<X>1050</X><Y>130</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[text]]></Text>
+					<TextCode><![CDATA[estacionesOrdenadas.get(1).name]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>18</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1629817132018</Id>
+					<Name><![CDATA[text12]]></Name>
+					<X>1050</X><Y>170</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[text]]></Text>
+					<TextCode><![CDATA[estacionesOrdenadas.get(2).name]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>18</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -5759,7 +6418,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Title><![CDATA[Simulacion]]></Title>
-					<Width>1000</Width>
+					<Width>1240</Width>
 					<Height>600</Height>
 				</Area>
 				<Area>
@@ -5947,6 +6606,36 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629812660456</Id>
+					<Name><![CDATA[startTime]]></Name>
+					<X>170</X><Y>540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629812671943</Id>
+					<Name><![CDATA[elapsedTime]]></Name>
+					<X>280</X><Y>540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.0]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -6225,7 +6914,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<Connector>
 					<Id>1629125542199</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>820</X><Y>100</Y>
+					<X>950</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6385,15 +7074,14 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>350</X><Y>0</Y></Point>
-						<Point><X>350</X><Y>-110</Y></Point>
-						<Point><X>350</X><Y>-150</Y></Point>
+						<Point><X>480</X><Y>0</Y></Point>
+						<Point><X>480</X><Y>-150</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629485279769</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>740</X><Y>100</Y>
+					<X>870</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6420,46 +7108,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-140</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1629485390846</Id>
-					<Name><![CDATA[connector8]]></Name>
-					<X>700</X><Y>170</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[wait]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[release]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Release]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>40</X><Y>-70</Y></Point>
+						<Point><X>-260</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629125493739</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>580</X><Y>100</Y>
+					<X>590</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6486,13 +7141,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-40</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629485433758</Id>
 					<Name><![CDATA[connector9]]></Name>
-					<X>610</X><Y>170</Y>
+					<X>700</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6519,13 +7174,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>50</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629485553375</Id>
 					<Name><![CDATA[connector10]]></Name>
-					<X>610</X><Y>170</Y>
+					<X>700</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6552,13 +7207,13 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>50</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629485584100</Id>
 					<Name><![CDATA[connector11]]></Name>
-					<X>590</X><Y>110</Y>
+					<X>600</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6576,23 +7231,23 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[decision]]></ItemName>
+						<ItemName><![CDATA[timeUsrDelayedStart]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ClassName><![CDATA[TimeMeasureStart]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>50</Y></Point>
 						<Point><X>0</X><Y>60</Y></Point>
+						<Point><X>30</X><Y>60</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629485609245</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>660</X><Y>220</Y>
+					<X>740</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6619,42 +7274,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-60</X><Y>0</Y></Point>
-						<Point><X>-60</X><Y>-40</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1629485663591</Id>
-					<Name><![CDATA[connector13]]></Name>
-					<X>700</X><Y>220</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[findStation]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[release]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Release]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>30</X><Y>-40</Y></Point>
-						<Point><X>40</X><Y>-120</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>-40</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -6690,7 +7311,163 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Point><X>40</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
+				<Connector>
+					<Id>1629810511608</Id>
+					<Name><![CDATA[connector14]]></Name>
+					<X>640</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[timeUsrDelayedStart]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[TimeMeasureStart]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[decision]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[SelectOutput]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629810664735</Id>
+					<Name><![CDATA[connector8]]></Name>
+					<X>780</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[wait]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[timeUsrDelayedEnd]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[TimeMeasureEnd]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>50</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629810667870</Id>
+					<Name><![CDATA[connector13]]></Name>
+					<X>780</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[findStation]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[timeUsrDelayedEnd]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[TimeMeasureEnd]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>50</X><Y>-50</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1629810670574</Id>
+					<Name><![CDATA[connector16]]></Name>
+					<X>840</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[timeUsrDelayedEnd]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[TimeMeasureEnd]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[prueba]]></PackageName>
+						<ClassName><![CDATA[Station]]></ClassName>
+						<ItemName><![CDATA[release]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Release]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>-70</Y></Point>
+					</Points>
+				</Connector>
 			</Connectors>
+			<AnalysisData>
+    			<Statistics>
+					<Id>1629814814257</Id>
+					<Name><![CDATA[usePercentage]]></Name>
+					<X>490</X><Y>450</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1629878400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<Discrete>false</Discrete>
+					<ValueCode><![CDATA[(double)availableBikes.capacity/(double)stationCapacity * 100.0]]></ValueCode>
+				</Statistics>
+			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1629123196297</Id>
@@ -7001,7 +7778,7 @@ main.cantidadUsuarios++]]></Code>
 					<Id>1629124955961</Id>
 					<Name><![CDATA[availableBikes]]></Name>
 					<X>440</X><Y>320</Y>
-					<Label><X>-30</X><Y>-20</Y></Label>
+					<Label><X>-15</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -7474,7 +8251,18 @@ unit.setLocation(this);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[bikesVariable--]]></Code>
+								<Code><![CDATA[if (bikesVariable >= 1)
+{
+	bikesVariable--;
+	agent.travel.bikeType = BikeType.bike;
+}
+else
+{
+	tandemVariable--;
+	agent.travel.bikeType = BikeType.tandem;
+}
+main.bicisEnUso++;
+main.bicisEnDesuso--;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7659,7 +8447,7 @@ unit.setLocation(this);]]></Code>
 				<EmbeddedObject>
 					<Id>1629125491824</Id>
 					<Name><![CDATA[release]]></Name>
-					<X>740</X><Y>80</Y>
+					<X>870</X><Y>80</Y>
 					<Label><X>5</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7721,7 +8509,16 @@ unit.setLocation(this);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[bikesVariable++]]></Code>
+								<Code><![CDATA[if (agent.travel.bikeType == BikeType.bike)
+{
+	bikesVariable++;
+}
+else
+{
+	tandemVariable++;
+}
+main.bicisEnDesuso++;
+main.bicisEnUso--;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7770,7 +8567,7 @@ unit.setLocation(this);]]></Code>
 				<EmbeddedObject>
 					<Id>1629125539802</Id>
 					<Name><![CDATA[sink]]></Name>
-					<X>820</X><Y>90</Y>
+					<X>950</X><Y>90</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8086,7 +8883,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485277135</Id>
 					<Name><![CDATA[evaluateCapacity]]></Name>
-					<X>570</X><Y>90</Y>
+					<X>580</X><Y>90</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8173,7 +8970,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485388501</Id>
 					<Name><![CDATA[wait]]></Name>
-					<X>660</X><Y>150</Y>
+					<X>740</X><Y>150</Y>
 					<Label><X>0</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8273,7 +9070,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485550180</Id>
 					<Name><![CDATA[decision]]></Name>
-					<X>580</X><Y>160</Y>
+					<X>670</X><Y>160</Y>
 					<Label><X>15</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8304,6 +9101,10 @@ main.lostTotalClients++;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[main.delayedUsers++;
+startTime = time();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -8354,7 +9155,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485607449</Id>
 					<Name><![CDATA[findStation]]></Name>
-					<X>660</X><Y>200</Y>
+					<X>740</X><Y>200</Y>
 					<Label><X>-20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8569,96 +9370,103 @@ main.lostTotalClients++;]]></Code>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1629491573214</Id>
-					<Name><![CDATA[enter]]></Name>
-					<X>170</X><Y>150</Y>
-					<Label><X>-5</X><Y>-15</Y></Label>
+					<Id>1629810466654</Id>
+					<Name><![CDATA[timeUsrDelayedStart]]></Name>
+					<X>630</X><Y>150</Y>
+					<Label><X>-70</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Enter]]></ClassName>
+						<ClassName><![CDATA[TimeMeasureStart]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[Enter]]></ClassName>
-							<ItemName><![CDATA[1412336242933]]></ItemName>
+							<ClassName><![CDATA[TimeMeasureStart]]></ClassName>
+							<ItemName><![CDATA[1412336243204]]></ItemName>
 						</GenericParameterSubstituteReference>
-						<GenericParameterSubstituteValue Class="CodeValue">
-							<Code><![CDATA[User]]></Code>
-						</GenericParameterSubstituteValue>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
-							<Name><![CDATA[locationType]]></Name>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1629810645688</Id>
+					<Name><![CDATA[timeUsrDelayedEnd]]></Name>
+					<X>810</X><Y>150</Y>
+					<Label><X>15</X><Y>35</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[TimeMeasureEnd]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[TimeMeasureEnd]]></ClassName>
+							<ItemName><![CDATA[1412336243203]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[startObjects]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[{ timeUsrDelayedStart }]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[locationX]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationY]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationZ]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationLatitude]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationLongitude]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationGeoPlaceName]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationXYZInNetwork]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationNetwork]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationLevel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationNode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationAttractor]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[speed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[changeDimensions]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[length]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[width]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[height]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[addToCustomPopulation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[population]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[pushProtocol]]></Name>
+							<Name><![CDATA[datasetCapacity]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[elapsedTime = time() - startTime;
+main.usersTimeLost += elapsedTime;]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -9027,7 +9835,7 @@ main.lostTotalClients++;]]></Code>
 					<RadiusY>40</RadiusY>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
-					<FillColorCode><![CDATA[(availableBikes.size() == 0) ? blue : red]]></FillColorCode>
+					<FillColorCode><![CDATA[(availableBikes.size() == 0) ? red : blue]]></FillColorCode>
 					<FillMaterial>null</FillMaterial>
 				</Oval>
 				<Group>
@@ -10029,6 +10837,18 @@ main.lostTotalClients++;]]></Code>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1629806029323</Id>
+					<Name><![CDATA[bikeType]]></Name>
+					<X>50</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[BikeType]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
