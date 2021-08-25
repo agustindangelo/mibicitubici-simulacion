@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.6.202107211643" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -677,9 +677,9 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Height>550</Height>
 					<GISShapes>
 					</GISShapes>
-					<Latitude>-32.9478877661011</Latitude>
-					<Longitude>-60.657886553340454</Longitude>
-					<Scale>40000</Scale>
+					<Latitude>-32.9411</Latitude>
+					<Longitude>-60.68277</Longitude>
+					<Scale>81000</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
 					<ShowTiles>true</ShowTiles>
@@ -7038,6 +7038,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.89990, -60.69274);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7098,6 +7099,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.97989, -60.66758);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7158,6 +7160,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.94557, -60.68096);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
