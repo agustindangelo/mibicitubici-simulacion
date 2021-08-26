@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.6.202107211643" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -141,7 +141,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1629211483244</Id>
 					<Name><![CDATA[varViewArea]]></Name>
-					<X>-120</X><Y>260</Y>
+					<X>-200</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -281,7 +281,7 @@ ranking3.setText(sortedStations.get(2).name);]]></Action>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1629211498965</Id>
 					<Name><![CDATA[navigate]]></Name>
-					<X>-120</X><Y>230</Y>
+					<X>-200</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -543,7 +543,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629829051142</Id>
 					<Name><![CDATA[pyCommunicator]]></Name>
-					<X>-140</X><Y>300</Y>
+					<X>-180</X><Y>320</Y>
 					<Label><X>-45</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -576,7 +576,8 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
-"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"]]></Code>
+//"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
+"C:/Users/paulina/AppData/Local/Programs/Python/Python39"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5889,7 +5890,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Rectangle>
 				<Rectangle>
 					<Id>1629211219442</Id>
-					<Name><![CDATA[rectangle]]></Name>
+					<Name><![CDATA[EstadisticasOption]]></Name>
 					<X>490</X><Y>0</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -5914,7 +5915,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Rectangle>
 				<Rectangle>
 					<Id>1629211145753</Id>
-					<Name><![CDATA[rectangle2]]></Name>
+					<Name><![CDATA[SimulacionOption]]></Name>
 					<X>270</X><Y>0</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -6996,7 +6997,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Group>
 					<Id>1629921391107</Id>
 					<Name><![CDATA[ZonasGruop]]></Name>
-					<X>370</X><Y>260</Y>
+					<X>370</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -7024,7 +7025,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>200</Width>
-					<Height>210</Height>
+					<Height>140</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-14774017</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -7038,7 +7039,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[map.setProjectionCenter(-32.89990, -60.69274);]]></OnClickCode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.90100, -60.68274);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7092,14 +7093,14 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				</Group>
 				<Group>
 					<Id>1629921310728</Id>
-					<Name><![CDATA[ZonaSur]]></Name>
+					<Name><![CDATA[ZonaCentro]]></Name>
 					<X>-20</X><Y>-40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[map.setProjectionCenter(-32.97989, -60.66758);]]></OnClickCode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.94557, -60.68000);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7122,7 +7123,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<ImageFiles>
 						<ImageResourceReference>
 							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[marker_s.png]]></ClassName>
+							<ClassName><![CDATA[marker_c.png]]></ClassName>
 						</ImageResourceReference>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
@@ -7140,7 +7141,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Zona Sur]]></Text>
+					<Text><![CDATA[Zona Centro]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>20</Size>
@@ -7153,14 +7154,14 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				</Group>
 				<Group>
 					<Id>1629921324439</Id>
-					<Name><![CDATA[ZonaCentro]]></Name>
+					<Name><![CDATA[ZonaSur]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[map.setProjectionCenter(-32.94557, -60.68096);]]></OnClickCode>
+					<OnClickCode><![CDATA[map.setProjectionCenter(-32.97989, -60.66758);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7183,7 +7184,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<ImageFiles>
 						<ImageResourceReference>
 							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[marker_c.png]]></ClassName>
+							<ClassName><![CDATA[marker_s.png]]></ClassName>
 						</ImageResourceReference>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
@@ -7201,127 +7202,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Zona Centro]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>20</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
-
-				</Group>
-				<Group>
-					<Id>1629921337534</Id>
-					<Name><![CDATA[ZonaEste]]></Name>
-					<X>-20</X><Y>40</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Image>
-					<Id>1629921204051</Id>
-					<Name><![CDATA[image17]]></Name>
-					<X>-60</X><Y>-20</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Width>30</Width>
-					<Height>30</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[marker_e.png]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
-				<Text>
-					<Id>1629921234442</Id>
-					<Name><![CDATA[text20]]></Name>
-					<X>-20</X><Y>-15</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Zona Este]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>20</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-			</Presentation>
-
-				</Group>
-				<Group>
-					<Id>1629921352134</Id>
-					<Name><![CDATA[ZonaOeste]]></Name>
-					<X>-20</X><Y>80</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Image>
-					<Id>1629921252950</Id>
-					<Name><![CDATA[image18]]></Name>
-					<X>-60</X><Y>-20</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Width>30</Width>
-					<Height>30</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[marker_o.png]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
-				<Text>
-					<Id>1629921277985</Id>
-					<Name><![CDATA[text21]]></Name>
-					<X>-20</X><Y>-14</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Zona Este]]></Text>
+					<Text><![CDATA[Zona Sur]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>20</Size>
@@ -7688,6 +7569,145 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<FillColor>-657931</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
+				<Group>
+					<Id>1629926402964</Id>
+					<Name><![CDATA[ZoomMap]]></Name>
+					<X>1230</X><Y>540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Group>
+					<Id>1629926005475</Id>
+					<Name><![CDATA[ZoomIn]]></Name>
+					<X>3.5</X><Y>-13</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[map.zoomIn();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1629925752744</Id>
+					<Name><![CDATA[rectangle8]]></Name>
+					<X>-18.667</X><Y>-20.666999999999973</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-4144960</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>30</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-657931</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1629925872808</Id>
+					<Name><![CDATA[text23]]></Name>
+					<X>-10.667</X><Y>-22.467</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-10395295</Color>
+					<Text><![CDATA[+]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>26</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1629926074995</Id>
+					<Name><![CDATA[ZoomOut]]></Name>
+					<X>4.5</X><Y>21</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[map.zoomOut();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1629925985665</Id>
+					<Name><![CDATA[rectangle9]]></Name>
+					<X>-20</X><Y>-20</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-4144960</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>30</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-657931</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1629925985671</Id>
+					<Name><![CDATA[text26]]></Name>
+					<X>-10.333</X><Y>-31.333</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-10395295</Color>
+					<Text><![CDATA[-]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -12917,14 +12937,6 @@ traceln(attempt.getFeedback());]]></ActionCode>
 		</Resource>
 		<Resource>
 			<Path><![CDATA[marker_c.png]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[marker_e.png]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[marker_o.png]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
