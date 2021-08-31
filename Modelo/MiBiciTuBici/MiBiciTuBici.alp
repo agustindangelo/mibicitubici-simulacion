@@ -12871,7 +12871,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 				<FinalDate><![CDATA[1631404800000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
