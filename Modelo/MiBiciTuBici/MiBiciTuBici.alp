@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -297,6 +297,42 @@ List<Station> sortedStations = sortAscending( estacion, e -> (e.retiredBikes + e
 ranking1MenosU.setText(String.format("ID: %s - %s",sortedStations.get(0).id, sortedStations.get(0).name));
 ranking2MenosU.setText(String.format("ID: %s - %s",sortedStations.get(1).id, sortedStations.get(1).name));
 ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).id, sortedStations.get(2).name));]]></Action>
+				</Event>
+				<Event>
+					<Id>1630597514657</Id>
+					<Name><![CDATA[periodicSave]]></Name>
+					<X>-200</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1630656000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[String json = pyCommunicator.toJson(estacion, true);
+pyCommunicator.run(
+	String.format("with open('./model-output/estaciones-%04.0f.json', 'w') as f:", time()), 
+	String.format("  f.write('''%s''')", json),
+	String.format("  f.close()", json)
+);]]></Action>
 				</Event>
 			</Events>
 			<Functions>
@@ -599,9 +635,10 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Parameter>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA["C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
+								<Code><![CDATA[// "C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
-//"C:/Users/paulina/AppData/Local/Programs/Python/Python39"]]></Code>
+//"C:/Users/paulina/AppData/Local/Programs/Python/Python39"
+"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -11450,7 +11487,7 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 				<Text>
 					<Id>1630504537195</Id>
 					<Name><![CDATA[lid]]></Name>
-					<X>2.375</X><Y>-18.375</Y>
+					<X>2.375</X><Y>-19.375</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11472,7 +11509,7 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 				<Text>
 					<Id>1630504866483</Id>
 					<Name><![CDATA[lblId]]></Name>
-					<X>-8.875</X><Y>-18.75</Y>
+					<X>-8.875</X><Y>-19.75</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>

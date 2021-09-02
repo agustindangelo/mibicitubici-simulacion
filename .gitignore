@@ -6,4 +6,5 @@ Modelo/MiBiciTuBici/cache/*
 Modelo/MiBiciTuBici/database/db.log
 Modelo/MiBiciTuBici/database/db.properties
 Modelo/MiBiciTuBici/database/db.lck
+Modelo/MiBiciTuBici/pypeline.properties
 code/.ipynb_checkpoints
