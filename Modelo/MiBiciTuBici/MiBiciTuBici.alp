@@ -329,7 +329,7 @@ ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).id, sor
 					</Properties>
 					<Action><![CDATA[String json = pyCommunicator.toJson(estacion, true);
 pyCommunicator.run(
-	String.format("with open('./model-output/estaciones-%04.0f.json', 'w') as f:", time()), 
+	String.format("with open('./model-output/estaciones-%04.0f.json', 'w', encoding='utf-8') as f:", time()), 
 	String.format("  f.write('''%s''')", json),
 	String.format("  f.close()", json)
 );]]></Action>
