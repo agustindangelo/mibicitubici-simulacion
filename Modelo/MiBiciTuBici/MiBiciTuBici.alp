@@ -646,8 +646,8 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[// "C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
-//"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
-"C:/Users/paulina/AppData/Local/Programs/Python/Python39"
+"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
+//"C:/Users/paulina/AppData/Local/Programs/Python/Python39"
 //"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
@@ -7202,7 +7202,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1629921026907</Id>
 					<Name><![CDATA[text18]]></Name>
-					<X>-20</X><Y>-13</Y>
+					<X>-20</X><Y>-15</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7263,7 +7263,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1629921154287</Id>
 					<Name><![CDATA[text19]]></Name>
-					<X>-40</X><Y>-16</Y>
+					<X>-40</X><Y>-15</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8064,7 +8064,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630622669377</Id>
 					<Name><![CDATA[txtBicisDispoMain]]></Name>
-					<X>580</X><Y>2380</Y>
+					<X>600</X><Y>2380</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8106,7 +8106,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630623106328</Id>
 					<Name><![CDATA[txtAnclaMain]]></Name>
-					<X>570</X><Y>2420</Y>
+					<X>600</X><Y>2420</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8148,7 +8148,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630623828199</Id>
 					<Name><![CDATA[txtTandemMain]]></Name>
-					<X>570</X><Y>2460</Y>
+					<X>600</X><Y>2460</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8190,7 +8190,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630624318287</Id>
 					<Name><![CDATA[txtCliPerMain]]></Name>
-					<X>540</X><Y>2500</Y>
+					<X>600</X><Y>2500</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8246,6 +8246,27 @@ las bicicletas disponibles]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1630664164714</Id>
+					<Name><![CDATA[txtPorcUsoMain]]></Name>
+					<X>600</X><Y>2540</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[porc]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>26</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
@@ -12001,7 +12022,7 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 				<Text>
 					<Id>1629905046542</Id>
 					<Name><![CDATA[lblUsePercentaje1]]></Name>
-					<X>9.8</X><Y>24.4</Y>
+					<X>14.2</X><Y>25</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12086,7 +12107,7 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[main.varViewArea = main.StatisticsStation;
+						<ActionCode><![CDATA[//main.varViewArea = main.StatisticsStation;
 main.statisticsStationGroup.setVisible(true);
 main.navigate(main.StatisticsStation);
 main.stationSelected = this;
@@ -12095,7 +12116,8 @@ main.txtNombreMain.setText(this.name);
 main.txtBicisDispoMain.setText(this.bikesVariable);
 main.txtAnclaMain.setText(this.anchorVariable);
 main.txtTandemMain.setText(this.tandemVariable);
-main.txtCliPerMain.setText(this.lostClients);]]></ActionCode>
+main.txtCliPerMain.setText(this.lostClients);
+main.txtPorcUsoMain.setText(this.usePercentage.getY(this.usePercentage.size() - 1))]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
