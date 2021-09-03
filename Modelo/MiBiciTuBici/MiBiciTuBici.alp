@@ -8011,7 +8011,7 @@ las bicicletas disponibles]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[- Nombre:]]></Text>
+					<Text><![CDATA[Nombre:]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
 						<Size>28</Size>
@@ -11802,7 +11802,7 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[]]></Text>
-					<TextCode><![CDATA[id]]></TextCode>
+					<TextCode><![CDATA[this.stationCode]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
