@@ -313,6 +313,27 @@ import java.io.*;]]></Import>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1631209300024</Id>
+					<Name><![CDATA[usePercentajeMain]]></Name>
+					<X>-110</X><Y>2390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1631209300022</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Events>
 				<Event>
@@ -7494,7 +7515,7 @@ else
 					</Labels>
 					<ShowLegend>true</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
-					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowUnits>HOUR</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
 					<VerScaleType>AUTO</VerScaleType>
@@ -7520,8 +7541,8 @@ else
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>10000</SamplesToKeep>
-					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<SamplesToKeep>100000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[24]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
     			</TimePlot>
@@ -7571,7 +7592,7 @@ else
 					</Labels>
 					<ShowLegend>true</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
-					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowUnits>HOUR</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
 					<VerScaleType>AUTO</VerScaleType>
@@ -7587,8 +7608,8 @@ else
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>10000</SamplesToKeep>
-					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<SamplesToKeep>100000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[24]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
     			</TimePlot>
@@ -8106,7 +8127,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630624295221</Id>
 					<Name><![CDATA[lblClientesPerdidos]]></Name>
-					<X>610</X><Y>2420</Y>
+					<X>940</X><Y>2340</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8127,7 +8148,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630624318287</Id>
 					<Name><![CDATA[txtCliPerMain]]></Name>
-					<X>830</X><Y>2420</Y>
+					<X>1160</X><Y>2340</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8148,7 +8169,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630624604613</Id>
 					<Name><![CDATA[lblClientesPerdidos1]]></Name>
-					<X>610</X><Y>2480</Y>
+					<X>350</X><Y>2660</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8190,7 +8211,7 @@ las bicicletas disponibles]]></Text>
 				<Text>
 					<Id>1630664164714</Id>
 					<Name><![CDATA[txtPorcUsoMain]]></Name>
-					<X>840</X><Y>2480</Y>
+					<X>580</X><Y>2660</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8318,6 +8339,58 @@ las bicicletas disponibles]]></Text>
 					<FillColor>-7876870</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
+    			<PieChart>
+					<Id>1631209235594</Id>
+					<Name><![CDATA[chart2]]></Name>
+					<X>620</X><Y>2410</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1631260800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>60</XOffset>
+						<YOffset>10</YOffset>
+						<Width>140</Width>
+						<Height>140</Height>
+						<BorderColor/>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>40</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>0</Id>
+					<Expression><![CDATA[this.usePercentajeMain]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[Procentaje de uso]]></Title>
+					</DataItem>
+    			</PieChart>
 			</Presentation>
 
 				</Level>
@@ -12163,6 +12236,7 @@ main.bicisDispMain = this.bikesVariable;
 main.anclajesDispMain = this.anchorVariable;
 main.tandemDispMain = this.tandemVariable;
 main.txtCliPerMain.setText(this.lostClients);
+main.usePercentajeMain = this.usePercentage.getY(this.usePercentage.size() - 1);
 main.txtPorcUsoMain.setText(this.usePercentage.getY(this.usePercentage.size() - 1))]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
@@ -13447,6 +13521,9 @@ traceln(attempt.getFeedback());]]></ActionCode>
 				<Parameter>
 					<ParameterName><![CDATA[tandemDispMain]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[usePercentajeMain]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>false</EnableZoomAndPanning>
@@ -13463,7 +13540,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 				<FinalDate><![CDATA[1631404800000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>false</BypassInitialScreen>
+			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
