@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -142,7 +142,7 @@ import java.io.*;]]></Import>
 				<Variable Class="PlainVariable">
 					<Id>1629211483244</Id>
 					<Name><![CDATA[varViewArea]]></Name>
-					<X>-200</X><Y>280</Y>
+					<X>-200</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -238,102 +238,6 @@ import java.io.*;]]></Import>
 						<Type><![CDATA[int]]></Type>        
 					</Properties>
 				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1630622409609</Id>
-					<Name><![CDATA[stationSelected]]></Name>
-					<X>-110</X><Y>2270</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[Station]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1631111034081</Id>
-					<Name><![CDATA[bicisDispMain]]></Name>
-					<X>-110</X><Y>2300</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1631111034079</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1631111104950</Id>
-					<Name><![CDATA[anclajesDispMain]]></Name>
-					<X>-110</X><Y>2330</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1631111104948</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1631111119892</Id>
-					<Name><![CDATA[tandemDispMain]]></Name>
-					<X>-110</X><Y>2360</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1631111119890</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1631209300024</Id>
-					<Name><![CDATA[usePercentajeMain]]></Name>
-					<X>-110</X><Y>2390</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1631209300022</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
 			</Variables>
 			<Events>
 				<Event>
@@ -386,7 +290,7 @@ ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).station
 				<Event>
 					<Id>1630597514657</Id>
 					<Name><![CDATA[periodicSave]]></Name>
-					<X>-200</X><Y>410</Y>
+					<X>-200</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -697,7 +601,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629829051142</Id>
 					<Name><![CDATA[pyCommunicator]]></Name>
-					<X>-190</X><Y>320</Y>
+					<X>-190</X><Y>290</Y>
 					<Label><X>-20</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -729,10 +633,10 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						<Parameter>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[// "C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
+								<Code><![CDATA["C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
 //"C:/Users/paulina/AppData/Local/Programs/Python/Python39"
-"/home/agu/pyenv/bin/python"]]></Code>
+//"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6496,7 +6400,6 @@ DropMenuGroups.setVisible(false);]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[navigate(ParqueIndependencia);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -7371,101 +7274,6 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 			</Presentation>
 
 				</Group>
-				<Group>
-					<Id>1630587594801</Id>
-					<Name><![CDATA[statisticsStationGroup]]></Name>
-					<X>820</X><Y>30</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>10</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Rectangle>
-					<Id>1630587594803</Id>
-					<Name><![CDATA[EstadisticasOption1]]></Name>
-					<X>-110</X><Y>-30</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[navigate(StatisticsStation);]]></OnClickCode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-14774017</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>220</Width>
-					<Height>50</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-7876885</FillColor>
-					<FillColorCode><![CDATA[varViewArea != StatisticsStation ?
-	new Color(30, 144, 255) : new Color(135, 206, 250)]]></FillColorCode>
-					<FillMaterial>null</FillMaterial>
-				</Rectangle>
-				<Text>
-					<Id>1630587594805</Id>
-					<Name><![CDATA[text21]]></Name>
-					<X>-11.666</X><Y>-32</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-1</Color>
-					<Text><![CDATA[Estadísticos
-de la Estación]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>24</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>CENTER</Alignment>
-				</Text>
-				<Image>
-					<Id>1630587895173</Id>
-					<Name><![CDATA[image17]]></Name>
-					<X>85</X><Y>-29</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[statisticsStationGroup.setVisible(!statisticsStationGroup.isVisible());
-if (varViewArea == StatisticsStation)
-{
-	navigate(simulacion);
-}
-else
-{
-	navigate(varViewArea);
-}]]></OnClickCode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>-10</Z>
-					<Width>24</Width>
-					<Height>24</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[emblemunreadable_93487.png]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
-			</Presentation>
-
-				</Group>
 			</Presentation>
 
 				</Group>
@@ -7800,6 +7608,7 @@ else
 				<Rectangle>
 					<Id>1629921887919</Id>
 					<Name><![CDATA[rectangle7]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>270</X><Y>1550</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -7822,7 +7631,7 @@ else
 				<Group>
 					<Id>1629926402964</Id>
 					<Name><![CDATA[ZoomMap]]></Name>
-					<X>1230</X><Y>540</Y>
+					<X>1230</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8040,284 +7849,6 @@ las bicicletas disponibles]]></Text>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1630586716689</Id>
-					<Name><![CDATA[rectangle14]]></Name>
-					<X>270</X><Y>2250</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>1000</Width>
-					<Height>550</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-657931</FillColor>
-					<FillMaterial>null</FillMaterial>
-				</Rectangle>
-				<Text>
-					<Id>1630621695695</Id>
-					<Name><![CDATA[txtCodeMain]]></Name>
-					<X>890</X><Y>2280</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[id]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>36</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630622513899</Id>
-					<Name><![CDATA[lblNombre]]></Name>
-					<X>330</X><Y>2340</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Nombre:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>28</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630622549056</Id>
-					<Name><![CDATA[txtNombreMain]]></Name>
-					<X>460</X><Y>2340</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[nom]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>28</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630624295221</Id>
-					<Name><![CDATA[lblClientesPerdidos]]></Name>
-					<X>940</X><Y>2340</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Clientes perdidos:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>26</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630624318287</Id>
-					<Name><![CDATA[txtCliPerMain]]></Name>
-					<X>1160</X><Y>2340</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[cliper]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>26</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630624604613</Id>
-					<Name><![CDATA[lblClientesPerdidos1]]></Name>
-					<X>350</X><Y>2660</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Porcentaje de uso:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>26</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630625567862</Id>
-					<Name><![CDATA[text24]]></Name>
-					<X>330</X><Y>2280</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[ESTADÍSTICAS DE LA ESTACIÓN:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>36</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1630664164714</Id>
-					<Name><![CDATA[txtPorcUsoMain]]></Name>
-					<X>580</X><Y>2660</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[porc]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>26</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Rectangle>
-					<Id>1631022854918</Id>
-					<Name><![CDATA[rectangle]]></Name>
-					<X>0</X><Y>2610</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>270</Width>
-					<Height>190</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-7876870</FillColor>
-					<FillMaterial>null</FillMaterial>
-				</Rectangle>
-    			<PieChart>
-					<Id>1631111485867</Id>
-					<Name><![CDATA[chart1]]></Name>
-					<X>310</X><Y>2410</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<AutoUpdate>true</AutoUpdate>
-					<OccurrenceAtTime>true</OccurrenceAtTime>
-					<OccurrenceDate>1631174400000</OccurrenceDate>
-					<OccurrenceTime Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-					</OccurrenceTime>
-					<RecurrenceCode Class="CodeUnitValue">
-						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-					</RecurrenceCode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>260</Width>
-					<Height>210</Height>
-					<BackgroundColor/>
-					<BorderColor/>
-					<ChartArea>
-						<XOffset>60</XOffset>
-						<YOffset>10</YOffset>
-						<Width>140</Width>
-						<Height>140</Height>
-						<BorderColor/>
-						<GridColor>-12566464</GridColor>
-					</ChartArea>
-					<Legend>
-						<Place>SOUTH</Place>
-						<TextColor>-16777216</TextColor>
-						<Size>40</Size>
-					</Legend>
-					<Labels>
-						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
-						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
-						<TextColor>-12566464</TextColor>
-					</Labels>
-					<ShowLegend>true</ShowLegend>
-					<DataItem>
-					<Id>0</Id>
-					<Expression><![CDATA[this.bicisDispMain]]></Expression>
-					<Color>-16744448</Color>
-					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Bicicletas disponibles]]></Title>
-					</DataItem>
-					<DataItem>
-					<Id>0</Id>
-					<Expression><![CDATA[this.tandemDispMain]]></Expression>
-					<Color>-6632142</Color>
-					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Tandem disponibles]]></Title>
-					</DataItem>
-					<DataItem>
-					<Id>0</Id>
-					<Expression><![CDATA[this.anclajesDispMain]]></Expression>
-					<Color>-6972</Color>
-					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Anclajes disponibles]]></Title>
-					</DataItem>
-    			</PieChart>
-				<Rectangle>
 					<Id>1631113918649</Id>
 					<Name><![CDATA[rectangle2]]></Name>
 					<X>1.334</X><Y>1128.001</Y>
@@ -8339,58 +7870,6 @@ las bicicletas disponibles]]></Text>
 					<FillColor>-7876870</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
-    			<PieChart>
-					<Id>1631209235594</Id>
-					<Name><![CDATA[chart2]]></Name>
-					<X>620</X><Y>2410</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<AutoUpdate>true</AutoUpdate>
-					<OccurrenceAtTime>true</OccurrenceAtTime>
-					<OccurrenceDate>1631260800000</OccurrenceDate>
-					<OccurrenceTime Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-					</OccurrenceTime>
-					<RecurrenceCode Class="CodeUnitValue">
-						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-					</RecurrenceCode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>260</Width>
-					<Height>210</Height>
-					<BackgroundColor/>
-					<BorderColor/>
-					<ChartArea>
-						<XOffset>60</XOffset>
-						<YOffset>10</YOffset>
-						<Width>140</Width>
-						<Height>140</Height>
-						<BorderColor/>
-						<GridColor>-12566464</GridColor>
-					</ChartArea>
-					<Legend>
-						<Place>SOUTH</Place>
-						<TextColor>-16777216</TextColor>
-						<Size>40</Size>
-					</Legend>
-					<Labels>
-						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
-						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
-						<TextColor>-12566464</TextColor>
-					</Labels>
-					<ShowLegend>true</ShowLegend>
-					<DataItem>
-					<Id>0</Id>
-					<Expression><![CDATA[this.usePercentajeMain]]></Expression>
-					<Color>-6632142</Color>
-					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Procentaje de uso]]></Title>
-					</DataItem>
-    			</PieChart>
 			</Presentation>
 
 				</Level>
@@ -8423,24 +7902,13 @@ las bicicletas disponibles]]></Text>
 				<Area>
 					<Id>1629921924785</Id>
 					<Name><![CDATA[ParqueIndependencia]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>0</X><Y>1500</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Title><![CDATA[]]></Title>
-					<Width>1270</Width>
-					<Height>600</Height>
-				</Area>
-				<Area>
-					<Id>1630585903276</Id>
-					<Name><![CDATA[StatisticsStation]]></Name>
-					<X>0</X><Y>2200</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Title><![CDATA[StatisticsStation]]></Title>
 					<Width>1270</Width>
 					<Height>600</Height>
 				</Area>
@@ -8452,6 +7920,8 @@ las bicicletas disponibles]]></Text>
 			<Id>1629123196302</Id>
 			<Name><![CDATA[Station]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<Import><![CDATA[import java.text.SimpleDateFormat;
+import java.io.*;]]></Import>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1629123196300</Id>
@@ -8548,7 +8018,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629407072849</Id>
 					<Name><![CDATA[arrivalDistributionParameter]]></Name>
-					<X>155</X><Y>400</Y>
+					<X>175</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8563,7 +8033,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629483565598</Id>
 					<Name><![CDATA[tandemVariable]]></Name>
-					<X>45</X><Y>375</Y>
+					<X>50</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8578,7 +8048,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629483588082</Id>
 					<Name><![CDATA[anchorVariable]]></Name>
-					<X>45</X><Y>400</Y>
+					<X>50</X><Y>425</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8593,7 +8063,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629483595743</Id>
 					<Name><![CDATA[bikesVariable]]></Name>
-					<X>45</X><Y>425</Y>
+					<X>50</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8608,7 +8078,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629487613734</Id>
 					<Name><![CDATA[lostClients]]></Name>
-					<X>160</X><Y>375</Y>
+					<X>50</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8623,7 +8093,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629812660456</Id>
 					<Name><![CDATA[startTime]]></Name>
-					<X>140</X><Y>425</Y>
+					<X>50</X><Y>525</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8638,7 +8108,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1629812671943</Id>
 					<Name><![CDATA[elapsedTime]]></Name>
-					<X>220</X><Y>425</Y>
+					<X>50</X><Y>550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8653,7 +8123,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1630503858748</Id>
 					<Name><![CDATA[retiredBikes]]></Name>
-					<X>150</X><Y>450</Y>
+					<X>50</X><Y>575</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8668,7 +8138,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="PlainVariable">
 					<Id>1630503900683</Id>
 					<Name><![CDATA[depositedBikes]]></Name>
-					<X>45</X><Y>450</Y>
+					<X>50</X><Y>475</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8680,10 +8150,22 @@ las bicicletas disponibles]]></Text>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1631728401099</Id>
+					<Name><![CDATA[varViewAreaStation]]></Name>
+					<X>-150</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[ViewArea]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1629123196323</Id>
 					<Name><![CDATA[id]]></Name>
-					<X>50</X><Y>180</Y>
+					<X>50</X><Y>125</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8704,7 +8186,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196324</Id>
 					<Name><![CDATA[name]]></Name>
-					<X>100</X><Y>180</Y>
+					<X>50</X><Y>175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8725,7 +8207,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196325</Id>
 					<Name><![CDATA[address]]></Name>
-					<X>50</X><Y>205</Y>
+					<X>50</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8746,7 +8228,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196326</Id>
 					<Name><![CDATA[stationCode]]></Name>
-					<X>120</X><Y>205</Y>
+					<X>50</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8767,7 +8249,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196327</Id>
 					<Name><![CDATA[status]]></Name>
-					<X>50</X><Y>230</Y>
+					<X>50</X><Y>225</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8789,7 +8271,7 @@ las bicicletas disponibles]]></Text>
 					<Id>1629123196328</Id>
 					<Name><![CDATA[tandem]]></Name>
 					<Description><![CDATA[Bicicletas dobles disponibles]]></Description>
-					<X>115</X><Y>230</Y>
+					<X>50</X><Y>275</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8811,7 +8293,7 @@ las bicicletas disponibles]]></Text>
 					<Id>1629123196329</Id>
 					<Name><![CDATA[anchor]]></Name>
 					<Description><![CDATA[Anclajes libres]]></Description>
-					<X>51</X><Y>257.333</Y>
+					<X>50</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8833,7 +8315,7 @@ las bicicletas disponibles]]></Text>
 					<Id>1629123196330</Id>
 					<Name><![CDATA[bikes]]></Name>
 					<Description><![CDATA[Bicicletas simples disponibles]]></Description>
-					<X>50</X><Y>285</Y>
+					<X>50</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8854,7 +8336,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196333</Id>
 					<Name><![CDATA[latitude]]></Name>
-					<X>110</X><Y>285</Y>
+					<X>50</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8875,7 +8357,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629123196335</Id>
 					<Name><![CDATA[longitude]]></Name>
-					<X>190</X><Y>230</Y>
+					<X>50</X><Y>375</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8896,7 +8378,7 @@ las bicicletas disponibles]]></Text>
 				<Variable Class="Parameter">
 					<Id>1629406892978</Id>
 					<Name><![CDATA[stationCapacity]]></Name>
-					<X>115</X><Y>255</Y>
+					<X>50</X><Y>325</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8922,7 +8404,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629125485870</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>500</X><Y>100</Y>
+					<X>600</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8955,7 +8437,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629125542199</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>950</X><Y>100</Y>
+					<X>1050</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8988,7 +8470,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629236599215</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>400</X><Y>100</Y>
+					<X>500</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9021,7 +8503,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629236599216</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>310</X><Y>230</Y>
+					<X>410</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9047,14 +8529,14 @@ las bicicletas disponibles]]></Text>
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>-130</Y></Point>
+						<Point><X>-50</X><Y>-130</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629236635441</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>320</X><Y>110</Y>
+					<X>420</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9088,7 +8570,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629236656124</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>470</X><Y>250</Y>
+					<X>570</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9122,7 +8604,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629485279769</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>870</X><Y>100</Y>
+					<X>970</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9155,7 +8637,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629125493739</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>590</X><Y>100</Y>
+					<X>690</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9188,7 +8670,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629485433758</Id>
 					<Name><![CDATA[connector9]]></Name>
-					<X>700</X><Y>150</Y>
+					<X>800</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9221,7 +8703,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629485553375</Id>
 					<Name><![CDATA[connector10]]></Name>
-					<X>700</X><Y>150</Y>
+					<X>800</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9254,7 +8736,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629485584100</Id>
 					<Name><![CDATA[connector11]]></Name>
-					<X>600</X><Y>110</Y>
+					<X>700</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9288,7 +8770,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629485609245</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>740</X><Y>200</Y>
+					<X>840</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9322,7 +8804,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629491575051</Id>
 					<Name><![CDATA[connector15]]></Name>
-					<X>180</X><Y>230</Y>
+					<X>280</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9348,14 +8830,14 @@ las bicicletas disponibles]]></Text>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>40</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>-130</Y></Point>
+						<Point><X>40</X><Y>-130</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1629810511608</Id>
 					<Name><![CDATA[connector14]]></Name>
-					<X>640</X><Y>150</Y>
+					<X>740</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9388,7 +8870,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629810664735</Id>
 					<Name><![CDATA[connector8]]></Name>
-					<X>780</X><Y>150</Y>
+					<X>880</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9421,7 +8903,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629810667870</Id>
 					<Name><![CDATA[connector13]]></Name>
-					<X>780</X><Y>200</Y>
+					<X>880</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9454,7 +8936,7 @@ las bicicletas disponibles]]></Text>
 				<Connector>
 					<Id>1629810670574</Id>
 					<Name><![CDATA[connector16]]></Name>
-					<X>840</X><Y>150</Y>
+					<X>940</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9490,7 +8972,7 @@ las bicicletas disponibles]]></Text>
 					<Id>1629829742523</Id>
 					<Name><![CDATA[usePercentage]]></Name>
 					<Description><![CDATA[Cantidad de bicis respecto capacidad de la estación]]></Description>
-					<X>45</X><Y>500</Y>
+					<X>175</X><Y>450</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9552,7 +9034,7 @@ las bicicletas disponibles]]></Text>
 				<EmbeddedObject>
 					<Id>1629124356420</Id>
 					<Name><![CDATA[userArrival]]></Name>
-					<X>150</X><Y>90</Y>
+					<X>250</X><Y>150</Y>
 					<Label><X>-5</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9820,7 +9302,7 @@ main.cantidadUsuarios++]]></Code>
 				<EmbeddedObject>
 					<Id>1629124955961</Id>
 					<Name><![CDATA[availableBikes]]></Name>
-					<X>440</X><Y>320</Y>
+					<X>540</X><Y>380</Y>
 					<Label><X>-15</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10148,7 +9630,7 @@ unit.setLocation(this);]]></Code>
 				<EmbeddedObject>
 					<Id>1629125249578</Id>
 					<Name><![CDATA[takeBike]]></Name>
-					<X>400</X><Y>80</Y>
+					<X>500</X><Y>140</Y>
 					<Label><X>0</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10388,7 +9870,7 @@ this.retiredBikes++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629125484078</Id>
 					<Name><![CDATA[cycling]]></Name>
-					<X>500</X><Y>80</Y>
+					<X>600</X><Y>140</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10491,7 +9973,7 @@ this.retiredBikes++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629125491824</Id>
 					<Name><![CDATA[release]]></Name>
-					<X>870</X><Y>80</Y>
+					<X>970</X><Y>140</Y>
 					<Label><X>5</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10612,7 +10094,7 @@ this.depositedBikes++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629125539802</Id>
 					<Name><![CDATA[sink]]></Name>
-					<X>950</X><Y>90</Y>
+					<X>1050</X><Y>150</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10678,7 +10160,7 @@ this.depositedBikes++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629236479274</Id>
 					<Name><![CDATA[isBikeAvailable]]></Name>
-					<X>300</X><Y>90</Y>
+					<X>400</X><Y>150</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10765,7 +10247,7 @@ this.depositedBikes++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629236611808</Id>
 					<Name><![CDATA[lostClient]]></Name>
-					<X>430</X><Y>230</Y>
+					<X>530</X><Y>290</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10928,7 +10410,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485277135</Id>
 					<Name><![CDATA[evaluateCapacity]]></Name>
-					<X>580</X><Y>90</Y>
+					<X>680</X><Y>150</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11015,7 +10497,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485388501</Id>
 					<Name><![CDATA[wait]]></Name>
-					<X>740</X><Y>130</Y>
+					<X>840</X><Y>190</Y>
 					<Label><X>0</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11115,7 +10597,7 @@ main.lostTotalClients++;]]></Code>
 				<EmbeddedObject>
 					<Id>1629485550180</Id>
 					<Name><![CDATA[decision]]></Name>
-					<X>670</X><Y>140</Y>
+					<X>770</X><Y>200</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11200,7 +10682,7 @@ startTime = time();]]></Code>
 				<EmbeddedObject>
 					<Id>1629485607449</Id>
 					<Name><![CDATA[findStation]]></Name>
-					<X>740</X><Y>180</Y>
+					<X>840</X><Y>240</Y>
 					<Label><X>-20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11300,7 +10782,7 @@ startTime = time();]]></Code>
 				<EmbeddedObject>
 					<Id>1629489677416</Id>
 					<Name><![CDATA[queue]]></Name>
-					<X>220</X><Y>80</Y>
+					<X>320</X><Y>140</Y>
 					<Label><X>-5</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11417,7 +10899,7 @@ startTime = time();]]></Code>
 				<EmbeddedObject>
 					<Id>1629810466654</Id>
 					<Name><![CDATA[timeUsrDelayedStart]]></Name>
-					<X>630</X><Y>130</Y>
+					<X>730</X><Y>190</Y>
 					<Label><X>-70</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11480,7 +10962,7 @@ startTime = time();]]></Code>
 				<EmbeddedObject>
 					<Id>1629810645688</Id>
 					<Name><![CDATA[timeUsrDelayedEnd]]></Name>
-					<X>810</X><Y>130</Y>
+					<X>910</X><Y>190</Y>
 					<Label><X>15</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11578,9 +11060,8 @@ main.usersTimeLost += elapsedTime;]]></Code>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<OnClickCode><![CDATA[// muestre nombre, número de estacion, anclajes disponibles, tandem disponibles
-// visibilidad al hacer click
-StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCode>
+					<OnClickCode><![CDATA[varViewAreaStation = viewAreaStationMain;
+viewAreaStationMain.navigateTo();]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
@@ -11951,29 +11432,15 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<Group>
-					<Id>1629906344649</Id>
-					<Name><![CDATA[StationsInformation]]></Name>
-					<X>0</X><Y>75</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>150</Z>
-					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<RoundedRectangle>
-					<Id>1629905758054</Id>
-					<Name><![CDATA[roundRectangle]]></Name>
-					<X>-110</X><Y>-60</Y>
+				<Rectangle>
+					<Id>1631643754840</Id>
+					<Name><![CDATA[rectangle14]]></Name>
+					<X>0</X><Y>710</Y>
 					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
@@ -11981,19 +11448,83 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<LineColor>-16777216</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>215</Width>
-					<Height>125</Height>
+					<Width>1270</Width>
+					<Height>550</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-657931</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
+				</Rectangle>
 				<Text>
-					<Id>1629904244230</Id>
-					<Name><![CDATA[lblName]]></Name>
-					<X>-105</X><Y>-40</Y>
+					<Id>1631643754827</Id>
+					<Name><![CDATA[lblClientesPerdidos]]></Name>
+					<X>640</X><Y>800</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Clientes perdidos:]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>26</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1631643754855</Id>
+					<Name><![CDATA[txtCliPerMain]]></Name>
+					<X>860</X><Y>800</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[cliper]]></Text>
+					<TextCode><![CDATA[this.lostClients]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>26</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1631643754871</Id>
+					<Name><![CDATA[txtNombreMain]]></Name>
+					<X>160</X><Y>800</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[nom]]></Text>
+					<TextCode><![CDATA[this.name]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>28</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1631643754887</Id>
+					<Name><![CDATA[lblNombre]]></Name>
+					<X>30</X><Y>800</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
@@ -12004,104 +11535,69 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<Text><![CDATA[Nombre:]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1629904249902</Id>
-					<Name><![CDATA[lblName1]]></Name>
-					<X>-55</X><Y>-40</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[this.name]]></TextCode>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
+						<Size>28</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<Text>
-					<Id>1629904751914</Id>
-					<Name><![CDATA[lblAvaialableBycicle]]></Name>
-					<Description><![CDATA[bicics comunes + tandem disponibles]]></Description>
-					<X>-105</X><Y>-18.2</Y>
+    			<PieChart>
+					<Id>1631643754904</Id>
+					<Name><![CDATA[chart2]]></Name>
+					<X>320</X><Y>870</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1631260800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MILLISECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Bicicletas disponibles:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>60</XOffset>
+						<YOffset>10</YOffset>
+						<Width>140</Width>
+						<Height>140</Height>
+						<BorderColor/>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>40</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1631643754901</Id>
+					<Expression><![CDATA[this.usePercentage.getY(this.usePercentage.size() - 1)]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[Porcentaje de uso]]></Title>
+					</DataItem>
+    			</PieChart>
 				<Text>
-					<Id>1629904916707</Id>
-					<Name><![CDATA[lblAvaialableBycicle1]]></Name>
-					<X>15</X><Y>-17.8</Y>
+					<Id>1631643754919</Id>
+					<Name><![CDATA[lblClientesPerdidos1]]></Name>
+					<X>50</X><Y>1120</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[this.tandemVariable + this.bikesVariable]]></TextCode>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1629904996551</Id>
-					<Name><![CDATA[lblAvailableAnchor]]></Name>
-					<X>-105</X><Y>2.6</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Anclajes disponibles:]]></Text>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1629905013431</Id>
-					<Name><![CDATA[lblUsePercentaje]]></Name>
-					<X>-105.4</X><Y>23.6</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
@@ -12112,39 +11608,17 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<Text><![CDATA[Porcentaje de uso:]]></Text>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1629905043767</Id>
-					<Name><![CDATA[lblAvailableAnchor1]]></Name>
-					<X>14.2</X><Y>3.2</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[this.anchorVariable]]></TextCode>
-					<Font>
-						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
+						<Size>26</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1629905046542</Id>
-					<Name><![CDATA[lblUsePercentaje1]]></Name>
-					<X>14.2</X><Y>25</Y>
+					<Id>1631643754951</Id>
+					<Name><![CDATA[txtCodeMain]]></Name>
+					<X>590</X><Y>740</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
@@ -12152,43 +11626,272 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[text]]></Text>
+					<Text><![CDATA[id]]></Text>
+					<TextCode><![CDATA[this.stationCode]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<PieChart>
+					<Id>1631643754971</Id>
+					<Name><![CDATA[chart1]]></Name>
+					<X>10</X><Y>870</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1631174400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>60</XOffset>
+						<YOffset>10</YOffset>
+						<Width>140</Width>
+						<Height>140</Height>
+						<BorderColor/>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>40</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1631643754966</Id>
+					<Expression><![CDATA[this.bikesVariable]]></Expression>
+					<Color>-16744448</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[Bicicletas disponibles]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1631643754967</Id>
+					<Expression><![CDATA[this.tandemVariable]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[Tandem disponibles]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1631643754968</Id>
+					<Expression><![CDATA[this.anchorVariable]]></Expression>
+					<Color>-6972</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[Anclajes disponibles]]></Title>
+					</DataItem>
+    			</PieChart>
+				<Text>
+					<Id>1631643755015</Id>
+					<Name><![CDATA[text24]]></Name>
+					<X>30</X><Y>740</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[ESTADÍSTICAS DE LA ESTACIÓN:]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1631643755031</Id>
+					<Name><![CDATA[txtPorcUsoMain]]></Name>
+					<X>280</X><Y>1120</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[porc]]></Text>
 					<TextCode><![CDATA[this.usePercentage.getY(this.usePercentage.size() - 1)]]></TextCode>
 					<Font>
 						<Name>Berlin Sans FB Demi</Name>
-						<Size>12</Size>
+						<Size>26</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<Image>
-					<Id>1629906004829</Id>
-					<Name><![CDATA[Close]]></Name>
-					<X>84.2</X><Y>-57.4</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
+				<Group>
+					<Id>1631727048475</Id>
+					<Name><![CDATA[myStatisticsGroup1]]></Name>
+					<X>409</X><Y>19</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631727048477</Id>
+					<Name><![CDATA[EstadisticasOption3]]></Name>
+					<X>-110</X><Y>-19</Y>
+					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[StationsInformation.setVisible(false);]]></OnClickCode>
+					<OnClickCode><![CDATA[StatisticsStation.navigateTo();
+varViewAreaStation = StatisticsStation;]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>17</Width>
-					<Height>17</Height>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>220</Width>
+					<Height>50</Height>
 					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[IconoCerrarVentana.jpeg]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
-				<Polyline>
-					<Id>1629906769913</Id>
-					<Name><![CDATA[polyline]]></Name>
-					<X>5</X><Y>-60</Y>
+					<FillColor>-7876885</FillColor>
+					<FillColorCode><![CDATA[varViewAreaStation == StatisticsStation ?
+	new Color(135, 206, 235) : new Color(30,144,255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631727048479</Id>
+					<Name><![CDATA[text9]]></Name>
+					<X>0</X><Y>-8</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[My Statistics]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1631727048514</Id>
+					<Name><![CDATA[stationLogicGroup1]]></Name>
+					<X>189</X><Y>19</Y>
 					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631727048516</Id>
+					<Name><![CDATA[SimulacionOption1]]></Name>
+					<X>-110</X><Y>-19</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[viewAreaStationMain.navigateTo();
+varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>220</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876885</FillColor>
+					<FillColorCode><![CDATA[varViewAreaStation == viewAreaStationMain ?
+	new Color(135, 206, 235) : new Color(30,144,255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631727048518</Id>
+					<Name><![CDATA[text10]]></Name>
+					<X>0</X><Y>-8</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[Station Logic]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1631727830125</Id>
+					<Name><![CDATA[returnGroup1]]></Name>
+					<X>40</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[main.simulacion.navigateTo();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631725984067</Id>
+					<Name><![CDATA[rectangle4]]></Name>
+					<X>-40</X><Y>-30</Y>
+					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
@@ -12197,60 +11900,390 @@ StationsInformation.setVisible(!StationsInformation.isVisible());]]></OnClickCod
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
 					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
+					<LineColor>-14774017</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-657931</FillColor>
+					<Width>80</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-5192482</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>-5</X><Y>-5</Y><Z>0</Z></Point>
-					   <Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>false</Closed>
-				</Polyline>
-				<Control Type="Button">
-				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1630506039531</Id>
-					<Name><![CDATA[btnEstadísticas]]></Name>
-					<X>-5</X><Y>40</Y>
+				</Rectangle>
+				<Image>
+					<Id>1631725944708</Id>
+					<Name><![CDATA[image]]></Name>
+					<X>-30</X><Y>-20</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="100" Height="20">
-                        <EmbeddedIcon>false</EmbeddedIcon>	
-						<TextColor/>
-						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[main.statisticsStationGroup.setVisible(true);
-main.navigate(main.StatisticsStation);
-main.stationSelected = this;
-main.txtCodeMain.setText(this.stationCode);
-main.txtNombreMain.setText(this.name);
-main.bicisDispMain = this.bikesVariable;
-main.anclajesDispMain = this.anchorVariable;
-main.tandemDispMain = this.tandemVariable;
-main.txtCliPerMain.setText(this.lostClients);
-main.usePercentajeMain = this.usePercentage.getY(this.usePercentage.size() - 1);
-main.txtPorcUsoMain.setText(this.usePercentage.getY(this.usePercentage.size() - 1))]]></ActionCode>
-					</BasicProperties>
-					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Estadísticas]]></LabelText>
-					</ExtendedProperties>
-				</Control>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>50</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[prueba]]></PackageName>
+							<ClassName><![CDATA[1491254395-returnbackredoarrow_82934.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1631726029210</Id>
+					<Name><![CDATA[text5]]></Name>
+					<X>0</X><Y>5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[MAIN]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>14</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Group>
+				<Group>
+					<Id>1631729098336</Id>
+					<Name><![CDATA[myStatisticsGroup2]]></Name>
+					<X>409</X><Y>679</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631729098338</Id>
+					<Name><![CDATA[EstadisticasOption4]]></Name>
+					<X>-110</X><Y>-19</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[StatisticsStation.navigateTo();
+varViewAreaStation = StatisticsStation;]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>220</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876885</FillColor>
+					<FillColorCode><![CDATA[varViewAreaStation == StatisticsStation ?
+	new Color(135, 206, 235) : new Color(30,144,255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631729098340</Id>
+					<Name><![CDATA[text11]]></Name>
+					<X>0</X><Y>-8</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[My Statistics]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1631729098370</Id>
+					<Name><![CDATA[stationLogicGroup2]]></Name>
+					<X>189</X><Y>679</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631729098372</Id>
+					<Name><![CDATA[SimulacionOption2]]></Name>
+					<X>-110</X><Y>-19</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[viewAreaStationMain.navigateTo();
+varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>220</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-7876885</FillColor>
+					<FillColorCode><![CDATA[varViewAreaStation == viewAreaStationMain ?
+	new Color(135, 206, 235) : new Color(30,144,255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631729098374</Id>
+					<Name><![CDATA[text12]]></Name>
+					<X>0</X><Y>-8</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[Station Logic]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1631729098386</Id>
+					<Name><![CDATA[returnGroup2]]></Name>
+					<X>40</X><Y>690</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[main.simulacion.navigateTo();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1631729098388</Id>
+					<Name><![CDATA[rectangle5]]></Name>
+					<X>-40</X><Y>-30</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>80</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-5192482</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Image>
+					<Id>1631729098390</Id>
+					<Name><![CDATA[image1]]></Name>
+					<X>-30</X><Y>-20</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>50</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[prueba]]></PackageName>
+							<ClassName><![CDATA[1491254395-returnbackredoarrow_82934.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1631729098392</Id>
+					<Name><![CDATA[text6]]></Name>
+					<X>0</X><Y>5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[MAIN]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>14</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Rectangle>
+					<Id>1631791453228</Id>
+					<Name><![CDATA[rectangle3]]></Name>
+					<X>520</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>750</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14774017</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631791453242</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>1210</X><Y>10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[MMM d, yyyy   HH:mm]]></Text>
+					<TextCode><![CDATA[new SimpleDateFormat("MMM d, yyyy   HH:mm", Locale.ENGLISH).format(date())]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>28</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1631791556387</Id>
+					<Name><![CDATA[rectangle6]]></Name>
+					<X>520</X><Y>660</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-14774017</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>750</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14774017</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1631791556396</Id>
+					<Name><![CDATA[text4]]></Name>
+					<X>1210</X><Y>670</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[MMM d, yyyy   HH:mm]]></Text>
+					<TextCode><![CDATA[new SimpleDateFormat("MMM d, yyyy   HH:mm", Locale.ENGLISH).format(date())]]></TextCode>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>28</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
 			</Presentation>
+			<Areas>
+				<Area>
+					<Id>1631643755050</Id>
+					<Name><![CDATA[StatisticsStation]]></Name>
+					<X>0</X><Y>660</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[StatisticsStation]]></Title>
+					<Width>1270</Width>
+					<Height>600</Height>
+				</Area>
+				<Area>
+					<Id>1631725465880</Id>
+					<Name><![CDATA[viewAreaStationMain]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1270</Width>
+					<Height>600</Height>
+				</Area>
+			</Areas>
 
 		</ActiveObjectClass>
 		<!--   =========   Active Object Class   ========  -->
@@ -13505,18 +13538,6 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			</Presentation>
 
 			<Parameters>			
-				<Parameter>
-					<ParameterName><![CDATA[bicisDispMain]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[anclajesDispMain]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[tandemDispMain]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[usePercentajeMain]]></ParameterName>
-				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>false</EnableZoomAndPanning>
@@ -13533,7 +13554,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 				<FinalDate><![CDATA[1631404800000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>false</BypassInitialScreen>
+			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
@@ -13551,10 +13572,6 @@ traceln(attempt.getFeedback());]]></ActionCode>
 		</Resource>
 		<Resource>
 			<Path><![CDATA[3d/bicycle.dae]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[IconoCerrarVentana.jpeg]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
@@ -13606,7 +13623,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
-			<Path><![CDATA[emblemunreadable_93487.png]]></Path>
+			<Path><![CDATA[1491254395-returnbackredoarrow_82934.png]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
