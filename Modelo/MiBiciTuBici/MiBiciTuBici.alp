@@ -45,9 +45,9 @@
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import java.text.SimpleDateFormat;
 import java.io.*;]]></Import>
-			<StartupCode><![CDATA[bicisEnDesuso = 0;
-for (Station s : estacion){
-	bicisEnDesuso += s.bikes;
+			<StartupCode><![CDATA[idleBikes = 0;
+for (Station s : estaciones){
+	idleBikes += s.bikes;
 }]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -159,7 +159,7 @@ for (Station s : estacion){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629487576370</Id>
-					<Name><![CDATA[lostTotalClients]]></Name>
+					<Name><![CDATA[totalLostCustomers]]></Name>
 					<X>400</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -189,7 +189,7 @@ for (Station s : estacion){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629806942746</Id>
-					<Name><![CDATA[bicisEnDesuso]]></Name>
+					<Name><![CDATA[idleBikes]]></Name>
 					<X>340</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -201,7 +201,7 @@ for (Station s : estacion){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629806971428</Id>
-					<Name><![CDATA[bicisEnUso]]></Name>
+					<Name><![CDATA[busyBikes]]></Name>
 					<X>340</X><Y>1060</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -216,7 +216,7 @@ for (Station s : estacion){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629810189367</Id>
-					<Name><![CDATA[usersTimeLost]]></Name>
+					<Name><![CDATA[totalLostTime]]></Name>
 					<X>820</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -274,19 +274,19 @@ for (Station s : estacion){
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
 					<Action><![CDATA[//Estaciones sin bicis
-List<Station> sortedStationsD = sortDescending( estacion, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
+List<Station> sortedStationsD = sortDescending( estaciones, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
 ranking1.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(0).stationCode, sortedStationsD.get(0).name, sortedStationsD.get(0).usePercentage.getY(sortedStationsD.get(0).usePercentage.size() - 1)) + "%)" );
 ranking2.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(1).stationCode, sortedStationsD.get(1).name, sortedStationsD.get(1).usePercentage.getY(sortedStationsD.get(1).usePercentage.size() - 1))+ "%)");
 ranking3.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(2).stationCode, sortedStationsD.get(2).name, sortedStationsD.get(2).usePercentage.getY(sortedStationsD.get(2).usePercentage.size() - 1))+ "%)");
 
 //Estaciones sin anclajes
-List<Station> sortedStationsA = sortAscending( estacion, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
+List<Station> sortedStationsA = sortAscending( estaciones, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
 ranking1SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(0).stationCode, sortedStationsA.get(0).name, sortedStationsA.get(0).usePercentage.getY(sortedStationsA.get(0).usePercentage.size() - 1))+ "%)" );
 ranking2SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(1).stationCode, sortedStationsA.get(1).name, sortedStationsA.get(1).usePercentage.getY(sortedStationsA.get(1).usePercentage.size() - 1))+ "%)");
 ranking3SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(2).stationCode, sortedStationsA.get(2).name, sortedStationsA.get(2).usePercentage.getY(sortedStationsA.get(2).usePercentage.size() - 1))+ "%)");
 
 //Estaciones no usadas
-List<Station> sortedStations = sortAscending( estacion, e -> (e.retiredBikes + e.depositedBikes) );
+List<Station> sortedStations = sortAscending( estaciones, e -> (e.retiredBikes + e.bikesDeposited) );
 ranking1MenosU.setText(String.format("ID: %s - %s",sortedStations.get(0).stationCode, sortedStations.get(0).name));
 ranking2MenosU.setText(String.format("ID: %s - %s",sortedStations.get(1).stationCode, sortedStations.get(1).name));
 ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).stationCode, sortedStations.get(2).name));]]></Action>
@@ -320,9 +320,9 @@ ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).station
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
-					<Action><![CDATA[// String json = pyCommunicator.toJson(estacion);
+					<Action><![CDATA[// String json = pyCommunicator.toJson(estaciones);
 // pyCommunicator.run(
-//	String.format("with open('./model-output/estaciones-%04.0f.json', 'w') as f:", time()), 
+//	String.format("with open('./model-output/estaciones-%04.0f.json', 'w') as f:", time()),
 //	String.format("  f.write('''%s''')", json),
 //				  "  f.close()"
 //);
@@ -330,7 +330,7 @@ ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).station
 /*try {
 	FileOutputStream fos = new FileOutputStream(String.format("./model-output/estaciones-%04.0f.txt", time()));
 	PrintStream p = new PrintStream(fos);
-	p.println(estacion.get(0).usePercentage);
+	p.println(estaciones.get(0).usePercentage);
 	traceln("---> Archivo escrito.");
 } catch (Exception e) {
 	traceln("---> No se pudo escribir el archivo.");
@@ -365,8 +365,8 @@ ranking3MenosU.setText(String.format("ID: %s - %s",sortedStations.get(2).station
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
-					<Action><![CDATA[estacion.get(1).anchorVariable++;
-traceln(estacion.get(1).anchorVariable);]]></Action>
+					<Action><![CDATA[estaciones.get(1).currentAnchors++;
+traceln(estaciones.get(1).currentAnchors);]]></Action>
 				</Event>
 				<Event>
 					<Id>1632310762425</Id>
@@ -397,8 +397,8 @@ traceln(estacion.get(1).anchorVariable);]]></Action>
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
-					<Action><![CDATA[estacion.get(1).anchorVariable++;
-traceln(estacion.get(1).anchorVariable);]]></Action>
+					<Action><![CDATA[estaciones.get(1).currentAnchors++;
+traceln(estaciones.get(1).currentAnchors);]]></Action>
 				</Event>
 			</Events>
 			<Functions>
@@ -446,7 +446,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 			<EmbeddedObjects>
 				<EmbeddedObject>
 					<Id>1629123280828</Id>
-					<Name><![CDATA[estacion]]></Name>
+					<Name><![CDATA[estaciones]]></Name>
 					<X>320</X><Y>820</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -802,7 +802,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</GISMap>
 				<EmbeddedObjectPresentation>
 					<Id>1629123281356</Id>
-					<Name><![CDATA[estacion_presentation]]></Name>
+					<Name><![CDATA[estaciones_presentation]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -2264,7 +2264,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Id>0</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-12004916</Color>
-					<Expression2><![CDATA[bicisEnUso]]></Expression2>
+					<Expression2><![CDATA[busyBikes]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -2274,7 +2274,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Id>0</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-8097537</Color>
-					<Expression2><![CDATA[bicisEnDesuso]]></Expression2>
+					<Expression2><![CDATA[idleBikes]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -2339,9 +2339,9 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<DatasetExpression>  
 						<Title><![CDATA[Tiempo de los Usuarios en Espera]]></Title>
 					<Id>0</Id>
-					<Expression><![CDATA[usersTimeLost]]></Expression>
+					<Expression><![CDATA[totalLostTime]]></Expression>
 					<Color>-65536</Color>
-					<Expression2><![CDATA[usersTimeLost]]></Expression2>
+					<Expression2><![CDATA[totalLostTime]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -2743,14 +2743,14 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[bicisEnUso]]></Expression>
+					<Expression><![CDATA[busyBikes]]></Expression>
 					<Color>-9728477</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[En uso]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[bicisEnDesuso]]></Expression>
+					<Expression><![CDATA[idleBikes]]></Expression>
 					<Color>-65536</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[En desuso]]></Title>
@@ -2946,7 +2946,7 @@ import java.io.*;]]></Import>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1629483588082</Id>
-					<Name><![CDATA[anchorVariable]]></Name>
+					<Name><![CDATA[currentAnchors]]></Name>
 					<X>50</X><Y>355</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2961,7 +2961,7 @@ import java.io.*;]]></Import>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629483595743</Id>
-					<Name><![CDATA[bikesVariable]]></Name>
+					<Name><![CDATA[currentBikes]]></Name>
 					<X>50</X><Y>380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3006,7 +3006,7 @@ import java.io.*;]]></Import>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1630503900683</Id>
-					<Name><![CDATA[depositedBikes]]></Name>
+					<Name><![CDATA[bikesDeposited]]></Name>
 					<X>50</X><Y>405</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3476,7 +3476,7 @@ import java.io.*;]]></Import>
 						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 					<FreezeXAxis>true</FreezeXAxis>
-					<VerticalAxisExpression><![CDATA[(double)anchorVariable/(double)capacity * 100]]></VerticalAxisExpression>
+					<VerticalAxisExpression><![CDATA[(double)currentAnchors/(double)capacity * 100]]></VerticalAxisExpression>
 					<SamplesToKeep>10</SamplesToKeep>
 				</DataSet>
 			</AnalysisData>
@@ -3661,7 +3661,7 @@ import java.io.*;]]></Import>
 									</GenericParameterSubstitute>
 									<Parameters>
 										<Parameter>
-											<Name><![CDATA[initialStation]]></Name>
+											<Name><![CDATA[stationOfOrigin]]></Name>
 										</Parameter>
 										<Parameter>
 											<Name><![CDATA[destinationStation]]></Name>
@@ -3747,8 +3747,8 @@ import java.io.*;]]></Import>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[Station destinationStation = randomWhere(main.estacion, e -> e.stationCode != stationCode);
-agent.set_initialStation(this);
+								<Code><![CDATA[Station destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
+agent.set_stationOfOrigin(this);
 agent.set_destinationStation(destinationStation);
 agent.setLocation(this);]]></Code>
 							</Value>
@@ -3988,8 +3988,8 @@ agent.setLocation(this);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.destinationStation.anchorVariable--;
-agent.destinationStation.bikesVariable++;]]></Code>
+								<Code><![CDATA[agent.destinationStation.currentAnchors--;
+agent.destinationStation.currentBikes++;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4064,7 +4064,7 @@ agent.destinationStation.bikesVariable++;]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[bikesVariable > 0]]></Code>
+								<Code><![CDATA[currentBikes > 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4079,8 +4079,8 @@ agent.destinationStation.bikesVariable++;]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[bikesVariable--;
-anchorVariable++;
+								<Code><![CDATA[currentBikes--;
+currentAnchors++;
 retiredBikes++;]]></Code>
 							</Value>
 						</Parameter>
@@ -4225,7 +4225,7 @@ retiredBikes++;]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.destinationStation.anchorVariable > 0]]></Code>
+								<Code><![CDATA[agent.destinationStation.currentAnchors > 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5042,14 +5042,14 @@ viewAreaStationMain.navigateTo();]]></OnClickCode>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>1631643754966</Id>
-					<Expression><![CDATA[bikesVariable]]></Expression>
+					<Expression><![CDATA[currentBikes]]></Expression>
 					<Color>-16744448</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[Bicicletas disponibles]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1631643754968</Id>
-					<Expression><![CDATA[anchorVariable]]></Expression>
+					<Expression><![CDATA[currentAnchors]]></Expression>
 					<Color>-6972</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[Anclajes disponibles]]></Title>
@@ -5768,7 +5768,7 @@ varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
 				</Variable>
 				<Variable Class="Parameter">
 					<Id>1629125748669</Id>
-					<Name><![CDATA[initialStation]]></Name>
+					<Name><![CDATA[stationOfOrigin]]></Name>
 					<X>470</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -5881,7 +5881,7 @@ varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Properties>	
-						<Action><![CDATA[initialStation.waitForAnAnchor.stopDelay(this);]]></Action>
+						<Action><![CDATA[stationOfOrigin.waitForAnAnchor.stopDelay(this);]]></Action>
 					</Properties>	
 				</StatechartElement>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
@@ -5995,7 +5995,7 @@ varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 						</Timeout>
-						<Condition><![CDATA[destinationStation.anchorVariable == 0]]></Condition>
+						<Condition><![CDATA[destinationStation.currentAnchors == 0]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
@@ -6053,16 +6053,16 @@ varViewAreaStation = viewAreaStationMain;]]></OnClickCode>
 					</Points>
 					<IconOffset>55.0</IconOffset>
 					<Properties Source="1632274041344" Target="1632274187837" Trigger="condition">
-						<Action><![CDATA[initialStation.waitForAnAnchor.stopDelay(this);
+						<Action><![CDATA[stationOfOrigin.waitForAnAnchor.stopDelay(this);
 traceln("anchor freed");
 lostTime = time() - waitStartTime;
-traceln("lost time: " + lostTime + ' hours.');
+traceln("lost time: " + lostTime + " hours.");
 destinationStation.lostTime += lostTime;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 						</Timeout>
-						<Condition><![CDATA[destinationStation.anchorVariable > 0]]></Condition>
+						<Condition><![CDATA[destinationStation.currentAnchors > 0]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
@@ -6089,12 +6089,12 @@ destinationStation.lostTime += lostTime;]]></Action>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1632273907132" Target="1632274187837" Trigger="condition">
 						<Action><![CDATA[traceln("anchor available. Disposing");
-destinationStation.depositedBikes++;]]></Action>
+destinationStation.bikesDeposited++;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 						</Timeout>
-						<Condition><![CDATA[destinationStation.anchorVariable > 0]]></Condition>
+						<Condition><![CDATA[destinationStation.currentAnchors > 0]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
@@ -6596,7 +6596,7 @@ destinationStation.depositedBikes++;]]></Action>
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[Attempt attempt = PyCommunicator.runFile(PythonCommandType.PYTHON, 
+						<ActionCode><![CDATA[Attempt attempt = PyCommunicator.runFile(PythonCommandType.PYTHON,
 											"query_system_state.py");
 traceln(attempt.getFeedback());]]></ActionCode>
 					</BasicProperties>
