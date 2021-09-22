@@ -10,7 +10,9 @@ if __name__ == "__main__":
     estaciones = json.loads(response.text)['data']['stations']
 
     df = pd.DataFrame(estaciones)
-    df.drop('location', axis='columns', inplace=True)
+    df.loc[:, 'bikes'] += df.loc[:, 'tandem']
+    df.loc[:, 'capacity'] = df.loc[:, 'anchor'] + df.loc[:, 'bikes']
+    df.drop(['location','status','favorite','tandem','last_connection_date'], axis='columns', inplace=True)
 
     latitudes = [float(estacion['location']['latitude']) for estacion in estaciones]
     longitudes = [float(estacion['location']['longitude']) for estacion in estaciones]
@@ -18,3 +20,4 @@ if __name__ == "__main__":
     df['longitude'] = longitudes
 
     df.to_excel('../../datos/geo/estaciones.xlsx', index=None, header=True)
+    df.iloc[:2, :].to_excel('../../datos/geo/estaciones-test.xlsx', index=None, header=True)
