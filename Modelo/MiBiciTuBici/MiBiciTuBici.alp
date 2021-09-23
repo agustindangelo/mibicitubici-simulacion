@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -302,7 +302,7 @@ for (Station s : estaciones){
 			<Events>
 				<Event>
 					<Id>1629817717839</Id>
-					<Name><![CDATA[updateCriticalStations]]></Name>
+					<Name><![CDATA[updateRankings]]></Name>
 					<X>-200</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -330,26 +330,25 @@ for (Station s : estaciones){
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
 					<Action><![CDATA[//Estaciones sin bicis
-List<Station> sortedStationsA = sortAscending( estaciones, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
+List<Station> sortedByBikes = sortAscending( estaciones, e -> e.currentBikes);
 
-ranking1.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(0).stationCode, sortedStationsA.get(0).name, sortedStationsA.get(0).usePercentage.getY(sortedStationsA.get(0).usePercentage.size() - 1)) + "%)" );
-ranking2.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(1).stationCode, sortedStationsA.get(1).name, sortedStationsA.get(1).usePercentage.getY(sortedStationsA.get(1).usePercentage.size() - 1))+ "%)");
-ranking3.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(2).stationCode, sortedStationsA.get(2).name, sortedStationsA.get(2).usePercentage.getY(sortedStationsA.get(2).usePercentage.size() - 1))+ "%)");
+ranking1.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(0).stationCode, sortedByBikes.get(0).name, sortedByBikes.get(0).currentBikes ));
+ranking2.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(1).stationCode, sortedByBikes.get(1).name, sortedByBikes.get(1).currentBikes ));
+ranking3.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(2).stationCode, sortedByBikes.get(2).name, sortedByBikes.get(2).currentBikes ));
 //--->en las estadísticas
-rankingSinBici1.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(0).stationCode, sortedStationsA.get(0).name, sortedStationsA.get(0).usePercentage.getY(sortedStationsA.get(0).usePercentage.size() - 1)) + "%)" );
-rankingSinBici2.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(1).stationCode, sortedStationsA.get(1).name, sortedStationsA.get(1).usePercentage.getY(sortedStationsA.get(1).usePercentage.size() - 1))+ "%)");
-rankingSinBici3.setText(String.format("ID: %s - %s (%.0f", sortedStationsA.get(2).stationCode, sortedStationsA.get(2).name, sortedStationsA.get(2).usePercentage.getY(sortedStationsA.get(2).usePercentage.size() - 1))+ "%)");
-
+rankingSinBici1.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(0).stationCode, sortedByBikes.get(0).name, sortedByBikes.get(0).currentBikes ));
+rankingSinBici2.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(1).stationCode, sortedByBikes.get(1).name, sortedByBikes.get(1).currentBikes ));
+rankingSinBici3.setText(String.format("ID: %s - %s (%d)", sortedByBikes.get(2).stationCode, sortedByBikes.get(2).name, sortedByBikes.get(2).currentBikes ));
 
 //Estaciones sin anclajes
-List<Station> sortedStationsD = sortDescending( estaciones, e -> e.usePercentage.getY(e.usePercentage.size() - 1) );
-ranking1SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(0).stationCode, sortedStationsD.get(0).name, sortedStationsD.get(0).usePercentage.getY(sortedStationsA.get(0).usePercentage.size() - 1))+ "%)" );
-ranking2SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(1).stationCode, sortedStationsD.get(1).name, sortedStationsD.get(1).usePercentage.getY(sortedStationsA.get(1).usePercentage.size() - 1))+ "%)");
-ranking3SinAnclaje.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(2).stationCode, sortedStationsD.get(2).name, sortedStationsD.get(2).usePercentage.getY(sortedStationsA.get(2).usePercentage.size() - 1))+ "%)");
+List<Station> sortedByAnchors = sortAscending( estaciones, e -> e.currentAnchors );
+ranking1SinAnclaje.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(0).stationCode, sortedByAnchors.get(0).name, sortedByAnchors.get(0).currentAnchors ));
+ranking2SinAnclaje.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(1).stationCode, sortedByAnchors.get(1).name, sortedByAnchors.get(1).currentAnchors ));
+ranking3SinAnclaje.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(2).stationCode, sortedByAnchors.get(2).name, sortedByAnchors.get(2).currentAnchors ));
 //--->en las estadísticas
-rankingSinAnclaje1.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(0).stationCode, sortedStationsD.get(0).name, sortedStationsD.get(0).usePercentage.getY(sortedStationsA.get(0).usePercentage.size() - 1))+ "%)" );
-rankingSinAnclaje2.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(1).stationCode, sortedStationsD.get(1).name, sortedStationsD.get(1).usePercentage.getY(sortedStationsA.get(1).usePercentage.size() - 1))+ "%)");
-rankingSinAnclaje3.setText(String.format("ID: %s - %s (%.0f", sortedStationsD.get(2).stationCode, sortedStationsD.get(2).name, sortedStationsD.get(2).usePercentage.getY(sortedStationsA.get(2).usePercentage.size() - 1))+ "%)");
+rankingSinAnclaje1.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(0).stationCode, sortedByAnchors.get(0).name, sortedByAnchors.get(0).currentAnchors ));
+rankingSinAnclaje2.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(1).stationCode, sortedByAnchors.get(1).name, sortedByAnchors.get(1).currentAnchors ));
+rankingSinAnclaje3.setText(String.format("ID: %s - %s (%d)", sortedByAnchors.get(2).stationCode, sortedByAnchors.get(2).name, sortedByAnchors.get(2).currentAnchors ));
 
 
 //Estaciones no usadas
@@ -706,7 +705,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				<EmbeddedObject>
 					<Id>1629829051142</Id>
 					<Name><![CDATA[pyCommunicator]]></Name>
-					<X>-280</X><Y>180</Y>
+					<X>-160</X><Y>300</Y>
 					<Label><X>-20</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -739,9 +738,9 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
-"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
+//"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
 //"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
-//"/home/agu/pyenv/bin/python"]]></Code>
+"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5091,9 +5090,6 @@ main.totalLostCustomers++;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[send("hook into the anchor", agent);]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitFalse]]></Name>
@@ -5203,8 +5199,7 @@ main.totalLostCustomers++;]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("stopped delay");
-main.totalLostTime+= lostTime;
+								<Code><![CDATA[main.totalLostTime+= lostTime;
 main.delayedUsers++;]]></Code>
 							</Value>
 						</Parameter>
@@ -7242,7 +7237,6 @@ para anclar la bicicleta ]]></Text>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="181.41599264419403" Height="26.176470588235293">
-						<EntryAction><![CDATA[traceln("moving to destination station");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -7267,7 +7261,6 @@ para anclar la bicicleta ]]></Text>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="150" Height="30">
-						<EntryAction><![CDATA[traceln("arrived at destination station");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -7465,10 +7458,10 @@ para anclar la bicicleta ]]></Text>
 					<IconOffset>55.0</IconOffset>
 					<Properties Source="1632274041344" Target="1632274187837" Trigger="condition">
 						<Action><![CDATA[stationOfOrigin.waitForAnAnchor.stopDelay(this);
-traceln("anchor freed");
 lostTime = time() - waitStartTime;
-traceln("lost time: " + lostTime + " hours.");
-destinationStation.lostTime += lostTime;]]></Action>
+destinationStation.lostTime += lostTime;
+traceln("anchor freed");
+//traceln(lostTime);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7499,8 +7492,6 @@ destinationStation.lostTime += lostTime;]]></Action>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1632273907132" Target="1632274187837" Trigger="condition">
-						<Action><![CDATA[traceln("anchor available. Disposing");
-//destinationStation.bikesDeposited++;]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
