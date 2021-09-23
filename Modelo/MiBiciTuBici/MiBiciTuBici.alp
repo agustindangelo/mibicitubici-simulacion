@@ -4505,6 +4505,11 @@ main.co2Avoided += main.totalKm*main.co2KgPerKm;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitFalse]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[//Considerando que se utiliza un medio no sustentable
+main.totalKm += distanceByRoute(agent.destinationStation)*0.001;
+main.co2Avoided -= main.totalKm*main.co2KgPerKm;]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
