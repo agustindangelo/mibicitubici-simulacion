@@ -449,7 +449,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Body><![CDATA[String json = pyCommunicator.toJson(this);
 pyCommunicator.run(
 	String.format(
-		"with open('./model-output/output-exp%s-rep%s.json', 'w') as f:", 
+		"with open('./model-output/experiment-2/output-exp%s-rep%s.json', 'w', encoding='ISO-8859-1') as f:", 
 		experimentsNumber, 
 		replicationsNumber
 	),
@@ -713,6 +713,9 @@ pyCommunicator.run(
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[redirectPyOutput]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enable]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -7667,7 +7670,7 @@ destinationStation.lostTime += lostTime;]]></Action>
 		<Height>600</Height>
 	</Frame>
 	<Database>
-		<Logging>true</Logging>
+		<Logging>false</Logging>
 		<AutoExport>false</AutoExport>
 		<ShutdownCompact>true</ShutdownCompact>
 		<ImportSettings>
@@ -7737,18 +7740,6 @@ destinationStation.lostTime += lostTime;]]></Action>
 				<PackageName><![CDATA[prueba]]></PackageName>
 				<ClassName><![CDATA[/home/agu/isi/simulacion/TPI-Integrador/datos/output/output.xlsx]]></ClassName>
 			</ExportExcelResourceReference>
-			<TableReference>
-				<PackageName><![CDATA[prueba]]></PackageName>
-				<ClassName><![CDATA[agent_messages_log]]></ClassName>
-			</TableReference>
-			<TableReference>
-				<PackageName><![CDATA[prueba]]></PackageName>
-				<ClassName><![CDATA[agent_movement_log]]></ClassName>
-			</TableReference>
-			<TableReference>
-				<PackageName><![CDATA[prueba]]></PackageName>
-				<ClassName><![CDATA[agent_movement_stats_log]]></ClassName>
-			</TableReference>
 		</ExportSettings>
 	</Database>
 	
@@ -8254,7 +8245,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 
 			<AllowParallelEvaluations>true</AllowParallelEvaluations>
 			<UseFreeformParameters>true</UseFreeformParameters>
-			<NumberOfRuns>2</NumberOfRuns>
+			<NumberOfRuns>1</NumberOfRuns>
 			<FreeformParamValue>	
 				<Id>1632332695245</Id>
 			</FreeformParamValue>
@@ -8278,7 +8269,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>2</ReplicationPerIteration>
+				<ReplicationPerIteration>1</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
@@ -8376,7 +8367,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.pypeline]]></LibraryName>
 		<VersionMajor>1</VersionMajor>
-		<VersionMinor>4</VersionMinor>
+		<VersionMinor>6</VersionMinor>
 		<VersionBuild>0</VersionBuild>
     </RequiredLibraryReference>
 </Model>
