@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -160,7 +160,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629487576370</Id>
 					<Name><![CDATA[totalLostCustomers]]></Name>
-					<X>1190</X><Y>1100</Y>
+					<X>1215</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -175,7 +175,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629491346305</Id>
 					<Name><![CDATA[totalUsers]]></Name>
-					<X>540</X><Y>1010</Y>
+					<X>515</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -190,7 +190,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629806942746</Id>
 					<Name><![CDATA[idleBikes]]></Name>
-					<X>400</X><Y>960</Y>
+					<X>375</X><Y>910</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -202,7 +202,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629806971428</Id>
 					<Name><![CDATA[busyBikes]]></Name>
-					<X>400</X><Y>1010</Y>
+					<X>375</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -217,7 +217,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629810189367</Id>
 					<Name><![CDATA[totalLostTime]]></Name>
-					<X>1220</X><Y>1280</Y>
+					<X>1245</X><Y>1280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -232,7 +232,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1629810278629</Id>
 					<Name><![CDATA[delayedUsers]]></Name>
-					<X>1230</X><Y>1180</Y>
+					<X>1255</X><Y>1180</Y>
 					<Label><X>8</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -247,7 +247,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1632331585251</Id>
 					<Name><![CDATA[totalKm]]></Name>
-					<X>1090</X><Y>870</Y>
+					<X>1115</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -262,7 +262,7 @@ for (Station s : estaciones){
 				<Variable Class="PlainVariable">
 					<Id>1632335586824</Id>
 					<Name><![CDATA[co2Avoided]]></Name>
-					<X>1210</X><Y>870</Y>
+					<X>1235</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -274,10 +274,25 @@ for (Station s : estaciones){
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1633454980900</Id>
+					<Name><![CDATA[usePercentage]]></Name>
+					<X>-230</X><Y>1220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1632332695245</Id>
 					<Name><![CDATA[co2KgPerKm]]></Name>
-					<X>1212.667</X><Y>1030.667</Y>
+					<X>1237.667</X><Y>1030.667</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -457,7 +472,48 @@ pyCommunicator.run(
 				  "  f.close()"
 );]]></Body>
 				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1633454791662</Id>
+					<Name><![CDATA[updateSystemUseAverage]]></Name>
+					<X>-230</X><Y>1190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[for (int i = 0; i < estaciones.size(); ++i)
+{
+	usePercentage = usePercentage + estaciones.get(i).percentageOfOccupation.getY(estaciones.get(i).percentageOfOccupation.size() - 1);
+}
+return usePercentage/(double)estaciones.size();]]></Body>
+				</Function>
 			</Functions>
+			<AnalysisData>
+    			<DataSet>
+					<Id>1633454692808</Id>
+					<Name><![CDATA[systemUseAverage]]></Name>
+					<X>380</X><Y>1010</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1633507200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>true</FreezeXAxis>
+					<VerticalAxisExpression><![CDATA[updateSystemUseAverage()]]></VerticalAxisExpression>
+					<SamplesToKeep>10000</SamplesToKeep>
+				</DataSet>
+			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1628788239392</Id>
@@ -484,7 +540,7 @@ pyCommunicator.run(
 				<EmbeddedObject>
 					<Id>1629123280828</Id>
 					<Name><![CDATA[estaciones]]></Name>
-					<X>550</X><Y>960</Y>
+					<X>525</X><Y>910</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -668,10 +724,10 @@ pyCommunicator.run(
 					</ParameterToDatabaseColumnMapping>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1629829051142</Id>
+					<Id>1633443842752</Id>
 					<Name><![CDATA[pyCommunicator]]></Name>
-					<X>-160</X><Y>330</Y>
-					<Label><X>-20</X><Y>-10</Y></Label>
+					<X>-180</X><Y>320</Y>
+					<Label><X>-35</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -688,6 +744,9 @@ pyCommunicator.run(
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
+							<Name><![CDATA[enable]]></Name>
+						</Parameter>
+						<Parameter>
 							<Name><![CDATA[loadLastWorkingConfig]]></Name>
 						</Parameter>
 						<Parameter>
@@ -702,10 +761,10 @@ pyCommunicator.run(
 						<Parameter>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
+								<Code><![CDATA["C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
 //"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
-"/home/agu/pyenv/bin/python"]]></Code>
+//"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -713,9 +772,6 @@ pyCommunicator.run(
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[redirectPyOutput]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enable]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -867,6 +923,7 @@ pyCommunicator.run(
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -2546,7 +2603,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Rectangle>
 					<Id>1632333395917</Id>
 					<Name><![CDATA[rectangle]]></Name>
-					<X>360</X><Y>840</Y>
+					<X>350</X><Y>840</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2559,7 +2616,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<LineColor>-16777216</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>450</Width>
+					<Width>495</Width>
 					<Height>460</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
@@ -2568,7 +2625,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1630431133691</Id>
 					<Name><![CDATA[text20]]></Name>
-					<X>390</X><Y>880</Y>
+					<X>365</X><Y>850</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2589,7 +2646,8 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
     			<TimePlot>
 					<Id>1629807296118</Id>
 					<Name><![CDATA[plot]]></Name>
-					<X>380.666</X><Y>1030.666</Y>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>380</X><Y>1330</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2666,7 +2724,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
     			<PieChart>
 					<Id>1630430284748</Id>
 					<Name><![CDATA[chart]]></Name>
-					<X>590</X><Y>880</Y>
+					<X>625</X><Y>840</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2725,7 +2783,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Rectangle>
 					<Id>1632333811482</Id>
 					<Name><![CDATA[rectangle14]]></Name>
-					<X>830</X><Y>840</Y>
+					<X>855</X><Y>840</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2747,7 +2805,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632333827435</Id>
 					<Name><![CDATA[text21]]></Name>
-					<X>842</X><Y>849.333</Y>
+					<X>867</X><Y>849.333</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2768,7 +2826,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
     			<TimePlot>
 					<Id>1632332778559</Id>
 					<Name><![CDATA[plot2]]></Name>
-					<X>830</X><Y>865.333</Y>
+					<X>855</X><Y>865.333</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2835,7 +2893,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Rectangle>
 					<Id>1632333972804</Id>
 					<Name><![CDATA[rectangle15]]></Name>
-					<X>830</X><Y>1060</Y>
+					<X>855</X><Y>1060</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2857,7 +2915,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
     			<TimePlot>
 					<Id>1629810381674</Id>
 					<Name><![CDATA[plot1]]></Name>
-					<X>831.333</X><Y>1110.667</Y>
+					<X>856.333</X><Y>1110.667</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2924,7 +2982,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632334030536</Id>
 					<Name><![CDATA[text25]]></Name>
-					<X>840.667</X><Y>1073.333</Y>
+					<X>865.667</X><Y>1073.333</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2945,7 +3003,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339431246</Id>
 					<Name><![CDATA[text27]]></Name>
-					<X>390</X><Y>930</Y>
+					<X>365</X><Y>880</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2966,7 +3024,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339464873</Id>
 					<Name><![CDATA[text28]]></Name>
-					<X>390</X><Y>980</Y>
+					<X>365</X><Y>930</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2987,7 +3045,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339502483</Id>
 					<Name><![CDATA[text29]]></Name>
-					<X>550</X><Y>930</Y>
+					<X>525</X><Y>880</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3008,7 +3066,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339532882</Id>
 					<Name><![CDATA[text30]]></Name>
-					<X>520</X><Y>980</Y>
+					<X>495</X><Y>930</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3029,7 +3087,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339574794</Id>
 					<Name><![CDATA[text31]]></Name>
-					<X>1070</X><Y>840</Y>
+					<X>1095</X><Y>840</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3050,7 +3108,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339617469</Id>
 					<Name><![CDATA[text32]]></Name>
-					<X>1180</X><Y>840</Y>
+					<X>1205</X><Y>840</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3071,7 +3129,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339688554</Id>
 					<Name><![CDATA[text33]]></Name>
-					<X>1190</X><Y>1070</Y>
+					<X>1215</X><Y>1070</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3092,7 +3150,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339717958</Id>
 					<Name><![CDATA[text34]]></Name>
-					<X>1220</X><Y>1130</Y>
+					<X>1245</X><Y>1130</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3114,7 +3172,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 				<Text>
 					<Id>1632339793013</Id>
 					<Name><![CDATA[text35]]></Name>
-					<X>1210</X><Y>1230</Y>
+					<X>1235</X><Y>1230</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3600,6 +3658,94 @@ por usuarios]]></Text>
 			</Presentation>
 
 				</Group>
+    			<TimePlot>
+					<Id>1633456724138</Id>
+					<Name><![CDATA[plot3]]></Name>
+					<X>380</X><Y>1000</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1633507200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>450</Width>
+					<Height>290</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>370</Width>
+						<Height>200</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Uso Promedio del Sistema]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[systemUseAverage]]></Expression>
+					<Color>-7667573</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+				<Text>
+					<Id>1633456917836</Id>
+					<Name><![CDATA[text36]]></Name>
+					<X>365</X><Y>975</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Uso Promedio del Sistema]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
