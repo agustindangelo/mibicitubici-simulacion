@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -482,9 +482,11 @@ pyCommunicator.run(
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (int i = 0; i < estaciones.size(); ++i)
+					<Body><![CDATA[usePercentage = 0.0;
+for (int i = 0; i < estaciones.size(); i++)
 {
-	usePercentage = usePercentage + estaciones.get(i).percentageOfOccupation.getY(estaciones.get(i).percentageOfOccupation.size() - 1);
+	Station estacion = estaciones.get(i);
+	usePercentage = usePercentage + estacion.percentageOfOccupation.getY(estacion.percentageOfOccupation.size() - 1);
 }
 return usePercentage/(double)estaciones.size();]]></Body>
 				</Function>
@@ -507,7 +509,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 					<FreezeXAxis>true</FreezeXAxis>
 					<VerticalAxisExpression><![CDATA[updateSystemUseAverage()]]></VerticalAxisExpression>
@@ -761,10 +763,10 @@ return usePercentage/(double)estaciones.size();]]></Body>
 						<Parameter>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA["C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
+								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
 //"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
-//"/home/agu/pyenv/bin/python"]]></Code>
+"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3715,7 +3717,7 @@ por usuarios]]></Text>
 					<Id>0</Id>
 					<Expression><![CDATA[systemUseAverage]]></Expression>
 					<Color>-7667573</Color>
-					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2><![CDATA[busyBikes]]></Expression2>
 					<Expression2Flag>false</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
