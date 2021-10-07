@@ -159,7 +159,7 @@ for (Station s : estaciones){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629487576370</Id>
-					<Name><![CDATA[totalLostCustomers]]></Name>
+					<Name><![CDATA[totalLostTravels]]></Name>
 					<X>1215</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -174,7 +174,7 @@ for (Station s : estaciones){
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629491346305</Id>
-					<Name><![CDATA[totalUsers]]></Name>
+					<Name><![CDATA[totalTravels]]></Name>
 					<X>706</X><Y>910</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3078,7 +3078,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Total de usuarios]]></Text>
+					<Text><![CDATA[Total de viajes]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>14</Size>
@@ -3141,7 +3141,7 @@ RankingEstacionesNoUsadasGroup.setVisible(false);]]></OnClickCode>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Clientes perdidos]]></Text>
+					<Text><![CDATA[Viajes perdidos]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>14</Size>
@@ -3818,17 +3818,17 @@ de los usuarios]]></Text>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[totalUsers]]></Expression>
+					<Expression><![CDATA[totalTravels]]></Expression>
 					<Color>-6632142</Color>
 					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Clientes ]]></Title>
+						<Title><![CDATA[Viajes totales]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[totalLostCustomers]]></Expression>
+					<Expression><![CDATA[totalLostTravels]]></Expression>
 					<Color>-29696</Color>
 					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Clientes perdidos ]]></Title>
+						<Title><![CDATA[Viajes perdidos ]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
 					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
@@ -4002,7 +4002,7 @@ import java.io.*;]]></Import>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1629487613734</Id>
-					<Name><![CDATA[lostClients]]></Name>
+					<Name><![CDATA[lostTravels]]></Name>
 					<X>74.666</X><Y>392.666</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -4086,7 +4086,7 @@ import java.io.*;]]></Import>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1633623152823</Id>
-					<Name><![CDATA[clients]]></Name>
+					<Name><![CDATA[travels]]></Name>
 					<X>74</X><Y>352</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -5140,10 +5140,10 @@ main.busyBikes--;]]></Code>
 currentBikes--;
 currentAnchors++;
 retiredBikes++;
-clients++;
+travels++;
 main.idleBikes--;
 main.busyBikes++;
-main.totalUsers++;
+main.totalTravels++;
 
 //Distancia
 main.totalKm += distanceByRoute(agent.destinationStation)*0.001;
@@ -5221,8 +5221,8 @@ main.co2Avoided -= main.totalKm*main.co2KgPerKm;]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[lostClients++;
-main.totalLostCustomers++;]]></Code>
+								<Code><![CDATA[lostTravels++;
+main.totalLostTravels++;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6806,7 +6806,7 @@ de la estación
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[cliper]]></Text>
-					<TextCode><![CDATA[this.lostClients]]></TextCode>
+					<TextCode><![CDATA[this.lostTravels]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>22</Size>
@@ -7189,7 +7189,7 @@ de la estación
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Clientes perdidos]]></Text>
+					<Text><![CDATA[Viajes no realizados]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>14</Size>
@@ -7274,7 +7274,7 @@ para anclar la bicicleta ]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Clientes]]></Text>
+					<Text><![CDATA[Viajes realizados]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>14</Size>
@@ -7287,7 +7287,7 @@ para anclar la bicicleta ]]></Text>
 					<Name><![CDATA[chart]]></Name>
 					<X>710</X><Y>970</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7329,17 +7329,17 @@ para anclar la bicicleta ]]></Text>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[clients]]></Expression>
+					<Expression><![CDATA[travels]]></Expression>
 					<Color>-6632142</Color>
 					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Clientes]]></Title>
+						<Title><![CDATA[Viajes realizados]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[lostClients]]></Expression>
+					<Expression><![CDATA[lostTravels]]></Expression>
 					<Color>-29696</Color>
 					<Expression2Flag>true</Expression2Flag>
-						<Title><![CDATA[Clientes perdidos]]></Title>
+						<Title><![CDATA[Viajes perdidos]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
 					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
