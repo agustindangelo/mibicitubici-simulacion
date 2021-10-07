@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.6.202107211643" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -761,8 +761,8 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
-"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
-//"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
+//"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
+"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
 //"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
@@ -771,6 +771,9 @@ return usePercentage/(double)estaciones.size();]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[redirectPyOutput]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enable]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -1189,7 +1192,7 @@ navigate(simulacion);]]></OnClickCode>
 				<Group>
 					<Id>1629915209970</Id>
 					<Name><![CDATA[DropMenuGroups]]></Name>
-					<X>140</X><Y>140</Y>
+					<X>-520</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -1427,6 +1430,86 @@ ZonasGruop.setVisible(false);]]></OnClickCode>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+			</Presentation>
+
+				</Group>
+				<Group>
+					<Id>1633637034176</Id>
+					<Name><![CDATA[biciGroup]]></Name>
+					<X>30</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Group>
+					<Id>1633636855445</Id>
+					<Name><![CDATA[EstacionesMenosUtilizadas1]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<OnClickCode><![CDATA[RankingEstacionesNoUsadasGroup.setVisible(!RankingEstacionesNoUsadasGroup.isVisible());
+DropMenuGroups.setVisible(false);
+ZonasGruop.setVisible(false);]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Image>
+					<Id>1633636855447</Id>
+					<Name><![CDATA[image20]]></Name>
+					<X>-110</X><Y>-10</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>30</Width>
+					<Height>27</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[prueba]]></PackageName>
+							<ClassName><![CDATA[bikeIcon.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1633636855449</Id>
+					<Name><![CDATA[text37]]></Name>
+					<X>-70</X><Y>-12</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Lógica bicicleta]]></Text>
+					<Font>
+						<Name>Berlin Sans FB Demi</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Group>
@@ -4802,7 +4885,13 @@ import java.io.*;]]></Import>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//Station destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
-Station destinationStation = (Station)getNearestAgent(main.estaciones);
+//Station destinationStation = (Station)getNearestAgent(main.estaciones);
+Station destinationStation= randomWhere(main.estaciones, e -> e.stationCode != stationCode);
+double dist= distanceByRoute(destinationStation);
+while(dist>=2000){
+agent.destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
+dist= distanceByRoute(agent.destinationStation);
+}
 agent.set_stationOfOrigin(this);
 agent.set_destinationStation(destinationStation);
 agent.setLocation(this);]]></Code>
@@ -6750,7 +6839,7 @@ de la estación
 				</Rectangle>
 				<Text>
 					<Id>1631643754827</Id>
-					<Name><![CDATA[lblClientesPerdidos]]></Name>
+					<Name><![CDATA[lblViajesPerdidos]]></Name>
 					<X>739.197</X><Y>935.537</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -6761,7 +6850,7 @@ de la estación
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Clientes perdidos:]]></Text>
+					<Text><![CDATA[Viajes perdidos:]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>22</Size>
@@ -7553,7 +7642,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1629409170987</Id>
 					<Name><![CDATA[nomalState]]></Name>
-					<X>20</X><Y>60</Y>
+					<X>740</X><Y>80</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7565,7 +7654,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748674</Id>
 					<Name><![CDATA[movingToDestinationStation]]></Name>
-					<X>70</X><Y>195</Y>
+					<X>790</X><Y>215</Y>
 					<Label><X>15</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7577,7 +7666,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748671</Id>
 					<Name><![CDATA[atStation]]></Name>
-					<X>70</X><Y>110</Y>
+					<X>790</X><Y>130</Y>
 					<Label><X>25</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7589,7 +7678,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273907132</Id>
 					<Name><![CDATA[atDestinationStation]]></Name>
-					<X>90</X><Y>280</Y>
+					<X>810</X><Y>300</Y>
 					<Label><X>10</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7601,7 +7690,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274041344</Id>
 					<Name><![CDATA[waitingForAnAchor]]></Name>
-					<X>60</X><Y>410</Y>
+					<X>780</X><Y>430</Y>
 					<Label><X>0</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7613,7 +7702,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="FinalState" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274187837</Id>
 					<Name><![CDATA[finalState]]></Name>
-					<X>320</X><Y>420</Y>
+					<X>1040</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7625,7 +7714,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1629125748690</Id>
 					<Name><![CDATA[statechart]]></Name>
-					<X>160</X><Y>40</Y>
+					<X>880</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7640,7 +7729,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125977817</Id>
 					<Name><![CDATA[transition]]></Name>
-					<X>160</X><Y>136</Y>
+					<X>880</X><Y>156</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7672,7 +7761,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="InitialStatePointer" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629409198443</Id>
 					<Name><![CDATA[initialState]]></Name>
-					<X>160</X><Y>80</Y>
+					<X>880</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7687,7 +7776,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273937273</Id>
 					<Name><![CDATA[transition1]]></Name>
-					<X>160</X><Y>221</Y>
+					<X>880</X><Y>241</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7717,7 +7806,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274138423</Id>
 					<Name><![CDATA[noAnchorAvailable]]></Name>
-					<X>170</X><Y>310</Y>
+					<X>890</X><Y>330</Y>
 					<Label><X>-126</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7748,7 +7837,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274204437</Id>
 					<Name><![CDATA[transition5]]></Name>
-					<X>140</X><Y>440</Y>
+					<X>860</X><Y>460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7780,7 +7869,7 @@ para anclar la bicicleta ]]></Text>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274304298</Id>
 					<Name><![CDATA[anchorFreed]]></Name>
-					<X>190</X><Y>420</Y>
+					<X>910</X><Y>440</Y>
 					<Label><X>20</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7813,7 +7902,7 @@ destinationStation.lostTime += lostTime;]]></Action>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632275589541</Id>
 					<Name><![CDATA[anchorAvailable]]></Name>
-					<X>210</X><Y>310</Y>
+					<X>930</X><Y>330</Y>
 					<Label><X>-8</X><Y>40</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8714,6 +8803,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<Path><![CDATA[/home/agu/isi/simulacion/TPI-Integrador/datos/output/output.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
+		<Resource>
+			<Path><![CDATA[bikeIcon.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
 	</ModelResources>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
@@ -8730,7 +8823,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.pypeline]]></LibraryName>
 		<VersionMajor>1</VersionMajor>
-		<VersionMinor>4</VersionMinor>
+		<VersionMinor>6</VersionMinor>
 		<VersionBuild>0</VersionBuild>
     </RequiredLibraryReference>
 </Model>
