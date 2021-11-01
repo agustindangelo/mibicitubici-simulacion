@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291558" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
@@ -377,52 +377,6 @@ rankingMenosU1.setText(String.format("ID: %s - %s",sortedStations.get(0).station
 rankingMenosU2.setText(String.format("ID: %s - %s",sortedStations.get(1).stationCode, sortedStations.get(1).name));
 rankingMenosU3.setText(String.format("ID: %s - %s",sortedStations.get(2).stationCode, sortedStations.get(2).name));]]></Action>
 				</Event>
-				<Event>
-					<Id>1630597514657</Id>
-					<Name><![CDATA[periodicSave]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>-180</X><Y>180</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties TriggerType="timeout" Mode="cyclic">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</Timeout>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
-						</Rate>
-						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1630656000000</OccurrenceDate>
-						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[10]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</OccurrenceTime>
-						<RecurrenceCode Class="CodeUnitValue">
-							<Code><![CDATA[10]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</RecurrenceCode>
-						<Condition><![CDATA[false]]></Condition>
-					</Properties>
-					<Action><![CDATA[// String json = pyCommunicator.toJson(estaciones);
-// pyCommunicator.run(
-//	String.format("with open('./model-output/estaciones-%04.0f.json', 'w') as f:", time()),
-//	String.format("  f.write('''%s''')", json),
-//				  "  f.close()"
-//);
-
-try {
-	FileOutputStream fos = new FileOutputStream(String.format("./model-output/estaciones-%04.0f.txt", time()));
-	PrintStream p = new PrintStream(fos);
-	p.println(estaciones.get(0).usePercentage);
-	traceln("---> Archivo escrito.");
-} catch (Exception e) {
-	traceln("---> No se pudo escribir el archivo.");
-}]]></Action>
-				</Event>
 			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -454,18 +408,13 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
-						<Name><![CDATA[experimentsNumber]]></Name>
-						<Type><![CDATA[int]]></Type>
-					</Parameter>
-					<Parameter>
 						<Name><![CDATA[replicationsNumber]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
 					<Body><![CDATA[String json = pyCommunicator.toJson(this);
 pyCommunicator.run(
 	String.format(
-		"with open('./model-output/experiment-2/output-exp%s-rep%s.json', 'w', encoding='ISO-8859-1') as f:", 
-		experimentsNumber, 
+		"with open('./model-output/experiment-2/output-rep%s.json', 'w') as f:", 
 		replicationsNumber
 	),
 	String.format("  f.write('''%s''')", json),
@@ -760,10 +709,10 @@ return usePercentage/(double)estaciones.size();]]></Body>
 						<Parameter>
 							<Name><![CDATA[pythonExecPath]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA["C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
+								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
 //"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
-//"/home/agu/pyenv/bin/python"]]></Code>
+"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3984,7 +3933,7 @@ import java.io.*;]]></Import>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[anchor]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -4085,6 +4034,9 @@ import java.io.*;]]></Import>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -8768,10 +8720,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import java.io.*;]]></Import>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>2048</MaximumMemory>
+			<MaximumMemory>1024</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentIteration(), getCurrentReplication());]]></AfterSimulationRunCode>
+			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentReplication());]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -9012,10 +8964,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			</RangeVariationParamValue>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Stop at specified date]]></StopOption>
-				<InitialDate><![CDATA[1628726400000]]></InitialDate>	
+				<InitialDate><![CDATA[1628805600000]]></InitialDate>	
 				<InitialTime><![CDATA[0.0]]></InitialTime>	
 				<FinalDate><![CDATA[1628812800000]]></FinalDate>	
-				<FinalTime><![CDATA[24.0]]></FinalTime>	
+				<FinalTime><![CDATA[2.0]]></FinalTime>	
 			</ModelTimeProperties>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -9025,13 +8977,13 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			</PresentationProperties>
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
-				<FixedReplicationsNumber>true</FixedReplicationsNumber>
+				<FixedReplicationsNumber>false</FixedReplicationsNumber>
 				<ReplicationPerIteration>1</ReplicationPerIteration>
-				<MinimumReplication>2</MinimumReplication>
-				<MaximumReplication>10</MaximumReplication>
-				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
+				<MinimumReplication>100</MinimumReplication>
+				<MaximumReplication>200</MaximumReplication>
+				<ConfidenceLevel>LEVEL_95</ConfidenceLevel>
 				<ErrorPercent>0.5</ErrorPercent>
-				<ExpressionForConfidenceComputation><![CDATA[0]]></ExpressionForConfidenceComputation>
+				<ExpressionForConfidenceComputation><![CDATA[root.co2Avoided]]></ExpressionForConfidenceComputation>
 			</ReplicationsProperties>
 		</ParamVariationExperiment>	
 	</Experiments>
