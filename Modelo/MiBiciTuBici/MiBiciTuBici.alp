@@ -141,6 +141,28 @@ for (Station s : estaciones){
 			</ScaleRuler>
 			<CurrentLevel>1628788239396</CurrentLevel>
 			<ConnectionsId>1628788239392</ConnectionsId>
+			<Outputs>
+				<Output>
+					<Id>1635879426773</Id>
+					<Name><![CDATA[co2AvoidedOutput]]></Name>
+					<X>190</X><Y>650</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Type><![CDATA[double]]></Type>
+					<UnitType><![CDATA[NONE]]></UnitType>
+					<Value Class="CodeValue">
+						<Code><![CDATA[co2Avoided]]></Code>
+					</Value>
+					<ComputationMoment>ON_SIMULATION_END</ComputationMoment>
+					<ComputationTimeCode Class="CodeUnitValue">
+						<Code><![CDATA[]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</ComputationTimeCode>
+					<ComputationDate>1635926400000</ComputationDate>
+				</Output>
+			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1629211483244</Id>
@@ -4280,16 +4302,21 @@ import java.io.*;]]></Import>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[prueba]]></PackageName>
 						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[moveToDestination]]></ItemName>
+						<ItemName><![CDATA[rideCompleted]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[MoveTo]]></ClassName>
+						<ClassName><![CDATA[Sink]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>90</X><Y>0</Y></Point>
+						<Point><X>230</X><Y>0</Y></Point>
+						<Point><X>240</X><Y>10</Y></Point>
+						<Point><X>240</X><Y>50</Y></Point>
+						<Point><X>390</X><Y>50</Y></Point>
+						<Point><X>390</X><Y>0</Y></Point>
+						<Point><X>420</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -4324,141 +4351,6 @@ import java.io.*;]]></Import>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>0</X><Y>60</Y></Point>
 						<Point><X>40</X><Y>60</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1632272730664</Id>
-					<Name><![CDATA[connector]]></Name>
-					<X>1112</X><Y>344</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[rideCompleted]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Sink]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[isAnAnchorAvailable]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[SelectOutput]]></ClassName>
-						<ItemName><![CDATA[outT]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-170</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1632272730669</Id>
-					<Name><![CDATA[connector1]]></Name>
-					<X>922</X><Y>344</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[isAnAnchorAvailable]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[SelectOutput]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[moveToDestination]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[MoveTo]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-100</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1632314268713</Id>
-					<Name><![CDATA[connector4]]></Name>
-					<X>982</X><Y>394</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[waitForAnAnchor]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[isAnAnchorAvailable]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[SelectOutput]]></ClassName>
-						<ItemName><![CDATA[outF]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>-40</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1632314281635</Id>
-					<Name><![CDATA[connector3]]></Name>
-					<X>1022</X><Y>394</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[waitForAnAnchor]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Station]]></ClassName>
-						<ItemName><![CDATA[rideCompleted]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Sink]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>-50</Y></Point>
-						<Point><X>90</X><Y>-50</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -4756,14 +4648,12 @@ import java.io.*;]]></Import>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//Station destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
-//Station destinationStation = (Station)getNearestAgent(main.estaciones);
-Station destinationStation= randomWhere(main.estaciones, e -> e.stationCode != stationCode);
-double dist= distanceByRoute(destinationStation);
-while(dist>=2000){
-agent.destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
-dist= distanceByRoute(agent.destinationStation);
-}
+								<Code><![CDATA[Station destinationStation= randomWhere(main.estaciones, e -> e.stationCode != stationCode);
+//double dist= distanceByRoute(destinationStation);
+//while(dist>=2000){
+//	destinationStation = randomWhere(main.estaciones, e -> e.stationCode != stationCode);
+//	dist= distanceByRoute(agent.destinationStation);
+//}
 agent.set_stationOfOrigin(this);
 agent.set_destinationStation(destinationStation);
 agent.setLocation(this);]]></Code>
@@ -4771,175 +4661,6 @@ agent.setLocation(this);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onDiscard]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1632258692055</Id>
-					<Name><![CDATA[moveToDestination]]></Name>
-					<X>782</X><Y>324</Y>
-					<Label><X>-35</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[MoveTo]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[MoveTo]]></ClassName>
-							<ItemName><![CDATA[1412336243157]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[mode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.DEST_AGENT]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationNode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationAttractor]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationResource]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationAgent]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[agent.destinationStation]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationX]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationY]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationZ]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationLatitude]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationLongitude]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationGeoPlaceName]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationInNetwork]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationNetwork]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationLevel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[useOffsets]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[offsetX]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[offsetY]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[offsetZ]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[straightMovement]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationUseRotation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationRotation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationVerticalRotation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[movementType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[tripTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[setSpeed]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[speed]]></Name>
-							<Value Class="CodeUnitValue">
-								<Code><![CDATA[2]]></Code>
-								<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[restoreSpeedOnArrival]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[send("move to destination station", agent);]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -5108,7 +4829,9 @@ main.totalTravels++;
 
 //Distancia
 main.totalKm += distanceByRoute(agent.destinationStation)*0.001;
-main.co2Avoided += main.totalKm*main.co2KgPerKm;]]></Code>
+main.co2Avoided += main.totalKm*main.co2KgPerKm;
+agent.moveTo(agent.destinationStation);
+send("move to destination station", agent);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5188,209 +4911,6 @@ main.totalLostTravels++;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[destroyEntity]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1632272729109</Id>
-					<Name><![CDATA[isAnAnchorAvailable]]></Name>
-					<X>912</X><Y>334</Y>
-					<Label><X>-40</X><Y>-20</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[SelectOutput]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[SelectOutput]]></ClassName>
-							<ItemName><![CDATA[1412336242931]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[conditionIsProbabilistic]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[false]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[condition]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[agent.destinationStation.currentAnchors > 0]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[probability]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[send("arrived at destination station", agent);]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitTrue]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitFalse]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[clientsWaited++;]]></Code>
-							</Value>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1632273426691</Id>
-					<Name><![CDATA[waitForAnAnchor]]></Name>
-					<X>982</X><Y>374</Y>
-					<Label><X>-25</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Delay]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[Delay]]></ClassName>
-							<ItemName><![CDATA[1412336242930]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[type]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.MANUAL]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[delayTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[capacity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maximumCapacity]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[entityLocation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[pushProtocol]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[false]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[forceStatisticsCollection]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[main.totalLostTime += agent.lostTime;
-main.delayedUsers++;
-agent.destinationStation.lostTime += agent.lostTime;]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -7516,6 +7036,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1629409170987</Id>
 					<Name><![CDATA[nomalState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>70</X><Y>150</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7528,6 +7049,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748674</Id>
 					<Name><![CDATA[movingToDestinationStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>120</X><Y>285</Y>
 					<Label><X>15</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7540,6 +7062,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748671</Id>
 					<Name><![CDATA[atStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>120</X><Y>200</Y>
 					<Label><X>25</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7552,6 +7075,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273907132</Id>
 					<Name><![CDATA[atDestinationStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>140</X><Y>370</Y>
 					<Label><X>10</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7564,6 +7088,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274041344</Id>
 					<Name><![CDATA[waitingForAnAchor]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>110</X><Y>500</Y>
 					<Label><X>0</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7576,6 +7101,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="FinalState" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274187837</Id>
 					<Name><![CDATA[finalState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>370</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7588,6 +7114,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1629125748690</Id>
 					<Name><![CDATA[statechart]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>130</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7603,6 +7130,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125977817</Id>
 					<Name><![CDATA[transition]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>226</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7635,6 +7163,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="InitialStatePointer" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629409198443</Id>
 					<Name><![CDATA[initialState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7650,6 +7179,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273937273</Id>
 					<Name><![CDATA[transition1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>311</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7680,6 +7210,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274138423</Id>
 					<Name><![CDATA[noAnchorAvailable]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>220</X><Y>400</Y>
 					<Label><X>-126</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7711,6 +7242,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274204437</Id>
 					<Name><![CDATA[transition5]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>190</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7743,6 +7275,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274304298</Id>
 					<Name><![CDATA[anchorFreed]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>240</X><Y>510</Y>
 					<Label><X>20</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7776,6 +7309,7 @@ destinationStation.lostTime += lostTime;]]></Action>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632275589541</Id>
 					<Name><![CDATA[anchorAvailable]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>260</X><Y>400</Y>
 					<Label><X>-8</X><Y>40</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7817,11 +7351,6 @@ destinationStation.lostTime += lostTime;]]></Action>
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
-					<StatechartReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Bike]]></ClassName>
-						<ItemName><![CDATA[statechart]]></ItemName>
-					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -8455,17 +7984,17 @@ un anchor disponible]]></Text>
 	<RunConfiguration ActiveObjectClassId="1628788239397">
 		<Id>1628788239401</Id>
 		<Name><![CDATA[RunConfiguration]]></Name>
-		<MaximumMemory>512</MaximumMemory>
+		<MaximumMemory>4096</MaximumMemory>
 		<ModelTimeProperties>
-			<StopOption><![CDATA[Stop at specified time]]></StopOption>
+			<StopOption><![CDATA[Stop at specified date]]></StopOption>
 			<InitialDate><![CDATA[1628726400000]]></InitialDate>	
 			<InitialTime><![CDATA[0.0]]></InitialTime>	
-			<FinalDate><![CDATA[1631404800000]]></FinalDate>	
-			<FinalTime><![CDATA[100.0]]></FinalTime>	
+			<FinalDate><![CDATA[1628812800000]]></FinalDate>	
+			<FinalTime><![CDATA[24.0]]></FinalTime>	
 		</ModelTimeProperties>
 		<AnimationProperties>
-			<StopNever>true</StopNever>
-			<ExecutionMode>realTimeScaled</ExecutionMode>
+			<StopNever>false</StopNever>
+			<ExecutionMode>virtualTime</ExecutionMode>
 			<RealTimeScale>1.0</RealTimeScale>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
 			<EnableDeveloperPanel>false</EnableDeveloperPanel>
@@ -8474,6 +8003,24 @@ un anchor disponible]]></Text>
 		<Inputs>		
 		</Inputs>
 		<Outputs>
+    		<RunConfigurationOutput>
+				<Id>1635879416057</Id>
+				<Name><![CDATA[Emisiones CO2 en kg evitado]]></Name>
+				<OutputReference>
+					<PackageName><![CDATA[prueba]]></PackageName>
+					<ClassName><![CDATA[Main]]></ClassName>
+					<ItemName><![CDATA[plot2]]></ItemName>
+				</OutputReference>
+    		</RunConfigurationOutput>
+    		<RunConfigurationOutput>
+				<Id>1635879448952</Id>
+				<Name><![CDATA[Co 2 avoided output]]></Name>
+				<OutputReference>
+					<PackageName><![CDATA[prueba]]></PackageName>
+					<ClassName><![CDATA[Main]]></ClassName>
+					<ItemName><![CDATA[co2AvoidedOutput]]></ItemName>
+				</OutputReference>
+    		</RunConfigurationOutput>
 		</Outputs>
 	</RunConfiguration>
 	<Experiments>	
@@ -8720,10 +8267,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import java.io.*;]]></Import>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>1024</MaximumMemory>
+			<MaximumMemory>2048</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentReplication());]]></AfterSimulationRunCode>
+			<AfterSimulationRunCode><![CDATA[//root.saveOutput(getCurrentReplication());]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
