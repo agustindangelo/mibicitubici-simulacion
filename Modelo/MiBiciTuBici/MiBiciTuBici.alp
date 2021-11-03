@@ -4,13 +4,13 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.4.202104291611" AlpVersion="8.7.2">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.6.202107211643" AlpVersion="8.7.2">
 <Model>
 	<Id>1628788239391</Id>
 	<Name><![CDATA[MiBiciTuBici]]></Name>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[prueba]]></JavaPackageName>
-	<ModelTimeUnit><![CDATA[Hour]]></ModelTimeUnit>
+	<ModelTimeUnit><![CDATA[Day]]></ModelTimeUnit>
 	<OptionLists>
 		<OptionList>
 			<Id>1629484751023</Id>
@@ -116,11 +116,11 @@ for (Station s : estaciones){
 					<OccurrenceDate>1628841600000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -141,6 +141,28 @@ for (Station s : estaciones){
 			</ScaleRuler>
 			<CurrentLevel>1628788239396</CurrentLevel>
 			<ConnectionsId>1628788239392</ConnectionsId>
+			<Outputs>
+				<Output>
+					<Id>1635949825227</Id>
+					<Name><![CDATA[output]]></Name>
+					<X>310</X><Y>670</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Type><![CDATA[double]]></Type>
+					<UnitType><![CDATA[NONE]]></UnitType>
+					<Value Class="CodeValue">
+						<Code><![CDATA[co2Avoided]]></Code>
+					</Value>
+					<ComputationMoment>ON_SIMULATION_END</ComputationMoment>
+					<ComputationTimeCode Class="CodeUnitValue">
+						<Code><![CDATA[]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</ComputationTimeCode>
+					<ComputationDate>1636012800000</ComputationDate>
+				</Output>
+			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1629211483244</Id>
@@ -402,6 +424,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1632433796510</Id>
 					<Name><![CDATA[saveOutput]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>-190</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -677,6 +700,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 				<EmbeddedObject>
 					<Id>1633443842752</Id>
 					<Name><![CDATA[pyCommunicator]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>-180</X><Y>320</Y>
 					<Label><X>-35</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -711,8 +735,8 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//"C:/Users/loria/AppData/Local/Microsoft/WindowsApps"
 //"C:/Users/PC/AppData/Local/Programs/Python/Python38/python.exe"
-//"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
-"/home/agu/pyenv/bin/python"]]></Code>
+"C:/Users/paulina/AppData/Local/Microsoft/WindowsApps"
+//"/home/agu/pyenv/bin/python"]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3896,11 +3920,11 @@ import java.io.*;]]></Import>
 					<OccurrenceDate>1629187200000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -7416,11 +7440,11 @@ import java.io.*;]]></Import>
 					<OccurrenceDate>1629187200000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
 						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 					</RecurrenceCode>
 			</DatasetsCreationProperties>
 			<ScaleRuler>
@@ -7516,6 +7540,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1629409170987</Id>
 					<Name><![CDATA[nomalState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>70</X><Y>150</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7528,6 +7553,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748674</Id>
 					<Name><![CDATA[movingToDestinationStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>120</X><Y>285</Y>
 					<Label><X>15</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7540,6 +7566,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125748671</Id>
 					<Name><![CDATA[atStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>120</X><Y>200</Y>
 					<Label><X>25</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7552,6 +7579,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273907132</Id>
 					<Name><![CDATA[atDestinationStation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>140</X><Y>370</Y>
 					<Label><X>10</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7564,6 +7592,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274041344</Id>
 					<Name><![CDATA[waitingForAnAchor]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>110</X><Y>500</Y>
 					<Label><X>0</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7576,6 +7605,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="FinalState" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274187837</Id>
 					<Name><![CDATA[finalState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>370</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7588,6 +7618,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1629125748690</Id>
 					<Name><![CDATA[statechart]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>130</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7603,6 +7634,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629125977817</Id>
 					<Name><![CDATA[transition]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>226</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7635,6 +7667,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="InitialStatePointer" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1629409198443</Id>
 					<Name><![CDATA[initialState]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7650,6 +7683,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632273937273</Id>
 					<Name><![CDATA[transition1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>210</X><Y>311</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7680,6 +7714,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274138423</Id>
 					<Name><![CDATA[noAnchorAvailable]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>220</X><Y>400</Y>
 					<Label><X>-126</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7711,6 +7746,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274204437</Id>
 					<Name><![CDATA[transition5]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>190</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7743,6 +7779,7 @@ import java.io.*;]]></Import>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632274304298</Id>
 					<Name><![CDATA[anchorFreed]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>240</X><Y>510</Y>
 					<Label><X>20</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7776,6 +7813,7 @@ destinationStation.lostTime += lostTime;]]></Action>
 				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
 					<Id>1632275589541</Id>
 					<Name><![CDATA[anchorAvailable]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>260</X><Y>400</Y>
 					<Label><X>-8</X><Y>40</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -7817,11 +7855,6 @@ destinationStation.lostTime += lostTime;]]></Action>
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
-					<StatechartReference>
-						<PackageName><![CDATA[prueba]]></PackageName>
-						<ClassName><![CDATA[Bike]]></ClassName>
-						<ItemName><![CDATA[statechart]]></ItemName>
-					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -8155,6 +8188,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647004034</Id>
 					<Name><![CDATA[lblFlowChart]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>130</X><Y>80</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -8371,7 +8405,7 @@ un anchor disponible]]></Text>
 	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
 	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
 	<AbsoluteAccuracy>1.0E-5</AbsoluteAccuracy>
-	<FixedTimeStep>0.001</FixedTimeStep>
+	<FixedTimeStep>1.0E-5</FixedTimeStep>
 	<RelativeAccuracy>1.0E-5</RelativeAccuracy>
 	<TimeAccuracy>1.0E-5</TimeAccuracy>
 	<Frame>
@@ -8455,17 +8489,17 @@ un anchor disponible]]></Text>
 	<RunConfiguration ActiveObjectClassId="1628788239397">
 		<Id>1628788239401</Id>
 		<Name><![CDATA[RunConfiguration]]></Name>
-		<MaximumMemory>512</MaximumMemory>
+		<MaximumMemory>4096</MaximumMemory>
 		<ModelTimeProperties>
-			<StopOption><![CDATA[Stop at specified time]]></StopOption>
-			<InitialDate><![CDATA[1628726400000]]></InitialDate>	
+			<StopOption><![CDATA[Stop at specified date]]></StopOption>
+			<InitialDate><![CDATA[1628751600000]]></InitialDate>	
 			<InitialTime><![CDATA[0.0]]></InitialTime>	
-			<FinalDate><![CDATA[1631404800000]]></FinalDate>	
-			<FinalTime><![CDATA[100.0]]></FinalTime>	
+			<FinalDate><![CDATA[1628809200000]]></FinalDate>	
+			<FinalTime><![CDATA[16.0]]></FinalTime>	
 		</ModelTimeProperties>
 		<AnimationProperties>
-			<StopNever>true</StopNever>
-			<ExecutionMode>realTimeScaled</ExecutionMode>
+			<StopNever>false</StopNever>
+			<ExecutionMode>virtualTime</ExecutionMode>
 			<RealTimeScale>1.0</RealTimeScale>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
 			<EnableDeveloperPanel>false</EnableDeveloperPanel>
@@ -8474,6 +8508,24 @@ un anchor disponible]]></Text>
 		<Inputs>		
 		</Inputs>
 		<Outputs>
+    		<RunConfigurationOutput>
+				<Id>1635949791627</Id>
+				<Name><![CDATA[Emisiones CO2 en kg evitado]]></Name>
+				<OutputReference>
+					<PackageName><![CDATA[prueba]]></PackageName>
+					<ClassName><![CDATA[Main]]></ClassName>
+					<ItemName><![CDATA[plot2]]></ItemName>
+				</OutputReference>
+    		</RunConfigurationOutput>
+    		<RunConfigurationOutput>
+				<Id>1635949847206</Id>
+				<Name><![CDATA[OutputCO2]]></Name>
+				<OutputReference>
+					<PackageName><![CDATA[prueba]]></PackageName>
+					<ClassName><![CDATA[Main]]></ClassName>
+					<ItemName><![CDATA[output]]></ItemName>
+				</OutputReference>
+    		</RunConfigurationOutput>
 		</Outputs>
 	</RunConfiguration>
 	<Experiments>	
@@ -8706,10 +8758,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			</PresentationProperties>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Stop at specified date]]></StopOption>
-				<InitialDate><![CDATA[1628726400000]]></InitialDate>	
+				<InitialDate><![CDATA[1628751600000]]></InitialDate>	
 				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1628812800000]]></FinalDate>	
-				<FinalTime><![CDATA[24.0]]></FinalTime>	
+				<FinalDate><![CDATA[1628809200000]]></FinalDate>	
+				<FinalTime><![CDATA[0.6666666666666666]]></FinalTime>	
 			</ModelTimeProperties>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>
@@ -8720,10 +8772,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import java.io.*;]]></Import>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>1024</MaximumMemory>
-			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
+			<MaximumMemory>4096</MaximumMemory>
+			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentReplication());]]></AfterSimulationRunCode>
+			<AfterSimulationRunCode><![CDATA[//root.saveOutput(getCurrentReplication());]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -8964,10 +9016,10 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			</RangeVariationParamValue>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Stop at specified date]]></StopOption>
-				<InitialDate><![CDATA[1628805600000]]></InitialDate>	
+				<InitialDate><![CDATA[1628751600000]]></InitialDate>	
 				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1628812800000]]></FinalDate>	
-				<FinalTime><![CDATA[2.0]]></FinalTime>	
+				<FinalDate><![CDATA[1628805600000]]></FinalDate>	
+				<FinalTime><![CDATA[0.625]]></FinalTime>	
 			</ModelTimeProperties>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -9079,5 +9131,6 @@ traceln(attempt.getFeedback());]]></ActionCode>
 		<VersionMinor>6</VersionMinor>
 		<VersionBuild>0</VersionBuild>
     </RequiredLibraryReference>
+	<CloudModelUuid><![CDATA[e366294d-664c-4316-8fd1-0ebc9af65600]]></CloudModelUuid>
 </Model>
 </AnyLogicWorkspace>
