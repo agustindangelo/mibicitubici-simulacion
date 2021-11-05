@@ -436,7 +436,7 @@ this.groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<Body><![CDATA[String json = pyCommunicator.toJson(this);
 pyCommunicator.run(
 	String.format(
-		"with open('./model-output/experiment-1/output-rep%s.json', 'w') as f:", 
+		"with open('./model-output/experiment-2/output-rep%s.json', 'w') as f:", 
 		replicationsNumber
 	),
 	String.format("  f.write('''%s''')", json),
@@ -595,7 +595,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[prueba]]></PackageName>
-							<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+							<ClassName><![CDATA[estaciones_full]]></ClassName>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
 					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
@@ -610,7 +610,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[name]]></ItemName>
 							</Value>
 						</Item>
@@ -622,7 +622,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[address]]></ItemName>
 							</Value>
 						</Item>
@@ -634,7 +634,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[station_code]]></ItemName>
 							</Value>
 						</Item>
@@ -646,7 +646,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[anchor]]></ItemName>
 							</Value>
 						</Item>
@@ -658,7 +658,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[bikes]]></ItemName>
 							</Value>
 						</Item>
@@ -668,7 +668,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[latitude]]></ItemName>
 							</Value>
 						</Item>
@@ -678,7 +678,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[longitude]]></ItemName>
 							</Value>
 						</Item>
@@ -690,7 +690,7 @@ return usePercentage/(double)estaciones.size();]]></Body>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[prueba]]></PackageName>
-								<ClassName><![CDATA[estaciones_anclajes]]></ClassName>
+								<ClassName><![CDATA[estaciones_full]]></ClassName>
 								<ItemName><![CDATA[capacity]]></ItemName>
 							</Value>
 						</Item>	
@@ -4953,9 +4953,6 @@ agent.setLocation(this);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[send("move to destination station", agent);]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -7467,7 +7464,7 @@ import java.io.*;]]></Import>
 				<Variable Class="PlainVariable">
 					<Id>1632314621606</Id>
 					<Name><![CDATA[lostTime]]></Name>
-					<X>480</X><Y>355</Y>
+					<X>490</X><Y>255</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7482,7 +7479,7 @@ import java.io.*;]]></Import>
 				<Variable Class="PlainVariable">
 					<Id>1632315082790</Id>
 					<Name><![CDATA[waitStartTime]]></Name>
-					<X>480</X><Y>400</Y>
+					<X>490</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7494,7 +7491,7 @@ import java.io.*;]]></Import>
 				<Variable Class="Parameter">
 					<Id>1629125748669</Id>
 					<Name><![CDATA[stationOfOrigin]]></Name>
-					<X>480</X><Y>150</Y>
+					<X>170</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7515,7 +7512,7 @@ import java.io.*;]]></Import>
 				<Variable Class="Parameter">
 					<Id>1632273098469</Id>
 					<Name><![CDATA[destinationStation]]></Name>
-					<X>480</X><Y>200</Y>
+					<X>170</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7534,312 +7531,6 @@ import java.io.*;]]></Import>
 					</Properties>                 
 				</Variable>
 			</Variables>
-			<StatechartElements>
-				<StatechartElement Class="State" ParentState="ROOT_NODE">
-					<Id>1629409170987</Id>
-					<Name><![CDATA[nomalState]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>70</X><Y>150</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="320" Height="430">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1629125748674</Id>
-					<Name><![CDATA[movingToDestinationStation]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>120</X><Y>285</Y>
-					<Label><X>15</X><Y>15</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="181.41599264419403" Height="26.176470588235293">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1629125748671</Id>
-					<Name><![CDATA[atStation]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>120</X><Y>200</Y>
-					<Label><X>25</X><Y>15</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="181.41599264419403" Height="26.176470588235293">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632273907132</Id>
-					<Name><![CDATA[atDestinationStation]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>140</X><Y>370</Y>
-					<Label><X>10</X><Y>15</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="150" Height="30">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632274041344</Id>
-					<Name><![CDATA[waitingForAnAchor]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>110</X><Y>500</Y>
-					<Label><X>0</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="130" Height="30">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="FinalState" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632274187837</Id>
-					<Name><![CDATA[finalState]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>370</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Properties>	
-						<Action><![CDATA[destinationStation.bikesDeposited++;]]></Action>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
-					<Id>1629125748690</Id>
-					<Name><![CDATA[statechart]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>210</X><Y>130</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>20</Y></Point>
-					</Points>
-					<Properties Target="1629409170987">
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1629125977817</Id>
-					<Name><![CDATA[transition]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>210</X><Y>226</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>34</Y></Point>
-						<Point><X>0</X><Y>54</Y></Point>
-						<Point><X>0</X><Y>59</Y></Point>
-					</Points>
-					<IconOffset>20.0</IconOffset>
-					<Properties Source="1629125748671" Target="1629125748674" Trigger="message">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[true]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[String]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[equalsTo]]></FilterType>
-						<EqualsExpression><![CDATA["move to destination station"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="InitialStatePointer" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1629409198443</Id>
-					<Name><![CDATA[initialState]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>210</X><Y>170</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>30</Y></Point>
-					</Points>
-					<Properties Target="1629125748671">
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632273937273</Id>
-					<Name><![CDATA[transition1]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>210</X><Y>311</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>59</Y></Point>
-					</Points>
-					<IconOffset>20.0</IconOffset>
-					<Properties Source="1629125748674" Target="1632273907132" Trigger="message">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[true]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[Object]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[equalsTo]]></FilterType>
-						<EqualsExpression><![CDATA["arrived at destination station"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632274138423</Id>
-					<Name><![CDATA[noAnchorAvailable]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>220</X><Y>400</Y>
-					<Label><X>-126</X><Y>42</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-90</X><Y>100</Y></Point>
-					</Points>
-					<IconOffset>20.0</IconOffset>
-					<Properties Source="1632273907132" Target="1632274041344" Trigger="condition">
-						<Action><![CDATA[waitStartTime = time();]]></Action>
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[destinationStation.currentAnchors == 0]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[String]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[equalsTo]]></FilterType>
-						<EqualsExpression><![CDATA["wait for an anchor"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632274204437</Id>
-					<Name><![CDATA[transition5]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>190</X><Y>530</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>20</Y></Point>
-						<Point><X>-70</X><Y>20</Y></Point>
-						<Point><X>-70</X><Y>0</Y></Point>
-					</Points>
-					<IconOffset>40.0</IconOffset>
-					<Properties Source="1632274041344" Target="1632274041344" Trigger="timeout">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[2]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[true]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[Object]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[unconditionally]]></FilterType>
-						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632274304298</Id>
-					<Name><![CDATA[anchorFreed]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>240</X><Y>510</Y>
-					<Label><X>20</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>122</X><Y>0</Y></Point>
-					</Points>
-					<IconOffset>55.0</IconOffset>
-					<Properties Source="1632274041344" Target="1632274187837" Trigger="condition">
-						<Action><![CDATA[stationOfOrigin.waitForAnAnchor.stopDelay(this);
-lostTime = time() - waitStartTime;
-destinationStation.lostTime += lostTime;]]></Action>
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[destinationStation.currentAnchors > 0]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[Object]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[unconditionally]]></FilterType>
-						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="nomalState" ParentStateId="1629409170987">
-					<Id>1632275589541</Id>
-					<Name><![CDATA[anchorAvailable]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>260</X><Y>400</Y>
-					<Label><X>-8</X><Y>40</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>104</X><Y>104</Y></Point>
-					</Points>
-					<IconOffset>20.0</IconOffset>
-					<Properties Source="1632273907132" Target="1632274187837" Trigger="condition">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
-						</Timeout>
-						<Condition><![CDATA[destinationStation.currentAnchors > 0]]></Condition>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
-						</Rate>
-						<MessageType><![CDATA[String]]></MessageType>
-						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[equalsTo]]></FilterType>
-						<EqualsExpression><![CDATA["hook into the anchor"]]></EqualsExpression>
-						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
-					</Properties>	
-				</StatechartElement>
-			</StatechartElements>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1629125649609</Id>
@@ -8140,16 +7831,16 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Rectangle>
 					<Id>1633646848285</Id>
 					<Name><![CDATA[rectangle]]></Name>
-					<X>0</X><Y>50</Y>
+					<X>0</X><Y>52</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
+					<ScaleXCode><![CDATA[							]]></ScaleXCode>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
 					<LineMaterial>null</LineMaterial>
@@ -8161,59 +7852,13 @@ main.simulacion.navigateTo();]]></OnClickCode>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Rectangle>
-					<Id>1633646945518</Id>
-					<Name><![CDATA[rectangle1]]></Name>
-					<X>40</X><Y>70</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>380</Width>
-					<Height>520</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1</FillColor>
-					<FillMaterial>null</FillMaterial>
-				</Rectangle>
-				<Text>
-					<Id>1633647004034</Id>
-					<Name><![CDATA[lblFlowChart]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>130</X><Y>80</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[STATECHART]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>26</Size>
-						<Style>1</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Rectangle>
 					<Id>1633647061985</Id>
 					<Name><![CDATA[rectangle2]]></Name>
-					<X>450</X><Y>70</Y>
+					<X>140</X><Y>160</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -8231,7 +7876,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647084858</Id>
 					<Name><![CDATA[text]]></Name>
-					<X>470</X><Y>115</Y>
+					<X>160</X><Y>205</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8252,7 +7897,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647120226</Id>
 					<Name><![CDATA[text1]]></Name>
-					<X>460</X><Y>80</Y>
+					<X>150</X><Y>170</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8273,12 +7918,11 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Rectangle>
 					<Id>1633647472242</Id>
 					<Name><![CDATA[rectangle3]]></Name>
-					<X>450</X><Y>260</Y>
+					<X>460</X><Y>160</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -8296,7 +7940,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647166034</Id>
 					<Name><![CDATA[text2]]></Name>
-					<X>460</X><Y>270</Y>
+					<X>470</X><Y>170</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8317,7 +7961,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647207049</Id>
 					<Name><![CDATA[text3]]></Name>
-					<X>470</X><Y>165</Y>
+					<X>160</X><Y>255</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8338,7 +7982,7 @@ main.simulacion.navigateTo();]]></OnClickCode>
 				<Text>
 					<Id>1633647233418</Id>
 					<Name><![CDATA[text5]]></Name>
-					<X>470</X><Y>300</Y>
+					<X>480</X><Y>200</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8360,7 +8004,7 @@ un anchor disponible]]></Text>
 				<Text>
 					<Id>1633647391082</Id>
 					<Name><![CDATA[text7]]></Name>
-					<X>470</X><Y>370</Y>
+					<X>480</X><Y>270</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8654,8 +8298,8 @@ un anchor disponible]]></Text>
 				</Rectangle>
 				<Text>
 					<Id>1629218407624</Id>
-					<Name><![CDATA[text2]]></Name>
-					<X>80</X><Y>170</Y>
+					<Name><![CDATA[txtIntroduction]]></Name>
+					<X>70</X><Y>210</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8665,7 +8309,9 @@ un anchor disponible]]></Text>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Descripcion del modelo]]></Text>
+					<Text><![CDATA[Este modelo demuestra el comportamiento del sistema "Mi Bici Tu Bici" de  la localidad de Rosario. 
+La simulación consta de un día en donde distintos usuarios llegan a las estaciones y realizan viajes. El propósito de este trabajo
+ en promover el uso de la movilidad sustentable demostrando la cantidad de CO2 que se evita con el uso del mismo.]]></Text>
 					<Font>
 						<Name>Arial</Name>
 						<Size>12</Size>
@@ -8740,7 +8386,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 				<FinalDate><![CDATA[1628805600000]]></FinalDate>	
 				<FinalTime><![CDATA[0.625]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>
 		<!--   =========  Parameter Variation Experiment   ========  -->
 		<ParamVariationExperiment ActiveObjectClassId="1628788239397">
@@ -8752,7 +8398,7 @@ traceln(attempt.getFeedback());]]></ActionCode>
 			<MaximumMemory>4096</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentReplication()+1021);]]></AfterSimulationRunCode>
+			<AfterSimulationRunCode><![CDATA[root.saveOutput(getCurrentReplication()+711);]]></AfterSimulationRunCode>
 			<SeedValue>12</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -9079,10 +8725,6 @@ traceln(attempt.getFeedback());]]></ActionCode>
 		</Resource>
 		<Resource>
 			<Path><![CDATA[../../datos/geo/estaciones.xlsx]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[../../datos/geo/estaciones-test.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
